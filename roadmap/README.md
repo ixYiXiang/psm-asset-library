@@ -13,10 +13,10 @@ This queue keeps the code-native PSM asset system reproducible. It does not auth
 
 ### W02 · 语义补全 / Semantic Extension
 
-- Status: queued
-- Target: 补充 12 枚，达到约 60 枚概念基线
-- Deliverables: 菜单 / 关闭 / 复制 / 保存 / 回复 / 提及 / 已验证 / 离线 / 下载 / 上传 / 锁定 / 解锁
-- Gate: 每枚必须对应真实功能，不为凑数制造同义图标。
+- Status: in_progress
+- Target: 已补充 10 枚，当前 58 枚；剩余 2 个编号等待真实语义
+- Deliverables: PSM-IC-049 关闭 / PSM-IC-050 复制 / PSM-IC-051 保存 / PSM-IC-052 下载 / PSM-IC-053 发布 / PSM-IC-054 提交审核 / PSM-IC-055 管理审核 / PSM-IC-056 举报 / PSM-IC-057 暂停回响 / PSM-IC-058 恢复回响 / W02-AD-001 动态覆盖数适配器 / W02-QA-001 语义与尺寸验收矩阵
+- Gate: 只登记正式基线或真实仓库操作支持的语义；未满足依据的两个稳定编号保持未分配。
 
 ### W03 · 组件状态矩阵 / Component State Matrix
 
@@ -53,4 +53,4 @@ This queue keeps the code-native PSM asset system reproducible. It does not auth
 03. 绘制 — 只使用可审查的 SVG、CSS、WXSS 与几何代码。
 04. 导出 — 从同一数据源生成单文件、Sprite、清单与辅助样式。
 05. 验证 — 运行唯一性、依赖、尺寸、页面与交互回归。
-06. 发布 — 提交 GitHub main，检查 Pages，再回到发现阶段。
+06. 发布 — 经受控 PR 合并 GitHub main，检查 Pages，再回到发现阶段。

@@ -64,7 +64,18 @@ const definitions = [
   ['TM', 'reminder', '提醒', 'Reminder', '标记需要在之后处理的事项。', '<path d="M6 21V4"/><path d="M6 5h11l-2 3 2 3H6"/><circle cx="6" cy="21" r="1" fill="currentColor" stroke="none"/>'],
   ['TM', 'notification', '通知', 'Notification', '表示消息与系统通知。', '<path d="M6 16.5h12l-1.5-2V10a4.5 4.5 0 0 0-9 0v4.5z"/><path d="M10 19a2.3 2.3 0 0 0 4 0M12 4V2.8"/>'],
   ['TM', 'sync', '同步', 'Sync', '表示本地与云端状态同步。', '<path d="M19 7V3.5l-2.3 2.3A7.8 7.8 0 0 0 4.5 9"/><path d="M5 17v3.5l2.3-2.3A7.8 7.8 0 0 0 19.5 15"/>'],
-  ['TM', 'checklist', '清单', 'Checklist', '表示可逐项完成的任务列表。', '<rect x="4" y="3.5" width="16" height="17" rx="2"/><path d="m7.5 8 1.2 1.2L11 7M13 8h4M7.5 13l1.2 1.2L11 12M13 13h4M7.5 18l1.2 1.2L11 17M13 18h4"/>']
+  ['TM', 'checklist', '清单', 'Checklist', '表示可逐项完成的任务列表。', '<rect x="4" y="3.5" width="16" height="17" rx="2"/><path d="m7.5 8 1.2 1.2L11 7M13 8h4M7.5 13l1.2 1.2L11 12M13 13h4M7.5 18l1.2 1.2L11 17M13 18h4"/>'],
+
+  ['AC', 'close', '关闭', 'Close', '关闭当前弹窗或临时覆盖层，不承担返回层级语义。', '<path d="m6.5 6.5 11 11M17.5 6.5l-11 11"/>'],
+  ['AC', 'copy', '复制', 'Copy', '将源码、文本或值复制到剪贴板。', '<rect x="8" y="7" width="11" height="13" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h2"/>'],
+  ['AC', 'save', '保存', 'Save', '保存当前草稿或本地事务状态，不等同于收藏或备份。', '<path d="M5 3.5h11l3 3v14H5z"/><path d="M8 3.5v6h8v-6M8.5 20.5v-6h7v6"/>'],
+  ['AC', 'download', '下载', 'Download', '把已生成的资产或文档下载到当前设备。', '<path d="M12 3.5v11"/><path d="m8.5 11 3.5 3.5 3.5-3.5"/><path d="M5 15.5v5h14v-5"/>'],
+  ['CT', 'publish', '发布', 'Publish', '把已通过流程的日志内容公开发布。', '<path d="M4 10h3l9-4v12l-9-4H4z"/><path d="M7 14v4a2 2 0 0 0 2 2h1"/><path d="m19 8 2-1.5M19 12h2.5M19 16l2 1.5"/>'],
+  ['CT', 'submit-review', '提交审核', 'Submit Review', '把草稿或内容修订送入审核队列。', '<path d="M4.5 3.5h8l3 3v7h-11z"/><path d="M12.5 3.5v3h3M7.5 9h5"/><path d="M10 17h9M16 14l3 3-3 3"/>'],
+  ['AC', 'moderation-review', '管理审核', 'Moderation Review', '表示管理员查看并裁决日志、修订、昵称或举报。', '<path d="M8 4h8l1 2h2v14H5V6h2z"/><path d="M8 4v3h8V4"/><path d="M8 13s1.5-2.5 4-2.5 4 2.5 4 2.5-1.5 2.5-4 2.5S8 13 8 13z"/><circle cx="12" cy="13" r="1.2"/>'],
+  ['AC', 'report', '举报', 'Report', '提交需要管理员处理的内容举报。', '<path d="M5.5 3.5h8l4 4v13h-12z"/><path d="M13.5 3.5v4h4"/><path d="M11.5 10v4.5"/><circle cx="11.5" cy="17.5" r=".8" fill="currentColor" stroke="none"/>'],
+  ['EC', 'echo-pause', '暂停回响', 'Pause Echo', '暂停日志的公开回响线程，同时保留既有历史。', '<circle cx="5.5" cy="12" r="1.3"/><path d="M8.6 8.8a4.5 4.5 0 0 1 0 6.4"/><path d="M15.5 8v8M19.5 8v8"/>'],
+  ['EC', 'echo-resume', '恢复回响', 'Resume Echo', '恢复已暂停的回响线程，并按当前修订状态继续。', '<circle cx="5.5" cy="12" r="1.3"/><path d="M8.6 8.8a4.5 4.5 0 0 1 0 6.4"/><path d="M17.5 7.2a5.5 5.5 0 1 1-4.5 9.8"/><path d="M17.5 4.5v2.7h-2.7"/>']
 ];
 
 export const iconCatalog = Object.freeze(definitions.map((definition, index) => {
@@ -148,7 +159,7 @@ export function getIconManifest() {
   return {
     schema_version: 1,
     name: 'PSM Code-Native Icon Library',
-    version: '1.0.0',
+    version: '1.1.0',
     source_of_truth: 'icons/catalog.mjs',
     strategy: 'hand-authored-svg-geometry',
     coverage: {

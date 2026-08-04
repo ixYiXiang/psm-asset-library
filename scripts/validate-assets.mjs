@@ -10,6 +10,7 @@ import {
   getIconManifest
 } from '../icons/catalog.mjs';
 import { expansionWaves, continuousLoop, getRoadmapManifest, getRoadmapMarkdown } from '../roadmap.mjs';
+import { w02BatchItems, w02IconItems, getW02QaSvg } from '../qa/w02-semantic-matrix.mjs';
 import {
   systemChapters,
   tokenMap,
@@ -31,6 +32,7 @@ const generatedDirectory = new URL('../assets/generated/', import.meta.url);
 const iconDirectory = new URL('../icons/', import.meta.url);
 const iconGeneratedDirectory = new URL('../icons/generated/', import.meta.url);
 const roadmapDirectory = new URL('../roadmap/', import.meta.url);
+const qaDirectory = new URL('../qa/', import.meta.url);
 const ids = assetCatalog.map((asset) => asset.id);
 const uniqueIds = new Set(ids);
 
@@ -79,17 +81,51 @@ assert.deepEqual(manifest.assets.map((asset) => asset.id), ids, 'Manifest order 
 const iconIds = iconCatalog.map((icon) => icon.id);
 const iconSlugs = iconCatalog.map((icon) => icon.slug);
 assert.equal(iconCategories.length, 8, 'The icon system must contain eight semantic categories.');
-assert.equal(iconCatalog.length, 48, 'Wave W01 must contain 48 code-native icons.');
-assert.equal(new Set(iconIds).size, 48, 'Icon IDs must be unique.');
-assert.equal(new Set(iconSlugs).size, 48, 'Icon slugs must be unique.');
+assert.ok(iconCatalog.length >= 48, 'The completed W01 baseline of 48 icons must not regress.');
+assert.equal(new Set(iconIds).size, iconCatalog.length, 'Icon IDs must be unique.');
+assert.equal(new Set(iconSlugs).size, iconCatalog.length, 'Icon slugs must be unique.');
 assert.deepEqual(
   iconIds,
-  Array.from({ length: 48 }, (_, index) => 'PSM-IC-' + String(index + 1).padStart(3, '0')),
+  Array.from({ length: iconCatalog.length }, (_, index) => 'PSM-IC-' + String(index + 1).padStart(3, '0')),
   'Icon IDs must remain contiguous and stable.'
 );
 for (const category of iconCategories) {
-  assert.equal(iconCatalog.filter((icon) => icon.category === category.id).length, 6, category.id + ' must contain six icons.');
+  assert.ok(iconCatalog.filter((icon) => icon.category === category.id).length >= 6, category.id + ' must retain its six-icon W01 baseline.');
 }
+
+assert.equal(w02BatchItems.length, 12, 'W02-A must stay within the twelve-item release limit.');
+assert.equal(new Set(w02BatchItems.map((item) => item.id)).size, w02BatchItems.length, 'W02 work-item IDs must be unique.');
+assert.deepEqual(
+  w02IconItems.map((item) => item.id),
+  Array.from({ length: 10 }, (_, index) => 'PSM-IC-' + String(index + 49).padStart(3, '0')),
+  'W02-A may reserve only PSM-IC-049 through PSM-IC-058.'
+);
+assert.deepEqual(
+  w02BatchItems.filter((item) => item.kind !== 'icon').map((item) => item.id),
+  ['W02-AD-001', 'W02-QA-001'],
+  'Adapter and QA items must use wave work-item IDs instead of stable asset IDs.'
+);
+for (const item of w02IconItems) {
+  const icon = iconCatalog.find((entry) => entry.id === item.id);
+  assert.ok(icon, item.id + ' must exist in icons/catalog.mjs.');
+  assert.equal(icon.slug, item.slug, item.id + ' slug must match the W02 semantic matrix.');
+  assert.deepEqual(icon.sizes, [24, 32, 64], item.id + ' must declare all acceptance sizes.');
+  assert.deepEqual(item.acceptanceSizes, [24, 32, 64], item.id + ' QA sizes must match the icon manifest.');
+  assert.equal(item.stressSize, 16, item.id + ' must reserve 16px for stress preview only.');
+  assert.ok(item.targetContainers.length > 0, item.id + ' must name a real target container.');
+  assert.ok(item.verifySteps.length >= 4, item.id + ' must include reproducible verification steps.');
+  for (const comparatorId of item.compareAgainst) {
+    const comparator = iconCatalog.find((entry) => entry.id === comparatorId);
+    assert.ok(comparator, item.id + ' comparator ' + comparatorId + ' must exist.');
+    assert.notEqual(icon.body, comparator.body, item.id + ' must not duplicate ' + comparatorId + ' geometry.');
+  }
+}
+assert.equal(new Set(w02IconItems.map((item) => iconCatalog.find((icon) => icon.id === item.id).body)).size, 10, 'W02-A icon geometry must be unique within the batch.');
+const w02QaSvg = (await readFile(new URL('w02-icon-matrix.svg', qaDirectory), 'utf8')).trim();
+assert.equal(w02QaSvg, getW02QaSvg(iconCatalog), 'W02 QA matrix differs from the catalog and semantic matrix.');
+assert.ok(!/<image\b/i.test(w02QaSvg), 'W02 QA matrix must not embed image elements.');
+assert.ok(!/data:image/i.test(w02QaSvg), 'W02 QA matrix must not embed raster data.');
+assert.ok(!/(?:href|src)=["']https?:\/\//i.test(w02QaSvg), 'W02 QA matrix must not load external resources.');
 
 const generatedIconFiles = (await readdir(iconGeneratedDirectory)).filter((name) => name.endsWith('.svg')).sort();
 assert.deepEqual(generatedIconFiles, iconIds.map((id) => id + '.svg').sort(), 'Generated icon SVG files must exactly match the icon catalog.');
@@ -112,7 +148,7 @@ const iconCss = (await readFile(new URL('psm-icons.css', iconDirectory), 'utf8')
 assert.deepEqual(iconManifest, getIconManifest(), 'Icon manifest differs from icons/catalog.mjs.');
 assert.equal(iconSprite, getIconSprite(), 'Icon sprite differs from icons/catalog.mjs.');
 assert.equal(iconCss, getIconCss(), 'Icon CSS differs from icons/catalog.mjs.');
-assert.equal((iconSprite.match(/<symbol\b/g) || []).length, 48, 'Icon sprite must contain 48 symbols.');
+assert.equal((iconSprite.match(/<symbol\b/g) || []).length, iconCatalog.length, 'Icon sprite symbol count must match the catalog.');
 assert.ok(!/<image\b/i.test(iconSprite), 'Icon sprite must not embed raster images.');
 
 const roadmapManifest = JSON.parse(await readFile(new URL('expansion-plan.json', roadmapDirectory), 'utf8'));
@@ -152,7 +188,7 @@ assert.equal(componentWxss, getComponentWxss(), 'Exported component WXSS differs
 assert.equal(systemManifest.coverage.chapters, 10, 'System manifest chapter count is incorrect.');
 assert.equal(systemManifest.coverage.core_tokens, Object.keys(tokenMap).length, 'System manifest token count is incorrect.');
 assert.equal(systemManifest.coverage.icon_categories, 8, 'System manifest icon category count is incorrect.');
-assert.equal(systemManifest.coverage.code_icons, 48, 'System manifest icon count is incorrect.');
+assert.equal(systemManifest.coverage.code_icons, iconCatalog.length, 'System manifest icon count is incorrect.');
 assert.equal(systemManifest.coverage.expansion_waves, 6, 'System manifest roadmap count is incorrect.');
 
 assert.ok(!/<img\b/i.test(indexHtml), 'The page must not contain raster or image-tag previews.');
@@ -160,10 +196,11 @@ assert.ok(!/url\(\s*["']?(?!#|data:)[^)]+\.(png|jpe?g|webp)/i.test(css), 'CSS mu
 assert.ok(!/\banimation\s*:/i.test(css), 'PSM page must not rely on animation.');
 assert.ok(!/\btransition\s*:/i.test(css), 'PSM page must not rely on transitions.');
 assert.ok(!/@keyframes/i.test(css), 'PSM page must not define keyframes.');
-assert.ok(indexHtml.includes('app.js?v=7'), 'The page must load the expanded PSM application.');
-assert.ok(indexHtml.includes('styles.css?v=8'), 'The page must load the expanded PSM stylesheet.');
+assert.ok(indexHtml.includes('app.js?v=8'), 'The page must load the expanded PSM application.');
+assert.ok(indexHtml.includes('styles.css?v=9'), 'The page must load the expanded PSM stylesheet.');
 assert.ok(indexHtml.includes('id="system-content"'), 'The page must include the complete PSM atlas mount.');
-assert.ok(indexHtml.includes('id="icon-grid"'), 'The page must include the 48-icon library mount.');
+assert.ok(indexHtml.includes('id="icon-grid"'), 'The page must include the icon library mount.');
+assert.ok(indexHtml.includes('data-icon-total'), 'Visible icon coverage must be derived from the icon catalog at runtime.');
 assert.ok(indexHtml.includes('id="roadmap-grid"'), 'The page must include the expansion roadmap mount.');
 assert.ok(indexHtml.includes('10 / 10'), 'The page must state complete system coverage.');
 assert.ok(app.includes("from './assets/catalog.mjs'"), 'The page must use the shared asset source.');
@@ -177,4 +214,4 @@ const fontSizes = [...css.matchAll(/font-size:\s*([0-9.]+)px/g)].map((match) => 
 assert.ok(fontSizes.length > 0, 'CSS should contain explicit readable font sizes.');
 assert.ok(Math.min(...fontSizes) >= 12, 'No explicit CSS font size may be below 12px.');
 
-console.log('Validated 10 chapters, 17 assets, 48 icons, six expansion waves, zero image embedding, and static rules.');
+console.log('Validated 10 chapters, 17 assets, ' + iconCatalog.length + ' icons, 12 W02-A work items, six expansion waves, zero image embedding, and static rules.');

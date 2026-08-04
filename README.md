@@ -4,7 +4,7 @@ PSM Code Lab 是「AI 编程日志」项目的完整程序化视觉规范与资�
 
 本版从零重建原 GitHub Pages：不调用图像生成，不把参考图切片、描摹或作为网页背景，也不使用旧 PNG 参与页面渲染。环境、光影、材质、模块插图、空状态和徽章全部由 SVG、CSS、渐变、滤镜与几何图形构成。
 
-当前交付包含 10 个系统章节、17 项程序化资产、48 枚代码原生图标、36+ 个 WXSS 核心令牌，以及一条可重复执行的持续扩展队列。
+当前交付包含 10 个系统章节、17 项程序化资产、58 枚代码原生图标、36+ 个 WXSS 核心令牌，以及一条可重复执行的持续扩展队列。
 
 ## 完整系统覆盖
 
@@ -42,20 +42,20 @@ Notion 资产清单中的 17 项已全部生成代码候选：
 
 ## 代码原生图标库
 
-第一波图标包含 8 个语义分类、48 枚稳定编号：
+W01 建立了 8 类、48 枚稳定编号；W02-A 又补充 10 枚有正式语义依据的图标。当前覆盖为：
 
 - NV 导航 Navigation：6 枚
-- CT 内容 Content：6 枚
-- EC 回响 Echo：6 枚
+- CT 内容 Content：8 枚
+- EC 回响 Echo：8 枚
 - ST 状态 Status：6 枚
-- AC 操作 Action：6 枚
+- AC 操作 Action：12 枚
 - SY 系统 System：6 枚
 - DT 数据 Data：6 枚
 - TM 时间 Time：6 枚
 
 图标的单一数据源是 [icons/catalog.mjs](icons/catalog.mjs)，可导出：
 
-- 48 个独立 SVG：icons/generated/PSM-IC-001.svg 至 PSM-IC-048.svg
+- 58 个独立 SVG：icons/generated/PSM-IC-001.svg 至 PSM-IC-058.svg
 - [icons/psm-icons.svg](icons/psm-icons.svg) SVG Sprite
 - [icons/manifest.json](icons/manifest.json) 机器可读清单
 - [icons/psm-icons.css](icons/psm-icons.css) 尺寸与颜色助手
@@ -67,13 +67,15 @@ Notion 资产清单中的 17 项已全部生成代码候选：
 [roadmap.mjs](roadmap.mjs) 是扩展计划的单一数据源，并生成 [roadmap/expansion-plan.json](roadmap/expansion-plan.json) 与 [roadmap/README.md](roadmap/README.md)。
 
 - W01 核心图标：48 枚，已完成
-- W02 语义补全：再补 12 枚，进入约 60 枚概念基线
+- W02 语义补全：已接受 PSM-IC-049 至 PSM-IC-058，共 10 枚；剩余 2 个编号等待真实语义，不提前占用
 - W03 组件状态矩阵
 - W04 主题令牌包
 - W05 工程适配器
 - W∞ 持续质量循环
 
 每一波都重复执行：发现 → 定义 → 绘制 → 导出 → 验证 → 发布。只有真实语义缺口进入队列，不用数量替代质量。
+
+W02-A 的 12 个发布工作项（10 枚图标、动态计数适配器与 QA 矩阵）记录在 [qa/w02-semantic-matrix.mjs](qa/w02-semantic-matrix.mjs)，并导出可直接检查的 [qa/w02-icon-matrix.svg](qa/w02-icon-matrix.svg)。其中 `W02-AD-001` 与 `W02-QA-001` 是波次工作项编号，不冒充稳定资产编号。
 
 ## PSM 约束
 
@@ -89,6 +91,6 @@ Notion 资产清单中的 17 项已全部生成代码候选：
     npm run export
     npm test
 
-验证内容包括：10 个系统章节、17 项资产、48 枚图标、6 个扩展波次、WXSS 导出一致性、编号唯一性、SVG / Sprite / Manifest 与源定义一致、无图片嵌入、无外部资源、无动画依赖，以及最小显式字号不低于 12px。
+验证内容包括：10 个系统章节、17 项资产、58 枚图标、12 个 W02-A 工作项、6 个扩展波次、WXSS 导出一致性、编号唯一性、语义近邻冲突、24/32/64px 验收声明、SVG / Sprite / Manifest 与源定义一致、无图片嵌入、无外部资源、无动画依赖，以及最小显式字号不低于 12px。
 
 GitHub Pages：<https://ixyixiang.github.io/psm-asset-library/>
