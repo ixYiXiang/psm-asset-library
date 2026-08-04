@@ -1,0 +1,1051 @@
+{
+  "schema_version": 1,
+  "name": "PSM Code-Native Icon Library",
+  "version": "1.0.0",
+  "source_of_truth": "icons/catalog.mjs",
+  "strategy": "hand-authored-svg-geometry",
+  "coverage": {
+    "categories": 8,
+    "icons": 48,
+    "base_grid": 24,
+    "acceptance_sizes": [
+      24,
+      32,
+      64
+    ]
+  },
+  "constraints": {
+    "generated_images": false,
+    "traced_reference_images": false,
+    "raster_dependencies": false,
+    "external_resources": false,
+    "semantic_recognition_first": true,
+    "production_ui_auto_adoption": false
+  },
+  "categories": [
+    {
+      "id": "NV",
+      "name": "导航",
+      "english": "Navigation",
+      "accent": "#329EE6",
+      "count": 6
+    },
+    {
+      "id": "CT",
+      "name": "内容",
+      "english": "Content",
+      "accent": "#5A7FA7",
+      "count": 6
+    },
+    {
+      "id": "EC",
+      "name": "回响",
+      "english": "Echo",
+      "accent": "#6C5CE7",
+      "count": 6
+    },
+    {
+      "id": "ST",
+      "name": "状态",
+      "english": "Status",
+      "accent": "#10B981",
+      "count": 6
+    },
+    {
+      "id": "AC",
+      "name": "操作",
+      "english": "Action",
+      "accent": "#2D72CC",
+      "count": 6
+    },
+    {
+      "id": "SY",
+      "name": "系统",
+      "english": "System",
+      "accent": "#64748B",
+      "count": 6
+    },
+    {
+      "id": "DT",
+      "name": "数据",
+      "english": "Data",
+      "accent": "#51ACB0",
+      "count": 6
+    },
+    {
+      "id": "TM",
+      "name": "时间",
+      "english": "Time",
+      "accent": "#B8872E",
+      "count": 6
+    }
+  ],
+  "icons": [
+    {
+      "index": 1,
+      "id": "PSM-IC-001",
+      "category": "NV",
+      "categoryName": "导航",
+      "categoryEnglish": "Navigation",
+      "slug": "home",
+      "name": "首页",
+      "english": "Home",
+      "description": "返回产品的一级起点。",
+      "viewBox": "0 0 24 24",
+      "grid": 24,
+      "strokeWidth": 1.7,
+      "sizes": [
+        24,
+        32,
+        64
+      ],
+      "path": "icons/generated/PSM-IC-001.svg"
+    },
+    {
+      "index": 2,
+      "id": "PSM-IC-002",
+      "category": "NV",
+      "categoryName": "导航",
+      "categoryEnglish": "Navigation",
+      "slug": "search",
+      "name": "搜索",
+      "english": "Search",
+      "description": "提交查询与定位内容。",
+      "viewBox": "0 0 24 24",
+      "grid": 24,
+      "strokeWidth": 1.7,
+      "sizes": [
+        24,
+        32,
+        64
+      ],
+      "path": "icons/generated/PSM-IC-002.svg"
+    },
+    {
+      "index": 3,
+      "id": "PSM-IC-003",
+      "category": "NV",
+      "categoryName": "导航",
+      "categoryEnglish": "Navigation",
+      "slug": "learn",
+      "name": "学习",
+      "english": "Learn",
+      "description": "进入术语与知识内容。",
+      "viewBox": "0 0 24 24",
+      "grid": 24,
+      "strokeWidth": 1.7,
+      "sizes": [
+        24,
+        32,
+        64
+      ],
+      "path": "icons/generated/PSM-IC-003.svg"
+    },
+    {
+      "index": 4,
+      "id": "PSM-IC-004",
+      "category": "NV",
+      "categoryName": "导航",
+      "categoryEnglish": "Navigation",
+      "slug": "explore",
+      "name": "探索",
+      "english": "Explore",
+      "description": "进入工具与发现空间。",
+      "viewBox": "0 0 24 24",
+      "grid": 24,
+      "strokeWidth": 1.7,
+      "sizes": [
+        24,
+        32,
+        64
+      ],
+      "path": "icons/generated/PSM-IC-004.svg"
+    },
+    {
+      "index": 5,
+      "id": "PSM-IC-005",
+      "category": "NV",
+      "categoryName": "导航",
+      "categoryEnglish": "Navigation",
+      "slug": "profile",
+      "name": "我的",
+      "english": "Profile",
+      "description": "进入个人资料与账户区域。",
+      "viewBox": "0 0 24 24",
+      "grid": 24,
+      "strokeWidth": 1.7,
+      "sizes": [
+        24,
+        32,
+        64
+      ],
+      "path": "icons/generated/PSM-IC-005.svg"
+    },
+    {
+      "index": 6,
+      "id": "PSM-IC-006",
+      "category": "NV",
+      "categoryName": "导航",
+      "categoryEnglish": "Navigation",
+      "slug": "back",
+      "name": "返回",
+      "english": "Back",
+      "description": "返回上一层，不承担关闭语义。",
+      "viewBox": "0 0 24 24",
+      "grid": 24,
+      "strokeWidth": 1.7,
+      "sizes": [
+        24,
+        32,
+        64
+      ],
+      "path": "icons/generated/PSM-IC-006.svg"
+    },
+    {
+      "index": 7,
+      "id": "PSM-IC-007",
+      "category": "CT",
+      "categoryName": "内容",
+      "categoryEnglish": "Content",
+      "slug": "log",
+      "name": "日志",
+      "english": "Log",
+      "description": "表示一条正式编程日志。",
+      "viewBox": "0 0 24 24",
+      "grid": 24,
+      "strokeWidth": 1.7,
+      "sizes": [
+        24,
+        32,
+        64
+      ],
+      "path": "icons/generated/PSM-IC-007.svg"
+    },
+    {
+      "index": 8,
+      "id": "PSM-IC-008",
+      "category": "CT",
+      "categoryName": "内容",
+      "categoryEnglish": "Content",
+      "slug": "draft",
+      "name": "草稿",
+      "english": "Draft",
+      "description": "表示尚未发布的可编辑内容。",
+      "viewBox": "0 0 24 24",
+      "grid": 24,
+      "strokeWidth": 1.7,
+      "sizes": [
+        24,
+        32,
+        64
+      ],
+      "path": "icons/generated/PSM-IC-008.svg"
+    },
+    {
+      "index": 9,
+      "id": "PSM-IC-009",
+      "category": "CT",
+      "categoryName": "内容",
+      "categoryEnglish": "Content",
+      "slug": "revision",
+      "name": "修订",
+      "english": "Revision",
+      "description": "表示版本更新与修改记录。",
+      "viewBox": "0 0 24 24",
+      "grid": 24,
+      "strokeWidth": 1.7,
+      "sizes": [
+        24,
+        32,
+        64
+      ],
+      "path": "icons/generated/PSM-IC-009.svg"
+    },
+    {
+      "index": 10,
+      "id": "PSM-IC-010",
+      "category": "CT",
+      "categoryName": "内容",
+      "categoryEnglish": "Content",
+      "slug": "quote",
+      "name": "引用",
+      "english": "Quote",
+      "description": "标记引用、结论或摘录。",
+      "viewBox": "0 0 24 24",
+      "grid": 24,
+      "strokeWidth": 1.7,
+      "sizes": [
+        24,
+        32,
+        64
+      ],
+      "path": "icons/generated/PSM-IC-010.svg"
+    },
+    {
+      "index": 11,
+      "id": "PSM-IC-011",
+      "category": "CT",
+      "categoryName": "内容",
+      "categoryEnglish": "Content",
+      "slug": "export",
+      "name": "导出",
+      "english": "Export",
+      "description": "将内容导出到外部文件。",
+      "viewBox": "0 0 24 24",
+      "grid": 24,
+      "strokeWidth": 1.7,
+      "sizes": [
+        24,
+        32,
+        64
+      ],
+      "path": "icons/generated/PSM-IC-011.svg"
+    },
+    {
+      "index": 12,
+      "id": "PSM-IC-012",
+      "category": "CT",
+      "categoryName": "内容",
+      "categoryEnglish": "Content",
+      "slug": "archive",
+      "name": "归档",
+      "english": "Archive",
+      "description": "收纳已完成或低频内容。",
+      "viewBox": "0 0 24 24",
+      "grid": 24,
+      "strokeWidth": 1.7,
+      "sizes": [
+        24,
+        32,
+        64
+      ],
+      "path": "icons/generated/PSM-IC-012.svg"
+    },
+    {
+      "index": 13,
+      "id": "PSM-IC-013",
+      "category": "EC",
+      "categoryName": "回响",
+      "categoryEnglish": "Echo",
+      "slug": "echo",
+      "name": "回响",
+      "english": "Echo",
+      "description": "表示内容产生的持续影响。",
+      "viewBox": "0 0 24 24",
+      "grid": 24,
+      "strokeWidth": 1.7,
+      "sizes": [
+        24,
+        32,
+        64
+      ],
+      "path": "icons/generated/PSM-IC-013.svg"
+    },
+    {
+      "index": 14,
+      "id": "PSM-IC-014",
+      "category": "EC",
+      "categoryName": "回响",
+      "categoryEnglish": "Echo",
+      "slug": "link",
+      "name": "关联",
+      "english": "Link",
+      "description": "连接两条相关内容。",
+      "viewBox": "0 0 24 24",
+      "grid": 24,
+      "strokeWidth": 1.7,
+      "sizes": [
+        24,
+        32,
+        64
+      ],
+      "path": "icons/generated/PSM-IC-014.svg"
+    },
+    {
+      "index": 15,
+      "id": "PSM-IC-015",
+      "category": "EC",
+      "categoryName": "回响",
+      "categoryEnglish": "Echo",
+      "slug": "branch",
+      "name": "分支",
+      "english": "Branch",
+      "description": "表示从同一来源派生的路径。",
+      "viewBox": "0 0 24 24",
+      "grid": 24,
+      "strokeWidth": 1.7,
+      "sizes": [
+        24,
+        32,
+        64
+      ],
+      "path": "icons/generated/PSM-IC-015.svg"
+    },
+    {
+      "index": 16,
+      "id": "PSM-IC-016",
+      "category": "EC",
+      "categoryName": "回响",
+      "categoryEnglish": "Echo",
+      "slug": "ascend",
+      "name": "进阶",
+      "english": "Ascend",
+      "description": "表示能力或成果向上演进。",
+      "viewBox": "0 0 24 24",
+      "grid": 24,
+      "strokeWidth": 1.7,
+      "sizes": [
+        24,
+        32,
+        64
+      ],
+      "path": "icons/generated/PSM-IC-016.svg"
+    },
+    {
+      "index": 17,
+      "id": "PSM-IC-017",
+      "category": "EC",
+      "categoryName": "回响",
+      "categoryEnglish": "Echo",
+      "slug": "gratitude",
+      "name": "感谢",
+      "english": "Gratitude",
+      "description": "表达对作者或帮助的感谢。",
+      "viewBox": "0 0 24 24",
+      "grid": 24,
+      "strokeWidth": 1.7,
+      "sizes": [
+        24,
+        32,
+        64
+      ],
+      "path": "icons/generated/PSM-IC-017.svg"
+    },
+    {
+      "index": 18,
+      "id": "PSM-IC-018",
+      "category": "EC",
+      "categoryName": "回响",
+      "categoryEnglish": "Echo",
+      "slug": "timeline",
+      "name": "轨迹",
+      "english": "Timeline",
+      "description": "表示事件与版本的时间关系。",
+      "viewBox": "0 0 24 24",
+      "grid": 24,
+      "strokeWidth": 1.7,
+      "sizes": [
+        24,
+        32,
+        64
+      ],
+      "path": "icons/generated/PSM-IC-018.svg"
+    },
+    {
+      "index": 19,
+      "id": "PSM-IC-019",
+      "category": "ST",
+      "categoryName": "状态",
+      "categoryEnglish": "Status",
+      "slug": "success",
+      "name": "成功",
+      "english": "Success",
+      "description": "操作或流程已经完成。",
+      "viewBox": "0 0 24 24",
+      "grid": 24,
+      "strokeWidth": 1.7,
+      "sizes": [
+        24,
+        32,
+        64
+      ],
+      "path": "icons/generated/PSM-IC-019.svg"
+    },
+    {
+      "index": 20,
+      "id": "PSM-IC-020",
+      "category": "ST",
+      "categoryName": "状态",
+      "categoryEnglish": "Status",
+      "slug": "warning",
+      "name": "警告",
+      "english": "Warning",
+      "description": "需要注意但仍可继续。",
+      "viewBox": "0 0 24 24",
+      "grid": 24,
+      "strokeWidth": 1.7,
+      "sizes": [
+        24,
+        32,
+        64
+      ],
+      "path": "icons/generated/PSM-IC-020.svg"
+    },
+    {
+      "index": 21,
+      "id": "PSM-IC-021",
+      "category": "ST",
+      "categoryName": "状态",
+      "categoryEnglish": "Status",
+      "slug": "danger",
+      "name": "危险",
+      "english": "Danger",
+      "description": "错误、删除或高风险结果。",
+      "viewBox": "0 0 24 24",
+      "grid": 24,
+      "strokeWidth": 1.7,
+      "sizes": [
+        24,
+        32,
+        64
+      ],
+      "path": "icons/generated/PSM-IC-021.svg"
+    },
+    {
+      "index": 22,
+      "id": "PSM-IC-022",
+      "category": "ST",
+      "categoryName": "状态",
+      "categoryEnglish": "Status",
+      "slug": "info",
+      "name": "信息",
+      "english": "Info",
+      "description": "一般提示与解释说明。",
+      "viewBox": "0 0 24 24",
+      "grid": 24,
+      "strokeWidth": 1.7,
+      "sizes": [
+        24,
+        32,
+        64
+      ],
+      "path": "icons/generated/PSM-IC-022.svg"
+    },
+    {
+      "index": 23,
+      "id": "PSM-IC-023",
+      "category": "ST",
+      "categoryName": "状态",
+      "categoryEnglish": "Status",
+      "slug": "pending",
+      "name": "待处理",
+      "english": "Pending",
+      "description": "流程正在等待或排队。",
+      "viewBox": "0 0 24 24",
+      "grid": 24,
+      "strokeWidth": 1.7,
+      "sizes": [
+        24,
+        32,
+        64
+      ],
+      "path": "icons/generated/PSM-IC-023.svg"
+    },
+    {
+      "index": 24,
+      "id": "PSM-IC-024",
+      "category": "ST",
+      "categoryName": "状态",
+      "categoryEnglish": "Status",
+      "slug": "disabled",
+      "name": "禁用",
+      "english": "Disabled",
+      "description": "当前能力不可用。",
+      "viewBox": "0 0 24 24",
+      "grid": 24,
+      "strokeWidth": 1.7,
+      "sizes": [
+        24,
+        32,
+        64
+      ],
+      "path": "icons/generated/PSM-IC-024.svg"
+    },
+    {
+      "index": 25,
+      "id": "PSM-IC-025",
+      "category": "AC",
+      "categoryName": "操作",
+      "categoryEnglish": "Action",
+      "slug": "add",
+      "name": "新增",
+      "english": "Add",
+      "description": "创建新的内容或对象。",
+      "viewBox": "0 0 24 24",
+      "grid": 24,
+      "strokeWidth": 1.7,
+      "sizes": [
+        24,
+        32,
+        64
+      ],
+      "path": "icons/generated/PSM-IC-025.svg"
+    },
+    {
+      "index": 26,
+      "id": "PSM-IC-026",
+      "category": "AC",
+      "categoryName": "操作",
+      "categoryEnglish": "Action",
+      "slug": "edit",
+      "name": "编辑",
+      "english": "Edit",
+      "description": "修改已有内容。",
+      "viewBox": "0 0 24 24",
+      "grid": 24,
+      "strokeWidth": 1.7,
+      "sizes": [
+        24,
+        32,
+        64
+      ],
+      "path": "icons/generated/PSM-IC-026.svg"
+    },
+    {
+      "index": 27,
+      "id": "PSM-IC-027",
+      "category": "AC",
+      "categoryName": "操作",
+      "categoryEnglish": "Action",
+      "slug": "delete",
+      "name": "删除",
+      "english": "Delete",
+      "description": "移除对象，需要风险确认。",
+      "viewBox": "0 0 24 24",
+      "grid": 24,
+      "strokeWidth": 1.7,
+      "sizes": [
+        24,
+        32,
+        64
+      ],
+      "path": "icons/generated/PSM-IC-027.svg"
+    },
+    {
+      "index": 28,
+      "id": "PSM-IC-028",
+      "category": "AC",
+      "categoryName": "操作",
+      "categoryEnglish": "Action",
+      "slug": "favorite",
+      "name": "收藏",
+      "english": "Favorite",
+      "description": "保存内容供后续查看。",
+      "viewBox": "0 0 24 24",
+      "grid": 24,
+      "strokeWidth": 1.7,
+      "sizes": [
+        24,
+        32,
+        64
+      ],
+      "path": "icons/generated/PSM-IC-028.svg"
+    },
+    {
+      "index": 29,
+      "id": "PSM-IC-029",
+      "category": "AC",
+      "categoryName": "操作",
+      "categoryEnglish": "Action",
+      "slug": "like",
+      "name": "点赞",
+      "english": "Like",
+      "description": "表达正向反馈。",
+      "viewBox": "0 0 24 24",
+      "grid": 24,
+      "strokeWidth": 1.7,
+      "sizes": [
+        24,
+        32,
+        64
+      ],
+      "path": "icons/generated/PSM-IC-029.svg"
+    },
+    {
+      "index": 30,
+      "id": "PSM-IC-030",
+      "category": "AC",
+      "categoryName": "操作",
+      "categoryEnglish": "Action",
+      "slug": "share",
+      "name": "分享",
+      "english": "Share",
+      "description": "将内容发送到其他位置。",
+      "viewBox": "0 0 24 24",
+      "grid": 24,
+      "strokeWidth": 1.7,
+      "sizes": [
+        24,
+        32,
+        64
+      ],
+      "path": "icons/generated/PSM-IC-030.svg"
+    },
+    {
+      "index": 31,
+      "id": "PSM-IC-031",
+      "category": "SY",
+      "categoryName": "系统",
+      "categoryEnglish": "System",
+      "slug": "settings",
+      "name": "设置",
+      "english": "Settings",
+      "description": "进入系统与账户配置。",
+      "viewBox": "0 0 24 24",
+      "grid": 24,
+      "strokeWidth": 1.7,
+      "sizes": [
+        24,
+        32,
+        64
+      ],
+      "path": "icons/generated/PSM-IC-031.svg"
+    },
+    {
+      "index": 32,
+      "id": "PSM-IC-032",
+      "category": "SY",
+      "categoryName": "系统",
+      "categoryEnglish": "System",
+      "slug": "theme",
+      "name": "主题",
+      "english": "Theme",
+      "description": "切换已注册的视觉主题。",
+      "viewBox": "0 0 24 24",
+      "grid": 24,
+      "strokeWidth": 1.7,
+      "sizes": [
+        24,
+        32,
+        64
+      ],
+      "path": "icons/generated/PSM-IC-032.svg"
+    },
+    {
+      "index": 33,
+      "id": "PSM-IC-033",
+      "category": "SY",
+      "categoryName": "系统",
+      "categoryEnglish": "System",
+      "slug": "privacy",
+      "name": "隐私",
+      "english": "Privacy",
+      "description": "表示隐私规则与数据保护。",
+      "viewBox": "0 0 24 24",
+      "grid": 24,
+      "strokeWidth": 1.7,
+      "sizes": [
+        24,
+        32,
+        64
+      ],
+      "path": "icons/generated/PSM-IC-033.svg"
+    },
+    {
+      "index": 34,
+      "id": "PSM-IC-034",
+      "category": "SY",
+      "categoryName": "系统",
+      "categoryEnglish": "System",
+      "slug": "backup",
+      "name": "备份",
+      "english": "Backup",
+      "description": "保存当前数据的恢复副本。",
+      "viewBox": "0 0 24 24",
+      "grid": 24,
+      "strokeWidth": 1.7,
+      "sizes": [
+        24,
+        32,
+        64
+      ],
+      "path": "icons/generated/PSM-IC-034.svg"
+    },
+    {
+      "index": 35,
+      "id": "PSM-IC-035",
+      "category": "SY",
+      "categoryName": "系统",
+      "categoryEnglish": "System",
+      "slug": "local",
+      "name": "本地",
+      "english": "Local",
+      "description": "表示设备本地存储。",
+      "viewBox": "0 0 24 24",
+      "grid": 24,
+      "strokeWidth": 1.7,
+      "sizes": [
+        24,
+        32,
+        64
+      ],
+      "path": "icons/generated/PSM-IC-035.svg"
+    },
+    {
+      "index": 36,
+      "id": "PSM-IC-036",
+      "category": "SY",
+      "categoryName": "系统",
+      "categoryEnglish": "System",
+      "slug": "cloud",
+      "name": "云端",
+      "english": "Cloud",
+      "description": "表示云端数据与服务。",
+      "viewBox": "0 0 24 24",
+      "grid": 24,
+      "strokeWidth": 1.7,
+      "sizes": [
+        24,
+        32,
+        64
+      ],
+      "path": "icons/generated/PSM-IC-036.svg"
+    },
+    {
+      "index": 37,
+      "id": "PSM-IC-037",
+      "category": "DT",
+      "categoryName": "数据",
+      "categoryEnglish": "Data",
+      "slug": "image",
+      "name": "图片",
+      "english": "Image",
+      "description": "表示媒体图片内容。",
+      "viewBox": "0 0 24 24",
+      "grid": 24,
+      "strokeWidth": 1.7,
+      "sizes": [
+        24,
+        32,
+        64
+      ],
+      "path": "icons/generated/PSM-IC-037.svg"
+    },
+    {
+      "index": 38,
+      "id": "PSM-IC-038",
+      "category": "DT",
+      "categoryName": "数据",
+      "categoryEnglish": "Data",
+      "slug": "document",
+      "name": "文档",
+      "english": "Document",
+      "description": "表示可阅读或导出的文档。",
+      "viewBox": "0 0 24 24",
+      "grid": 24,
+      "strokeWidth": 1.7,
+      "sizes": [
+        24,
+        32,
+        64
+      ],
+      "path": "icons/generated/PSM-IC-038.svg"
+    },
+    {
+      "index": 39,
+      "id": "PSM-IC-039",
+      "category": "DT",
+      "categoryName": "数据",
+      "categoryEnglish": "Data",
+      "slug": "code",
+      "name": "代码",
+      "english": "Code",
+      "description": "表示代码片段与技术内容。",
+      "viewBox": "0 0 24 24",
+      "grid": 24,
+      "strokeWidth": 1.7,
+      "sizes": [
+        24,
+        32,
+        64
+      ],
+      "path": "icons/generated/PSM-IC-039.svg"
+    },
+    {
+      "index": 40,
+      "id": "PSM-IC-040",
+      "category": "DT",
+      "categoryName": "数据",
+      "categoryEnglish": "Data",
+      "slug": "database",
+      "name": "数据集",
+      "english": "Database",
+      "description": "表示结构化数据与数据库。",
+      "viewBox": "0 0 24 24",
+      "grid": 24,
+      "strokeWidth": 1.7,
+      "sizes": [
+        24,
+        32,
+        64
+      ],
+      "path": "icons/generated/PSM-IC-040.svg"
+    },
+    {
+      "index": 41,
+      "id": "PSM-IC-041",
+      "category": "DT",
+      "categoryName": "数据",
+      "categoryEnglish": "Data",
+      "slug": "chart",
+      "name": "统计",
+      "english": "Chart",
+      "description": "表示趋势、指标与分析结果。",
+      "viewBox": "0 0 24 24",
+      "grid": 24,
+      "strokeWidth": 1.7,
+      "sizes": [
+        24,
+        32,
+        64
+      ],
+      "path": "icons/generated/PSM-IC-041.svg"
+    },
+    {
+      "index": 42,
+      "id": "PSM-IC-042",
+      "category": "DT",
+      "categoryName": "数据",
+      "categoryEnglish": "Data",
+      "slug": "filter",
+      "name": "筛选",
+      "english": "Filter",
+      "description": "缩小列表或数据范围。",
+      "viewBox": "0 0 24 24",
+      "grid": 24,
+      "strokeWidth": 1.7,
+      "sizes": [
+        24,
+        32,
+        64
+      ],
+      "path": "icons/generated/PSM-IC-042.svg"
+    },
+    {
+      "index": 43,
+      "id": "PSM-IC-043",
+      "category": "TM",
+      "categoryName": "时间",
+      "categoryEnglish": "Time",
+      "slug": "clock",
+      "name": "时间",
+      "english": "Clock",
+      "description": "表示具体时间与时长。",
+      "viewBox": "0 0 24 24",
+      "grid": 24,
+      "strokeWidth": 1.7,
+      "sizes": [
+        24,
+        32,
+        64
+      ],
+      "path": "icons/generated/PSM-IC-043.svg"
+    },
+    {
+      "index": 44,
+      "id": "PSM-IC-044",
+      "category": "TM",
+      "categoryName": "时间",
+      "categoryEnglish": "Time",
+      "slug": "calendar",
+      "name": "日历",
+      "english": "Calendar",
+      "description": "表示日期与计划安排。",
+      "viewBox": "0 0 24 24",
+      "grid": 24,
+      "strokeWidth": 1.7,
+      "sizes": [
+        24,
+        32,
+        64
+      ],
+      "path": "icons/generated/PSM-IC-044.svg"
+    },
+    {
+      "index": 45,
+      "id": "PSM-IC-045",
+      "category": "TM",
+      "categoryName": "时间",
+      "categoryEnglish": "Time",
+      "slug": "reminder",
+      "name": "提醒",
+      "english": "Reminder",
+      "description": "标记需要在之后处理的事项。",
+      "viewBox": "0 0 24 24",
+      "grid": 24,
+      "strokeWidth": 1.7,
+      "sizes": [
+        24,
+        32,
+        64
+      ],
+      "path": "icons/generated/PSM-IC-045.svg"
+    },
+    {
+      "index": 46,
+      "id": "PSM-IC-046",
+      "category": "TM",
+      "categoryName": "时间",
+      "categoryEnglish": "Time",
+      "slug": "notification",
+      "name": "通知",
+      "english": "Notification",
+      "description": "表示消息与系统通知。",
+      "viewBox": "0 0 24 24",
+      "grid": 24,
+      "strokeWidth": 1.7,
+      "sizes": [
+        24,
+        32,
+        64
+      ],
+      "path": "icons/generated/PSM-IC-046.svg"
+    },
+    {
+      "index": 47,
+      "id": "PSM-IC-047",
+      "category": "TM",
+      "categoryName": "时间",
+      "categoryEnglish": "Time",
+      "slug": "sync",
+      "name": "同步",
+      "english": "Sync",
+      "description": "表示本地与云端状态同步。",
+      "viewBox": "0 0 24 24",
+      "grid": 24,
+      "strokeWidth": 1.7,
+      "sizes": [
+        24,
+        32,
+        64
+      ],
+      "path": "icons/generated/PSM-IC-047.svg"
+    },
+    {
+      "index": 48,
+      "id": "PSM-IC-048",
+      "category": "TM",
+      "categoryName": "时间",
+      "categoryEnglish": "Time",
+      "slug": "checklist",
+      "name": "清单",
+      "english": "Checklist",
+      "description": "表示可逐项完成的任务列表。",
+      "viewBox": "0 0 24 24",
+      "grid": 24,
+      "strokeWidth": 1.7,
+      "sizes": [
+        24,
+        32,
+        64
+      ],
+      "path": "icons/generated/PSM-IC-048.svg"
+    }
+  ],
+  "deliverables": [
+    "icons/generated/*.svg",
+    "icons/psm-icons.svg",
+    "icons/manifest.json",
+    "icons/psm-icons.css"
+  ]
+}

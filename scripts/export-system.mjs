@@ -14,6 +14,8 @@ import {
   getWxssTokens,
   getComponentWxss
 } from '../system.mjs';
+import { iconCatalog, iconCategories } from '../icons/catalog.mjs';
+import { expansionWaves } from '../roadmap.mjs';
 
 const tokenDirectory = new URL('../tokens/', import.meta.url);
 const manifestPath = new URL('../assets/system-manifest.json', import.meta.url);
@@ -38,13 +40,20 @@ const manifest = {
     component_groups: componentGroups.length,
     svg_groups: svgPrimitives.length,
     rendering_checks: renderingChecklist.length,
-    core_tokens: Object.keys(tokenMap).length
+    core_tokens: Object.keys(tokenMap).length,
+    icon_categories: iconCategories.length,
+    code_icons: iconCatalog.length,
+    expansion_waves: expansionWaves.length
   },
   chapters: systemChapters,
   deliverables: [
     'tokens/psm-tokens.wxss',
     'tokens/psm-components.wxss',
-    'assets/generated/*.svg'
+    'assets/generated/*.svg',
+    'icons/generated/*.svg',
+    'icons/psm-icons.svg',
+    'icons/manifest.json',
+    'roadmap/expansion-plan.json'
   ],
   constraints: {
     generated_images: false,

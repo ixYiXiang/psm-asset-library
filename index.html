@@ -9,8 +9,8 @@
     />
     <meta name="color-scheme" content="light" />
     <title>PSM Code Lab · 完整代码规范</title>
-    <link rel="stylesheet" href="styles.css?v=7" />
-    <script type="module" src="app.js?v=6"></script>
+    <link rel="stylesheet" href="styles.css?v=8" />
+    <script type="module" src="app.js?v=7"></script>
   </head>
   <body>
     <a class="skip-link" href="#system">跳到完整规范</a>
@@ -28,6 +28,7 @@
       <nav class="site-nav" aria-label="页面导航">
         <a href="#foundation">规范总览</a>
         <a href="#system">完整系统</a>
+        <a href="#icons">图标库</a>
         <a href="#catalog">资产清单</a>
       </nav>
       <div class="build-state" aria-label="构建方式">
@@ -41,15 +42,16 @@
           <p class="eyebrow"><span>PSM / 代码原生实验</span><b>2026.08</b></p>
           <h1 id="hero-title"><span>不描摹图片。</span><span>让代码长出材质。</span></h1>
           <p class="hero-lede">
-            从环境、材质与光影，一直落实到字体、组件、SVG、WXSS 令牌与 17 项资产。
+            从环境、材质与光影，一直落实到字体、组件、SVG、WXSS 令牌、48 枚图标与 17 项资产。
             所有视觉都由可检查、可复制、可下载的代码构成。
           </p>
           <div class="hero-actions">
             <a class="button button-primary" href="#system">浏览完整规范</a>
-            <a class="button button-quiet" href="#catalog">查看 17 项资产</a>
+            <a class="button button-quiet" href="#icons">查看 48 枚图标</a>
           </div>
           <ul class="hero-facts" aria-label="实现约束">
             <li><span>10</span>系统章节</li>
+            <li><span>48</span>代码图标</li>
             <li><span>17</span>代码资产</li>
             <li><span>00</span>图片依赖</li>
           </ul>
@@ -184,10 +186,46 @@
         <div class="primitive-grid" id="primitive-grid"></div>
       </section>
 
+      <section id="icons" class="icon-library section-shell" aria-labelledby="icon-library-title">
+        <header class="section-heading icon-library-heading">
+          <div>
+            <p class="section-index">12 / CODE-NATIVE ICON LIBRARY</p>
+            <h2 id="icon-library-title">48 枚图标，先读懂再发光。</h2>
+          </div>
+          <div class="icon-library-coverage" aria-label="图标库完成情况">
+            <strong>8 × 6</strong>
+            <span>8 个语义类别 · 48 个稳定编号</span>
+          </div>
+        </header>
+        <p class="icon-scope-note">
+          图标使用统一 24 × 24 网格、1.7 线宽和圆角线端；小尺寸辨识与功能语义优先。
+          这是独立设计资产库，不会自动替换真实小程序里的 WeUI 功能图标。
+        </p>
+        <div class="icon-toolbar">
+          <div class="icon-filter-group" id="icon-filter-group" role="group" aria-label="按图标语义分类筛选"></div>
+          <p id="icon-result-count" aria-live="polite">显示 48 枚图标</p>
+        </div>
+        <div class="icon-grid" id="icon-grid"></div>
+        <p class="empty-filter" id="icon-empty-filter" hidden>这个语义分类暂时没有图标。</p>
+        <section class="icon-delivery" id="icon-delivery" aria-labelledby="icon-delivery-title">
+          <div>
+            <p class="section-index">SINGLE SOURCE / FOUR EXPORTS</p>
+            <h3 id="icon-delivery-title">单文件、Sprite、清单和 CSS 来自同一份定义。</h3>
+            <p>所有导出均使用 currentColor；消费组件负责颜色与状态，图标本体不塞入阴影或主题背景。</p>
+          </div>
+          <div class="icon-delivery-actions">
+            <button type="button" data-icon-export="copy-sprite">复制 Sprite</button>
+            <button type="button" data-icon-export="sprite">下载 Sprite</button>
+            <button type="button" data-icon-export="manifest">下载 Manifest</button>
+            <button type="button" data-icon-export="css">下载 CSS</button>
+          </div>
+        </section>
+      </section>
+
       <section id="catalog" class="catalog section-shell" aria-labelledby="catalog-title">
         <header class="section-heading catalog-heading">
           <div>
-            <p class="section-index">12 / ASSET CHECKLIST</p>
+            <p class="section-index">13 / ASSET CHECKLIST</p>
             <h2 id="catalog-title">17 项清单，全部重新绘制。</h2>
           </div>
           <div class="coverage" aria-label="资产清单完成情况">
@@ -213,9 +251,28 @@
         <p class="empty-filter" id="empty-filter" hidden>这个分类暂时没有代码资产。</p>
       </section>
 
+      <section id="roadmap" class="roadmap section-shell" aria-labelledby="roadmap-title">
+        <header class="section-heading roadmap-heading">
+          <div>
+            <p class="section-index">14 / CONTINUOUS EXPANSION</p>
+            <h2 id="roadmap-title">完成一波，再发现下一波。</h2>
+          </div>
+          <p>持续扩展不是无限堆数量，而是让真实语义缺口依次进入定义、绘制、导出、验证和发布循环。</p>
+        </header>
+        <div class="roadmap-grid" id="roadmap-grid"></div>
+        <div class="roadmap-loop-panel">
+          <div>
+            <p class="section-index">REPEATABLE PIPELINE</p>
+            <h3>可重复、可验证、可继续。</h3>
+            <p>W02 将再补 12 枚图标，达到早期概念中的约 60 枚基线；后续转向组件状态、主题令牌与工程适配。</p>
+          </div>
+          <ol id="roadmap-loop"></ol>
+        </div>
+      </section>
+
       <section class="rendering-guide section-shell" aria-labelledby="guide-title">
         <div class="guide-rail">
-          <p class="section-index">13 / HANDOFF</p>
+          <p class="section-index">15 / HANDOFF</p>
           <h2 id="guide-title">渲染不是装饰，<br />而是阅读秩序。</h2>
           <p>程序化版本仍遵守同一套 PSM 目标：一致、可读、层次、舒适、高效。</p>
         </div>

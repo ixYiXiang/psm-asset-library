@@ -1,0 +1,24 @@
+:root {
+  --psm-icon-size: 24px;
+  --psm-icon-stroke: currentColor;
+}
+
+.psm-icon {
+  display: inline-flex;
+  width: var(--psm-icon-size);
+  height: var(--psm-icon-size);
+  align-items: center;
+  justify-content: center;
+  color: var(--psm-icon-stroke);
+}
+
+.psm-icon > svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.psm-icon--sm { --psm-icon-size: 16px; }
+.psm-icon--md { --psm-icon-size: 24px; }
+.psm-icon--lg { --psm-icon-size: 32px; }
+.psm-icon--xl { --psm-icon-size: 64px; }

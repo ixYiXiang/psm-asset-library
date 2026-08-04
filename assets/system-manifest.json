@@ -14,7 +14,10 @@
     "component_groups": 8,
     "svg_groups": 10,
     "rendering_checks": 8,
-    "core_tokens": 36
+    "core_tokens": 36,
+    "icon_categories": 8,
+    "code_icons": 48,
+    "expansion_waves": 6
   },
   "chapters": [
     {
@@ -91,7 +94,11 @@
   "deliverables": [
     "tokens/psm-tokens.wxss",
     "tokens/psm-components.wxss",
-    "assets/generated/*.svg"
+    "assets/generated/*.svg",
+    "icons/generated/*.svg",
+    "icons/psm-icons.svg",
+    "icons/manifest.json",
+    "roadmap/expansion-plan.json"
   ],
   "constraints": {
     "generated_images": false,

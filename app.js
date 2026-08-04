@@ -1,5 +1,15 @@
 import { assetCatalog, getAsset, getAssetSvg, getHeroSvg } from './assets/catalog.mjs';
 import {
+  iconCatalog,
+  iconCategories,
+  getIcon,
+  getIconSvg,
+  getIconSprite,
+  getIconCss,
+  getIconManifest
+} from './icons/catalog.mjs';
+import { expansionWaves, continuousLoop } from './roadmap.mjs';
+import {
   systemChapters,
   world,
   materials,
@@ -60,6 +70,13 @@ const assetGrid = document.querySelector('#asset-grid');
 const filterGroup = document.querySelector('#filter-group');
 const resultCount = document.querySelector('#result-count');
 const emptyFilter = document.querySelector('#empty-filter');
+const iconGrid = document.querySelector('#icon-grid');
+const iconFilterGroup = document.querySelector('#icon-filter-group');
+const iconResultCount = document.querySelector('#icon-result-count');
+const iconEmptyFilter = document.querySelector('#icon-empty-filter');
+const iconDelivery = document.querySelector('#icon-delivery');
+const roadmapGrid = document.querySelector('#roadmap-grid');
+const roadmapLoop = document.querySelector('#roadmap-loop');
 const dialog = document.querySelector('#source-dialog');
 const sourceTitle = document.querySelector('#source-title');
 const sourceKicker = document.querySelector('#source-kicker');
@@ -72,7 +89,7 @@ const toast = document.querySelector('#toast');
 const systemNav = document.querySelector('#system-nav');
 const systemContent = document.querySelector('#system-content');
 
-let activeAssetId = null;
+let activeSource = null;
 
 function escapeHtml(value) {
   return String(value)
@@ -337,6 +354,58 @@ function renderAssets() {
   assetGrid.innerHTML = assetCatalog.map(renderAssetCard).join('');
 }
 
+function renderIconCard(icon) {
+  const sizePreviews = [16, 24, 32, 64].map((size) => [
+    '<div class="icon-size-sample" style="--icon-size:' + size + 'px">',
+    '<span>' + getIconSvg(icon.id, 'card-' + size) + '</span>',
+    '<small>' + size + '</small>',
+    '</div>'
+  ].join('')).join('');
+  return [
+    '<article class="icon-card" data-icon-category="' + icon.category + '" data-icon-id="' + icon.id + '" style="--icon-accent:' + icon.accent + '">',
+    '<header><span>' + icon.id + '</span><b>' + icon.category + ' / ' + escapeHtml(icon.categoryName) + '</b></header>',
+    '<div class="icon-stage" aria-label="' + escapeHtml(icon.name) + ' 图标的 16、24、32 与 64 像素预览">' + sizePreviews + '</div>',
+    '<div class="icon-copy"><h3>' + escapeHtml(icon.name) + ' <span>' + escapeHtml(icon.english) + '</span></h3><p>' + escapeHtml(icon.description) + '</p></div>',
+    '<footer>',
+    '<button type="button" data-icon-action="source" data-icon="' + icon.id + '">源码</button>',
+    '<button type="button" data-icon-action="copy" data-icon="' + icon.id + '">复制</button>',
+    '<button type="button" class="primary" data-icon-action="download" data-icon="' + icon.id + '">下载</button>',
+    '</footer>',
+    '</article>'
+  ].join('');
+}
+
+function renderIcons() {
+  const filterButtons = [
+    '<button type="button" class="icon-filter-button is-active" data-icon-filter="ALL" aria-pressed="true">全部 <span>' + iconCatalog.length + '</span></button>',
+    ...iconCategories.map((category) => '<button type="button" class="icon-filter-button" data-icon-filter="' + category.id + '" aria-pressed="false">' + category.id + ' · ' + category.name + ' <span>' + iconCatalog.filter((icon) => icon.category === category.id).length + '</span></button>')
+  ];
+  iconFilterGroup.innerHTML = filterButtons.join('');
+  iconGrid.innerHTML = iconCatalog.map(renderIconCard).join('');
+  iconResultCount.textContent = '显示 ' + iconCatalog.length + ' 枚图标';
+}
+
+function renderRoadmap() {
+  const statusLabels = {
+    complete: '已完成',
+    queued: '下一波',
+    planned: '已计划',
+    recurring: '持续循环'
+  };
+  roadmapGrid.innerHTML = expansionWaves.map((wave) => [
+    '<article class="roadmap-card roadmap-' + wave.status + '">',
+    '<header><span>' + wave.id + '</span><b>' + statusLabels[wave.status] + '</b></header>',
+    '<h3>' + wave.title + ' <span>' + wave.english + '</span></h3>',
+    '<p>' + wave.target + '</p>',
+    '<ul>' + wave.deliverables.map((item) => '<li>' + item + '</li>').join('') + '</ul>',
+    '<footer><strong>验收门</strong><span>' + wave.gate + '</span></footer>',
+    '</article>'
+  ].join('')).join('');
+  roadmapLoop.innerHTML = continuousLoop.map((step) => [
+    '<li><span>' + step[0] + '</span><div><strong>' + step[1] + '</strong><p>' + step[2] + '</p></div></li>'
+  ].join('')).join('');
+}
+
 function prettySvg(svg) {
   return svg
     .replace(/></g, '>\n<')
@@ -386,6 +455,20 @@ function downloadAsset(id) {
   showToast(id + '.svg 已生成下载');
 }
 
+function downloadIcon(id) {
+  const svg = getIconSvg(id, 'file');
+  const blob = new Blob([svg], { type: 'image/svg+xml;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = id + '.svg';
+  document.body.append(link);
+  link.click();
+  link.remove();
+  queueMicrotask(() => URL.revokeObjectURL(url));
+  showToast(id + '.svg 已生成下载');
+}
+
 function downloadText(filename, content, type = 'text/plain;charset=utf-8') {
   const blob = new Blob([content], { type });
   const url = URL.createObjectURL(blob);
@@ -402,12 +485,39 @@ function downloadText(filename, content, type = 'text/plain;charset=utf-8') {
 function openSourceDialog(id) {
   const asset = getAsset(id);
   if (!asset) return;
-  activeAssetId = id;
+  activeSource = {
+    id,
+    kind: 'asset',
+    filename: id + '.svg',
+    svg: getAssetSvg(id, 'file')
+  };
   const svg = getAssetSvg(id, 'dialog');
+  sourcePreview.classList.remove('is-icon');
   sourceKicker.textContent = asset.category + ' / ' + asset.categoryName + ' / SVG SOURCE';
   sourceTitle.textContent = asset.id + ' · ' + asset.name;
   sourcePreview.innerHTML = svg;
-  sourceCode.textContent = prettySvg(getAssetSvg(id, 'file'));
+  sourceCode.textContent = prettySvg(activeSource.svg);
+  if (typeof dialog.showModal === 'function') {
+    dialog.showModal();
+  } else {
+    dialog.setAttribute('open', '');
+  }
+}
+
+function openIconSourceDialog(id) {
+  const icon = getIcon(id);
+  if (!icon) return;
+  activeSource = {
+    id,
+    kind: 'icon',
+    filename: id + '.svg',
+    svg: getIconSvg(id, 'file')
+  };
+  sourcePreview.classList.add('is-icon');
+  sourceKicker.textContent = icon.category + ' / ' + icon.categoryEnglish + ' / 24 × 24 SVG';
+  sourceTitle.textContent = icon.id + ' · ' + icon.name + ' / ' + icon.english;
+  sourcePreview.innerHTML = getIconSvg(id, 'dialog');
+  sourceCode.textContent = prettySvg(activeSource.svg);
   if (typeof dialog.showModal === 'function') {
     dialog.showModal();
   } else {
@@ -440,10 +550,29 @@ function applyFilter(category) {
   emptyFilter.hidden = visible !== 0;
 }
 
+function applyIconFilter(category) {
+  const cards = [...iconGrid.querySelectorAll('.icon-card')];
+  let visible = 0;
+  cards.forEach((card) => {
+    const isVisible = category === 'ALL' || card.dataset.iconCategory === category;
+    card.hidden = !isVisible;
+    if (isVisible) visible += 1;
+  });
+  iconFilterGroup.querySelectorAll('.icon-filter-button').forEach((button) => {
+    const active = button.dataset.iconFilter === category;
+    button.classList.toggle('is-active', active);
+    button.setAttribute('aria-pressed', String(active));
+  });
+  iconResultCount.textContent = '显示 ' + visible + ' 枚图标';
+  iconEmptyFilter.hidden = visible !== 0;
+}
+
 heroStage.innerHTML = getHeroSvg();
 renderSystemAtlas();
 renderPrimitives();
 renderAssets();
+renderIcons();
+renderRoadmap();
 
 systemContent.addEventListener('click', async (event) => {
   const button = event.target.closest('[data-system-action]');
@@ -471,6 +600,61 @@ filterGroup.addEventListener('click', (event) => {
   const button = event.target.closest('.filter-button');
   if (!button) return;
   applyFilter(button.dataset.filter);
+});
+
+iconFilterGroup.addEventListener('click', (event) => {
+  const button = event.target.closest('.icon-filter-button');
+  if (!button) return;
+  applyIconFilter(button.dataset.iconFilter);
+});
+
+iconGrid.addEventListener('click', async (event) => {
+  const button = event.target.closest('[data-icon-action]');
+  if (!button) return;
+  const id = button.dataset.icon;
+  const action = button.dataset.iconAction;
+  if (action === 'source') {
+    openIconSourceDialog(id);
+    return;
+  }
+  if (action === 'download') {
+    downloadIcon(id);
+    return;
+  }
+  if (action === 'copy') {
+    try {
+      await copyText(getIconSvg(id, 'file'));
+      showToast(id + ' 的 SVG 源码已复制');
+    } catch {
+      showToast('复制未成功，请打开“源码”手动复制');
+    }
+  }
+});
+
+iconDelivery.addEventListener('click', async (event) => {
+  const button = event.target.closest('[data-icon-export]');
+  if (!button) return;
+  const action = button.dataset.iconExport;
+  if (action === 'sprite') {
+    downloadText('psm-icons.svg', getIconSprite(), 'image/svg+xml;charset=utf-8');
+    return;
+  }
+  if (action === 'css') {
+    downloadText('psm-icons.css', getIconCss(), 'text/css;charset=utf-8');
+    return;
+  }
+  if (action === 'manifest') {
+    downloadText('psm-icons-manifest.json', JSON.stringify(getIconManifest(), null, 2), 'application/json;charset=utf-8');
+    return;
+  }
+  if (action === 'copy-sprite') {
+    try {
+      await copyText(getIconSprite());
+      showToast('48 枚图标的 SVG Sprite 已复制');
+    } catch {
+      showToast('复制未成功，请下载 Sprite 文件');
+    }
+  }
 });
 
 assetGrid.addEventListener('click', async (event) => {
@@ -508,17 +692,22 @@ dialog.addEventListener('cancel', (event) => {
 });
 
 dialogCopyButton.addEventListener('click', async () => {
-  if (!activeAssetId) return;
+  if (!activeSource) return;
   try {
-    await copyText(getAssetSvg(activeAssetId, 'file'));
-    showToast(activeAssetId + ' 的 SVG 源码已复制');
+    await copyText(activeSource.svg);
+    showToast(activeSource.id + ' 的 SVG 源码已复制');
   } catch {
     showToast('复制未成功，请在源码区域手动选择');
   }
 });
 
 dialogDownloadButton.addEventListener('click', () => {
-  if (activeAssetId) downloadAsset(activeAssetId);
+  if (!activeSource) return;
+  if (activeSource.kind === 'icon') {
+    downloadIcon(activeSource.id);
+  } else {
+    downloadAsset(activeSource.id);
+  }
 });
 
 toast.addEventListener('click', hideToast);
