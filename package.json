@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "export": "node scripts/export-assets.mjs",
+    "export": "node scripts/export-all.mjs",
     "test": "node scripts/validate-assets.mjs"
   }
 }

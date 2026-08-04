@@ -1,0 +1,40 @@
+page {
+  --psm-color-bg: #E2E7EB;
+  --psm-color-bg-top: #F5F7FA;
+  --psm-color-bg-deep: #D7DEE5;
+  --psm-color-surface: #F6F7F8;
+  --psm-color-surface-bottom: #F7F9FA;
+  --psm-color-surface-muted: #EEF1F4;
+  --psm-color-primary: #329EE6;
+  --psm-color-primary-deep: #2D72CC;
+  --psm-color-primary-soft: #DCEEFF;
+  --psm-color-gold: #B58A3D;
+  --psm-color-gold-soft: #F5D37A;
+  --psm-color-text: #1D2936;
+  --psm-color-text-body: #334155;
+  --psm-color-text-muted: #64748B;
+  --psm-color-border: #C7D0D7;
+  --psm-color-border-soft: #E5E7EB;
+  --psm-color-success: #10B981;
+  --psm-color-warning: #FBBF24;
+  --psm-color-danger: #C7443B;
+  --psm-color-like: #D95D8C;
+  --psm-color-favorite: #B8872E;
+  --psm-color-overlay: rgba(31,42,53,.60);
+  --psm-color-tab-bridge-solid: rgba(247,249,250,.78);
+  --psm-color-tab-bridge-tail: rgba(247,249,250,.64);
+  --psm-border-width: 1rpx;
+  --psm-radius-control: 18rpx;
+  --psm-radius-surface: 22rpx;
+  --psm-radius-modal: 24rpx;
+  --psm-shadow-contact: 0 2rpx 4rpx rgba(35,50,69,.30);
+  --psm-shadow-surface: 0 6rpx 16rpx rgba(31,44,58,.10);
+  --psm-shadow-structure: 5rpx 8rpx 14rpx rgba(45,62,84,.20);
+  --psm-z-navigation: 1000;
+  --psm-z-light: 4800;
+  --psm-z-theme-curtain: 4900;
+  --psm-z-modal: 5000;
+  --psm-z-progress: 5200;
+}
+
+/* PSM 静态 UI：动效令牌仅登记，不作为视觉品质依赖。 */

@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "name": "PSM Complete System",
+  "source_of_truth": "system.mjs",
+  "strategy": "code-native",
+  "coverage": {
+    "chapters": 10,
+    "materials": 4,
+    "light_layers": 5,
+    "shadow_levels": 4,
+    "texture_layers": 4,
+    "semantic_colors": 8,
+    "type_levels": 8,
+    "component_groups": 8,
+    "svg_groups": 10,
+    "rendering_checks": 8,
+    "core_tokens": 36
+  },
+  "chapters": [
+    {
+      "id": "world",
+      "index": "01",
+      "title": "世界",
+      "english": "World",
+      "summary": "环境底色、空气感、留白与统一光源方向。"
+    },
+    {
+      "id": "material",
+      "index": "02",
+      "title": "材质",
+      "english": "Material",
+      "summary": "白瓷、磨砂、矿物与透明表面的边缘行为。"
+    },
+    {
+      "id": "lighting",
+      "index": "03",
+      "title": "光影",
+      "english": "Lighting & Shadow",
+      "summary": "五层光线、强度比例、色温与阴影尺度。"
+    },
+    {
+      "id": "texture",
+      "index": "04",
+      "title": "纹理",
+      "english": "Texture",
+      "summary": "低密度纹理层、组合强度与光线响应。"
+    },
+    {
+      "id": "color",
+      "index": "05",
+      "title": "色彩",
+      "english": "Color",
+      "summary": "主色、辅助色、语义色、中性色与使用比例。"
+    },
+    {
+      "id": "type",
+      "index": "06",
+      "title": "字体与层级",
+      "english": "Type & Hierarchy",
+      "summary": "字号、字重、行高、字距、对齐与阅读优先级。"
+    },
+    {
+      "id": "components",
+      "index": "07",
+      "title": "组件",
+      "english": "Components",
+      "summary": "按钮、卡片、标签、输入、导航、弹窗与反馈状态。"
+    },
+    {
+      "id": "svg",
+      "index": "08",
+      "title": "SVG 语汇",
+      "english": "SVG Language",
+      "summary": "十组可复用的代码绘图基础语汇与使用边界。"
+    },
+    {
+      "id": "tokens",
+      "index": "09",
+      "title": "WXSS 令牌",
+      "english": "WXSS Tokens",
+      "summary": "颜色、间距、圆角、字体、边框、层级与主题变量。"
+    },
+    {
+      "id": "guide",
+      "index": "10",
+      "title": "渲染规范",
+      "english": "Rendering Guide",
+      "summary": "层级规则、交互反馈、应用法则与检查清单。"
+    }
+  ],
+  "deliverables": [
+    "tokens/psm-tokens.wxss",
+    "tokens/psm-components.wxss",
+    "assets/generated/*.svg"
+  ],
+  "constraints": {
+    "generated_images": false,
+    "traced_reference_images": false,
+    "external_image_dependencies": false,
+    "business_ui_depends_on_decorative_svg": false,
+    "static_material_first": true
+  }
+}

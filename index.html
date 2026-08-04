@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="PSM Code Lab：以 SVG、CSS 与程序化图形重新诠释 Prestige Soft Material 资产清单。"
+      content="PSM Code Lab：以 SVG、CSS、WXSS 令牌与程序化图形完整诠释 Prestige Soft Material 设计系统。"
     />
     <meta name="color-scheme" content="light" />
-    <title>PSM Code Lab · 程序化资产库</title>
-    <link rel="stylesheet" href="styles.css?v=6" />
-    <script type="module" src="app.js?v=5"></script>
+    <title>PSM Code Lab · 完整代码规范</title>
+    <link rel="stylesheet" href="styles.css?v=7" />
+    <script type="module" src="app.js?v=6"></script>
   </head>
   <body>
-    <a class="skip-link" href="#catalog">跳到资产清单</a>
+    <a class="skip-link" href="#system">跳到完整规范</a>
 
     <header class="site-header">
       <a class="brand" href="#top" aria-label="PSM Code Lab 首页">
@@ -26,8 +26,8 @@
         </span>
       </a>
       <nav class="site-nav" aria-label="页面导航">
-        <a href="#foundation">系统基线</a>
-        <a href="#primitives">绘图语汇</a>
+        <a href="#foundation">规范总览</a>
+        <a href="#system">完整系统</a>
         <a href="#catalog">资产清单</a>
       </nav>
       <div class="build-state" aria-label="构建方式">
@@ -41,17 +41,17 @@
           <p class="eyebrow"><span>PSM / 代码原生实验</span><b>2026.08</b></p>
           <h1 id="hero-title"><span>不描摹图片。</span><span>让代码长出材质。</span></h1>
           <p class="hero-lede">
-            以 SVG 几何、渐变、滤镜与 CSS 令牌，从零构造 PSM 的环境、光影、材质、模块插图、空状态与徽章。
-            每一项都可以检查源码、复制和下载。
+            从环境、材质与光影，一直落实到字体、组件、SVG、WXSS 令牌与 17 项资产。
+            所有视觉都由可检查、可复制、可下载的代码构成。
           </p>
           <div class="hero-actions">
-            <a class="button button-primary" href="#catalog">查看 17 项资产</a>
-            <a class="button button-quiet" href="#foundation">理解 PSM 语言</a>
+            <a class="button button-primary" href="#system">浏览完整规范</a>
+            <a class="button button-quiet" href="#catalog">查看 17 项资产</a>
           </div>
           <ul class="hero-facts" aria-label="实现约束">
-            <li><span>01</span>零外部图片</li>
-            <li><span>02</span>零描摹转印</li>
-            <li><span>03</span>参数可追溯</li>
+            <li><span>10</span>系统章节</li>
+            <li><span>17</span>代码资产</li>
+            <li><span>00</span>图片依赖</li>
           </ul>
         </div>
 
@@ -81,8 +81,8 @@
       <section id="foundation" class="foundation section-shell" aria-labelledby="foundation-title">
         <header class="section-heading">
           <div>
-            <p class="section-index">01 / FOUNDATION</p>
-            <h2 id="foundation-title">先建立世界，再绘制资产。</h2>
+            <p class="section-index">00 / SYSTEM OVERVIEW</p>
+            <h2 id="foundation-title">先理解系统，再调用资产。</h2>
           </div>
           <p>
             PSM 不是颗粒滤镜，而是一套关于环境、材料、光线和阅读秩序的约束。
@@ -155,10 +155,28 @@
         </div>
       </section>
 
+      <section id="system" class="system-atlas section-shell" aria-labelledby="system-title">
+        <header class="section-heading system-heading">
+          <div>
+            <p class="section-index">01–10 / COMPLETE PSM SYSTEM</p>
+            <h2 id="system-title">完整规范，不再只做摘要。</h2>
+          </div>
+          <div class="system-coverage" aria-label="规范章节完成度">
+            <strong>10 / 10</strong>
+            <span>环境到交付全部代码化</span>
+          </div>
+        </header>
+        <p class="system-scope-note">
+          本站是设计研究与资产交付层：用代码展示 PSM 能力；真实小程序仍以信息结构、组件与 WXSS 令牌为主，不强制依赖装饰 SVG。
+        </p>
+        <nav class="system-nav" id="system-nav" aria-label="PSM 完整规范章节"></nav>
+        <div class="system-content" id="system-content"></div>
+      </section>
+
       <section id="primitives" class="primitive-section section-shell" aria-labelledby="primitive-title">
         <header class="section-heading compact-heading">
           <div>
-            <p class="section-index">02 / DRAWING LANGUAGE</p>
+            <p class="section-index">11 / DRAWING LANGUAGE</p>
             <h2 id="primitive-title">10 组程序化绘图语汇</h2>
           </div>
           <p>所有清单资产只从这些基础语汇组合，不调用外部图像。</p>
@@ -169,7 +187,7 @@
       <section id="catalog" class="catalog section-shell" aria-labelledby="catalog-title">
         <header class="section-heading catalog-heading">
           <div>
-            <p class="section-index">03 / ASSET CHECKLIST</p>
+            <p class="section-index">12 / ASSET CHECKLIST</p>
             <h2 id="catalog-title">17 项清单，全部重新绘制。</h2>
           </div>
           <div class="coverage" aria-label="资产清单完成情况">
@@ -197,7 +215,7 @@
 
       <section class="rendering-guide section-shell" aria-labelledby="guide-title">
         <div class="guide-rail">
-          <p class="section-index">04 / RENDERING GUIDE</p>
+          <p class="section-index">13 / HANDOFF</p>
           <h2 id="guide-title">渲染不是装饰，<br />而是阅读秩序。</h2>
           <p>程序化版本仍遵守同一套 PSM 目标：一致、可读、层次、舒适、高效。</p>
         </div>

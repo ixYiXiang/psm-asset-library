@@ -1,10 +1,31 @@
 # PSM Code Lab
 
-PSM Code Lab 是「AI 编程日志」项目的程序化视觉资产实验库。PSM 全称 **Prestige Soft Material**。
+PSM Code Lab 是「AI 编程日志」项目的完整程序化视觉规范与资产实验库。PSM 全称 **Prestige Soft Material**。
 
 本版从零重建原 GitHub Pages：不调用图像生成，不把参考图切片、描摹或作为网页背景，也不使用旧 PNG 参与页面渲染。环境、光影、材质、模块插图、空状态和徽章全部由 SVG、CSS、渐变、滤镜与几何图形构成。
 
-## 当前覆盖
+## 完整系统覆盖
+
+网页现在覆盖 10 个可核查章节：
+
+1. 世界 World
+2. 材质 Material
+3. 光影与阴影 Lighting & Shadow
+4. 纹理 Texture
+5. 色彩 Color
+6. 字体与层级 Type & Hierarchy
+7. 组件 Components
+8. SVG 语汇 SVG Language
+9. WXSS 令牌 WXSS Tokens
+10. 渲染规范 Rendering Guide
+
+系统单一数据源是 [system.mjs](system.mjs)，并生成：
+
+- [tokens/psm-tokens.wxss](tokens/psm-tokens.wxss)
+- [tokens/psm-components.wxss](tokens/psm-components.wxss)
+- [assets/system-manifest.json](assets/system-manifest.json)
+
+## 资产清单覆盖
 
 Notion 资产清单中的 17 项已全部生成代码候选：
 
@@ -31,6 +52,6 @@ Notion 资产清单中的 17 项已全部生成代码候选：
     npm run export
     npm test
 
-验证内容包括：17 项清单覆盖、编号唯一性、SVG 与源定义一致、manifest 同步、无图片嵌入、无外部资源、无动画依赖，以及最小显式字号不低于 12px。
+验证内容包括：10 个系统章节、17 项资产清单、WXSS 导出一致性、编号唯一性、SVG 与源定义一致、manifest 同步、无图片嵌入、无外部资源、无动画依赖，以及最小显式字号不低于 12px。
 
 GitHub Pages：<https://ixyixiang.github.io/psm-asset-library/>

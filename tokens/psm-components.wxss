@@ -1,0 +1,28 @@
+.psm-surface {
+  border: var(--psm-border-width) solid var(--psm-color-border);
+  border-radius: var(--psm-radius-surface);
+  background: var(--psm-color-surface);
+  box-shadow: var(--psm-shadow-surface), inset 1rpx 1rpx 0 rgba(255,255,255,.72);
+}
+
+.psm-button {
+  min-height: 72rpx;
+  border-radius: var(--psm-radius-control);
+  background: var(--psm-color-primary);
+  color: #FFFFFF;
+  font-size: 26rpx;
+  font-weight: 600;
+  box-shadow: var(--psm-shadow-contact);
+}
+
+.psm-field {
+  min-height: 72rpx;
+  border: var(--psm-border-width) solid var(--psm-color-border);
+  border-radius: var(--psm-radius-control);
+  background: #FFFFFF;
+  box-shadow: inset 0 2rpx 6rpx rgba(31,44,58,.06);
+}
+
+.psm-modal-root { position: fixed; top: 0; right: 0; bottom: 0; left: 0; z-index: var(--psm-z-modal); }
+.psm-modal-mask { position: absolute; top: 0; right: 0; bottom: 0; left: 0; background: var(--psm-color-overlay); }
+.psm-modal-card { border-radius: var(--psm-radius-modal); background: var(--psm-color-surface); box-shadow: 0 24rpx 60rpx rgba(31,44,58,.18); }
