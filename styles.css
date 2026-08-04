@@ -260,10 +260,15 @@ button {
   max-width: 720px;
   margin: 28px 0 25px;
   color: var(--psm-ink);
-  font-size: clamp(50px, 6.2vw, 94px);
+  font-size: clamp(52px, 5vw, 82px);
   font-weight: 680;
   letter-spacing: -0.07em;
   line-height: 0.99;
+}
+
+.hero h1 span {
+  display: block;
+  white-space: nowrap;
 }
 
 .hero-lede {
@@ -1657,7 +1662,7 @@ button {
 @media (max-width: 1180px) {
   :root { --shell: min(100% - 48px, 1380px); }
   .hero { grid-template-columns: minmax(0, 0.9fr) minmax(420px, 1.1fr); gap: 48px; }
-  .hero h1 { font-size: clamp(48px, 6.8vw, 78px); }
+  .hero h1 { font-size: clamp(44px, 4.1vw, 54px); }
   .primitive-grid { grid-template-columns: repeat(4, 1fr); }
   .asset-meta { grid-template-columns: repeat(2, 1fr); }
   .asset-meta div:nth-child(-n + 2) { border-bottom: 1px solid var(--psm-border); }
@@ -1686,7 +1691,7 @@ button {
   .build-state { display: none; }
   .brand-copy small { letter-spacing: 0; }
   .hero { padding-block: 66px 94px; }
-  .hero h1 { font-size: clamp(46px, 14vw, 68px); }
+  .hero h1 { font-size: clamp(42px, 11.5vw, 60px); }
   .hero-lede { font-size: 14px; line-height: 1.82; }
   .hero-facts { grid-template-columns: 1fr; }
   .hero-facts li + li { border-top: 1px solid var(--psm-border); border-left: 0; }
