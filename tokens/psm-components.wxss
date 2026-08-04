@@ -14,6 +14,15 @@
   font-weight: 600;
   box-shadow: var(--psm-shadow-contact);
 }
+.psm-state--focus { border-color: var(--psm-color-primary); box-shadow: 0 0 0 3rpx rgba(50,158,230,.14); }
+.psm-state--pressed { background: var(--psm-color-primary-deep); box-shadow: inset 0 4rpx 8rpx rgba(20,47,78,.22); }
+.psm-state--disabled { border-color: var(--psm-color-border-soft); background: var(--psm-color-surface-muted); color: var(--psm-color-text-muted); box-shadow: none; opacity: .58; }
+.psm-state--success { border-color: rgba(16,185,129,.34); background: rgba(16,185,129,.10); color: var(--psm-color-success); }
+.psm-state--warning { border-color: rgba(251,191,36,.42); background: rgba(251,191,36,.12); color: #9A6A12; }
+.psm-state--danger { border-color: rgba(199,68,59,.34); background: rgba(199,68,59,.10); color: var(--psm-color-danger); }
+.psm-state--info { border-color: rgba(50,158,230,.34); background: rgba(50,158,230,.10); color: var(--psm-color-primary-deep); }
+.psm-state--echo { border-color: rgba(108,92,231,.34); background: rgba(108,92,231,.10); color: #5B4CC4; }
+.psm-state--primary { border-color: var(--psm-color-primary); background: var(--psm-color-primary); color: #FFFFFF; }
 
 .psm-field {
   min-height: 72rpx;

@@ -13,17 +13,17 @@ This queue keeps the code-native PSM asset system reproducible. It does not auth
 
 ### W02 · 语义补全 / Semantic Extension
 
-- Status: in_progress
-- Target: 已补充 10 枚，当前 58 枚；剩余 2 个编号等待真实语义
+- Status: complete
+- Target: 已补充 10 枚，当前 58 枚；无依据的 2 个编号保持未分配
 - Deliverables: PSM-IC-049 关闭 / PSM-IC-050 复制 / PSM-IC-051 保存 / PSM-IC-052 下载 / PSM-IC-053 发布 / PSM-IC-054 提交审核 / PSM-IC-055 管理审核 / PSM-IC-056 举报 / PSM-IC-057 暂停回响 / PSM-IC-058 恢复回响 / W02-AD-001 动态覆盖数适配器 / W02-QA-001 语义与尺寸验收矩阵
-- Gate: 只登记正式基线或真实仓库操作支持的语义；未满足依据的两个稳定编号保持未分配。
+- Gate: 已通过：只登记正式基线或真实仓库操作支持的语义；未满足依据的两个稳定编号未被占用。
 
 ### W03 · 组件状态矩阵 / Component State Matrix
 
-- Status: planned
-- Target: 8 个组件组 × 默认、关注、按下、禁用与语义状态
-- Deliverables: 按钮状态 / 卡片状态 / 标签状态 / 输入状态 / 导航状态 / 弹窗状态 / 反馈状态 / 浮动操作状态
-- Gate: 状态由边缘、颜色和层级表达，不依赖动画或装饰图。
+- Status: complete
+- Target: 8 个真实组件组 × 默认、关注、按下、禁用与语义状态，共 40 个状态变体
+- Deliverables: W03-CS-001 按钮状态 / W03-CS-002 卡片状态 / W03-CS-003 标签状态 / W03-CS-004 输入状态 / W03-CS-005 导航状态 / W03-CS-006 弹窗状态 / W03-CS-007 反馈状态 / W03-CS-008 固定 / 浮动高优先级操作状态 / W03-AD-001 组件状态导出适配器 / W03-QA-001 组件状态与容器 QA 矩阵
+- Gate: 已通过：状态由边缘、颜色、层级和文案表达，不依赖动画、位移或装饰图片。
 
 ### W04 · 主题令牌包 / Theme Token Packs
 

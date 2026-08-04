@@ -242,22 +242,54 @@ function renderTypeChapter() {
   ].join(''));
 }
 
-function componentPreview(id) {
-  if (id === 'button') return '<div class="demo-buttons"><button>主要按钮</button><button class="pressed">按下</button><button class="disabled">禁用</button><button class="loading">加载中</button></div>';
-  if (id === 'card') return '<div class="demo-card"><span>效率</span><strong>AI 优化数据库查询性能</strong><p>将查询从 12s 降低到 320ms。</p><footer>PSM Team · 128</footer></div>';
-  if (id === 'tag') return '<div class="demo-tags"><span>效率</span><span>踩坑</span><span>学习</span><span>审核中</span><span>已通过</span><span>已拒绝</span></div>';
-  if (id === 'input') return '<div class="demo-inputs"><label>⌕ <span>搜索日志、标签或作者…</span></label><label><span>请输入内容…</span><b>0 / 50</b></label><label class="textarea"><span>记录你的思考与解决方案…</span></label></div>';
-  if (id === 'navigation') return '<div class="demo-navigation"><div><span>推荐</span><strong>最新</strong><span>关注</span><span>收藏</span></div><nav><b>⌂<small>首页</small></b><b>▤<small>学习</small></b><b class="nav-plus">＋</b><b>□<small>消息</small></b><b>○<small>我的</small></b></nav></div>';
-  if (id === 'dialog') return '<div class="demo-dialog"><i>i</i><strong>确认删除该日志？</strong><p>删除后将无法恢复。</p><div><button>取消</button><button>删除</button></div></div>';
-  if (id === 'feedback') return '<div class="demo-feedback"><p><i>✓</i>操作成功 <b>×</b></p><p><i>×</i>操作失败，请重试 <b>×</b></p><div class="skeleton"><i></i><i></i><i></i></div></div>';
-  return '<div class="demo-fab"><button>＋</button><button>✎</button><button>×</button><i>▣</i><i>□</i></div>';
+function renderComponentExample(group, state) {
+  const classes = 'component-state-sample sample-' + group.id + ' is-' + state.id + ' tone-' + state.tone;
+  const example = escapeHtml(state.example);
+  const disabled = state.id === 'disabled' ? ' disabled aria-disabled="true"' : '';
+
+  if (group.id === 'button') {
+    return '<button type="button" class="' + classes + '"' + disabled + '>' + example + '</button>';
+  }
+  if (group.id === 'card') {
+    return '<article class="' + classes + '"><span>' + example + '</span><strong>AI 编程日志</strong><small>内容与状态保持可读</small></article>';
+  }
+  if (group.id === 'tag') {
+    return '<span class="' + classes + '">' + example + '</span>';
+  }
+  if (group.id === 'input') {
+    return '<label class="' + classes + '"><span>' + example + '</span><b>' + (state.id === 'semantic' ? '!' : 'Aa') + '</b></label>';
+  }
+  if (group.id === 'navigation') {
+    return '<nav class="' + classes + '" aria-label="' + example + ' 状态预览"><span>工具</span><strong>' + example + '</strong><span>我的</span></nav>';
+  }
+  if (group.id === 'dialog') {
+    return '<section class="' + classes + '"><strong>' + example + '</strong><p>说明与后果保持清楚。</p><footer><span>取消</span><b>确认</b></footer></section>';
+  }
+  if (group.id === 'feedback') {
+    return '<div class="' + classes + '"><i>' + (state.id === 'semantic' ? '✓' : '•') + '</i><span>' + example + '</span></div>';
+  }
+  return '<div class="' + classes + '"><button type="button"' + disabled + '>' + example + '</button><small>固定操作</small></div>';
+}
+
+function componentPreview(group) {
+  return '<div class="component-state-grid">' + group.states.map((state) => [
+    '<section class="component-state-cell" data-component-state="' + state.id + '">',
+    '<header><b>' + state.label + '</b><span>' + state.english + '</span></header>',
+    renderComponentExample(group, state),
+    '<p>' + state.rule + '</p>',
+    '</section>'
+  ].join('')).join('') + '</div>';
 }
 
 function renderComponentsChapter() {
   const groups = componentGroups.map((group) => [
-    '<article class="component-spec-card"><header><h4>' + group.name + '</h4><span>' + group.states.join(' · ') + '</span></header><div class="component-demo component-' + group.id + '">' + componentPreview(group.id) + '</div></article>'
+    '<article class="component-spec-card" data-component-group="' + group.id + '" data-work-item="' + group.workItemId + '">',
+    '<header><div><code>' + group.workItemId + '</code><h4>' + group.english + ' / ' + group.name + '</h4></div><strong>' + group.states.length + ' STATES</strong></header>',
+    '<div class="component-containers"><b>真实容器</b><span>' + group.targetContainers.map(escapeHtml).join(' · ') + '</span></div>',
+    '<div class="component-demo component-' + group.id + '">' + componentPreview(group) + '</div>',
+    '</article>'
   ].join('')).join('');
-  return chapterShell('components', '<div class="component-overview-grid">' + groups + '</div><p class="component-rule-note">组件以统一令牌、光源、材质与状态规范构建；真实交互仍由组件代码承担，装饰不替代功能语义。</p>');
+  return chapterShell('components', '<div class="component-coverage"><strong>' + componentGroups.length + ' 组 × ' + componentGroups[0].states.length + ' 状态 = 40</strong><span>Default · Focus · Pressed · Disabled · Semantic</span></div><div class="component-overview-grid">' + groups + '</div><p class="component-rule-note">W03 状态矩阵以当前程序与仓库中的真实容器为依据；组件代码继续承担交互和可访问性，状态不依赖动画、位移或装饰图片。</p>');
 }
 
 function renderSvgChapter() {

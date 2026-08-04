@@ -10,10 +10,10 @@ export const expansionWaves = Object.freeze([
   },
   {
     id: 'W02',
-    status: 'in_progress',
+    status: 'complete',
     title: '语义补全',
     english: 'Semantic Extension',
-    target: '已补充 10 枚，当前 58 枚；剩余 2 个编号等待真实语义',
+    target: '已补充 10 枚，当前 58 枚；无依据的 2 个编号保持未分配',
     deliverables: [
       'PSM-IC-049 关闭',
       'PSM-IC-050 复制',
@@ -28,16 +28,27 @@ export const expansionWaves = Object.freeze([
       'W02-AD-001 动态覆盖数适配器',
       'W02-QA-001 语义与尺寸验收矩阵'
     ],
-    gate: '只登记正式基线或真实仓库操作支持的语义；未满足依据的两个稳定编号保持未分配。'
+    gate: '已通过：只登记正式基线或真实仓库操作支持的语义；未满足依据的两个稳定编号未被占用。'
   },
   {
     id: 'W03',
-    status: 'planned',
+    status: 'complete',
     title: '组件状态矩阵',
     english: 'Component State Matrix',
-    target: '8 个组件组 × 默认、关注、按下、禁用与语义状态',
-    deliverables: ['按钮状态', '卡片状态', '标签状态', '输入状态', '导航状态', '弹窗状态', '反馈状态', '浮动操作状态'],
-    gate: '状态由边缘、颜色和层级表达，不依赖动画或装饰图。'
+    target: '8 个真实组件组 × 默认、关注、按下、禁用与语义状态，共 40 个状态变体',
+    deliverables: [
+      'W03-CS-001 按钮状态',
+      'W03-CS-002 卡片状态',
+      'W03-CS-003 标签状态',
+      'W03-CS-004 输入状态',
+      'W03-CS-005 导航状态',
+      'W03-CS-006 弹窗状态',
+      'W03-CS-007 反馈状态',
+      'W03-CS-008 固定 / 浮动高优先级操作状态',
+      'W03-AD-001 组件状态导出适配器',
+      'W03-QA-001 组件状态与容器 QA 矩阵'
+    ],
+    gate: '已通过：状态由边缘、颜色、层级和文案表达，不依赖动画、位移或装饰图片。'
   },
   {
     id: 'W04',
@@ -82,8 +93,8 @@ export function getRoadmapManifest() {
     schema_version: 1,
     name: 'PSM Continuous Expansion Roadmap',
     source_of_truth: 'roadmap.mjs',
-    current_wave: 'W02',
-    next_wave: 'W03',
+    current_wave: 'W03',
+    next_wave: 'W04',
     principles: [
       'semantic recognition before material unity',
       'code-native drawing only',

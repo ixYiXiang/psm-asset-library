@@ -1,0 +1,836 @@
+{
+  "schema_version": 1,
+  "name": "PSM Component State Matrix",
+  "version": "1.0.0",
+  "source_of_truth": "system.mjs",
+  "strategy": "code-native-component-states",
+  "coverage": {
+    "groups": 8,
+    "state_types": 5,
+    "state_variants": 40,
+    "work_items": 10
+  },
+  "acceptance_viewports": [
+    360,
+    768,
+    1280
+  ],
+  "state_order": [
+    {
+      "id": "default",
+      "label": "默认",
+      "english": "Default",
+      "rule": "保持真实组件的常规层级与可读性。"
+    },
+    {
+      "id": "focus",
+      "label": "关注",
+      "english": "Focus",
+      "rule": "使用清楚的轮廓与边缘反馈，不依赖位移或缩放。"
+    },
+    {
+      "id": "pressed",
+      "label": "按下",
+      "english": "Pressed",
+      "rule": "以短接触影和明度变化表达按下，不改变布局尺寸。"
+    },
+    {
+      "id": "disabled",
+      "label": "禁用",
+      "english": "Disabled",
+      "rule": "降低对比并移除可操作阴影，同时保留状态文案。"
+    },
+    {
+      "id": "semantic",
+      "label": "语义",
+      "english": "Semantic",
+      "rule": "使用成功、警告、危险、信息或回响色，并保留文字说明。"
+    }
+  ],
+  "groups": [
+    {
+      "id": "button",
+      "workItemId": "W03-CS-001",
+      "name": "按钮",
+      "english": "Button",
+      "targetContainers": [
+        "文档导出主按钮",
+        "日志发布与提交审核",
+        "隐私提示双按钮"
+      ],
+      "semanticTone": "danger",
+      "stateExamples": [
+        "导出文档",
+        "键盘关注",
+        "确认提交",
+        "条件不足",
+        "删除日志"
+      ],
+      "stateExamplesEnglish": [
+        "Export document",
+        "Keyboard focus",
+        "Confirm submit",
+        "Unavailable",
+        "Delete log"
+      ],
+      "states": [
+        {
+          "id": "default",
+          "label": "默认",
+          "english": "Default",
+          "rule": "保持真实组件的常规层级与可读性。",
+          "example": "导出文档",
+          "exampleEnglish": "Export document",
+          "tone": "default"
+        },
+        {
+          "id": "focus",
+          "label": "关注",
+          "english": "Focus",
+          "rule": "使用清楚的轮廓与边缘反馈，不依赖位移或缩放。",
+          "example": "键盘关注",
+          "exampleEnglish": "Keyboard focus",
+          "tone": "focus"
+        },
+        {
+          "id": "pressed",
+          "label": "按下",
+          "english": "Pressed",
+          "rule": "以短接触影和明度变化表达按下，不改变布局尺寸。",
+          "example": "确认提交",
+          "exampleEnglish": "Confirm submit",
+          "tone": "pressed"
+        },
+        {
+          "id": "disabled",
+          "label": "禁用",
+          "english": "Disabled",
+          "rule": "降低对比并移除可操作阴影，同时保留状态文案。",
+          "example": "条件不足",
+          "exampleEnglish": "Unavailable",
+          "tone": "disabled"
+        },
+        {
+          "id": "semantic",
+          "label": "语义",
+          "english": "Semantic",
+          "rule": "使用成功、警告、危险、信息或回响色，并保留文字说明。",
+          "example": "删除日志",
+          "exampleEnglish": "Delete log",
+          "tone": "danger"
+        }
+      ]
+    },
+    {
+      "id": "card",
+      "workItemId": "W03-CS-002",
+      "name": "卡片",
+      "english": "Card",
+      "targetContainers": [
+        "日志列表卡片",
+        "本地事务三项预览",
+        "管理员审核列表"
+      ],
+      "semanticTone": "warning",
+      "stateExamples": [
+        "日志摘要",
+        "当前选中",
+        "正在打开",
+        "已停用事务",
+        "逾期事务"
+      ],
+      "stateExamplesEnglish": [
+        "Log summary",
+        "Selected card",
+        "Opening",
+        "Disabled item",
+        "Overdue task"
+      ],
+      "states": [
+        {
+          "id": "default",
+          "label": "默认",
+          "english": "Default",
+          "rule": "保持真实组件的常规层级与可读性。",
+          "example": "日志摘要",
+          "exampleEnglish": "Log summary",
+          "tone": "default"
+        },
+        {
+          "id": "focus",
+          "label": "关注",
+          "english": "Focus",
+          "rule": "使用清楚的轮廓与边缘反馈，不依赖位移或缩放。",
+          "example": "当前选中",
+          "exampleEnglish": "Selected card",
+          "tone": "focus"
+        },
+        {
+          "id": "pressed",
+          "label": "按下",
+          "english": "Pressed",
+          "rule": "以短接触影和明度变化表达按下，不改变布局尺寸。",
+          "example": "正在打开",
+          "exampleEnglish": "Opening",
+          "tone": "pressed"
+        },
+        {
+          "id": "disabled",
+          "label": "禁用",
+          "english": "Disabled",
+          "rule": "降低对比并移除可操作阴影，同时保留状态文案。",
+          "example": "已停用事务",
+          "exampleEnglish": "Disabled item",
+          "tone": "disabled"
+        },
+        {
+          "id": "semantic",
+          "label": "语义",
+          "english": "Semantic",
+          "rule": "使用成功、警告、危险、信息或回响色，并保留文字说明。",
+          "example": "逾期事务",
+          "exampleEnglish": "Overdue task",
+          "tone": "warning"
+        }
+      ]
+    },
+    {
+      "id": "tag",
+      "workItemId": "W03-CS-003",
+      "name": "标签与徽标",
+      "english": "Tag / Badge",
+      "targetContainers": [
+        "日志类型标签",
+        "审核状态标签",
+        "事务时间状态"
+      ],
+      "semanticTone": "success",
+      "stateExamples": [
+        "效率",
+        "已聚焦",
+        "已选择",
+        "不可选择",
+        "已通过"
+      ],
+      "stateExamplesEnglish": [
+        "Efficiency",
+        "Focused",
+        "Selected",
+        "Unavailable",
+        "Approved"
+      ],
+      "states": [
+        {
+          "id": "default",
+          "label": "默认",
+          "english": "Default",
+          "rule": "保持真实组件的常规层级与可读性。",
+          "example": "效率",
+          "exampleEnglish": "Efficiency",
+          "tone": "default"
+        },
+        {
+          "id": "focus",
+          "label": "关注",
+          "english": "Focus",
+          "rule": "使用清楚的轮廓与边缘反馈，不依赖位移或缩放。",
+          "example": "已聚焦",
+          "exampleEnglish": "Focused",
+          "tone": "focus"
+        },
+        {
+          "id": "pressed",
+          "label": "按下",
+          "english": "Pressed",
+          "rule": "以短接触影和明度变化表达按下，不改变布局尺寸。",
+          "example": "已选择",
+          "exampleEnglish": "Selected",
+          "tone": "pressed"
+        },
+        {
+          "id": "disabled",
+          "label": "禁用",
+          "english": "Disabled",
+          "rule": "降低对比并移除可操作阴影，同时保留状态文案。",
+          "example": "不可选择",
+          "exampleEnglish": "Unavailable",
+          "tone": "disabled"
+        },
+        {
+          "id": "semantic",
+          "label": "语义",
+          "english": "Semantic",
+          "rule": "使用成功、警告、危险、信息或回响色，并保留文字说明。",
+          "example": "已通过",
+          "exampleEnglish": "Approved",
+          "tone": "success"
+        }
+      ]
+    },
+    {
+      "id": "input",
+      "workItemId": "W03-CS-004",
+      "name": "输入",
+      "english": "Input",
+      "targetContainers": [
+        "综合搜索框",
+        "事务名称输入",
+        "日志标题与正文编辑"
+      ],
+      "semanticTone": "danger",
+      "stateExamples": [
+        "输入内容",
+        "正在编辑",
+        "确认输入",
+        "只读字段",
+        "必填项缺失"
+      ],
+      "stateExamplesEnglish": [
+        "Enter content",
+        "Editing",
+        "Confirm input",
+        "Read-only",
+        "Required missing"
+      ],
+      "states": [
+        {
+          "id": "default",
+          "label": "默认",
+          "english": "Default",
+          "rule": "保持真实组件的常规层级与可读性。",
+          "example": "输入内容",
+          "exampleEnglish": "Enter content",
+          "tone": "default"
+        },
+        {
+          "id": "focus",
+          "label": "关注",
+          "english": "Focus",
+          "rule": "使用清楚的轮廓与边缘反馈，不依赖位移或缩放。",
+          "example": "正在编辑",
+          "exampleEnglish": "Editing",
+          "tone": "focus"
+        },
+        {
+          "id": "pressed",
+          "label": "按下",
+          "english": "Pressed",
+          "rule": "以短接触影和明度变化表达按下，不改变布局尺寸。",
+          "example": "确认输入",
+          "exampleEnglish": "Confirm input",
+          "tone": "pressed"
+        },
+        {
+          "id": "disabled",
+          "label": "禁用",
+          "english": "Disabled",
+          "rule": "降低对比并移除可操作阴影，同时保留状态文案。",
+          "example": "只读字段",
+          "exampleEnglish": "Read-only",
+          "tone": "disabled"
+        },
+        {
+          "id": "semantic",
+          "label": "语义",
+          "english": "Semantic",
+          "rule": "使用成功、警告、危险、信息或回响色，并保留文字说明。",
+          "example": "必填项缺失",
+          "exampleEnglish": "Required missing",
+          "tone": "danger"
+        }
+      ]
+    },
+    {
+      "id": "navigation",
+      "workItemId": "W03-CS-005",
+      "name": "导航",
+      "english": "Navigation",
+      "targetContainers": [
+        "五项常驻底部导航",
+        "效率 / 踩坑分段控件",
+        "Radio 时间选择芯片"
+      ],
+      "semanticTone": "echo",
+      "stateExamples": [
+        "工具",
+        "日志",
+        "搜索",
+        "夜幕占位",
+        "回响模式"
+      ],
+      "stateExamplesEnglish": [
+        "Tools",
+        "Logs",
+        "Search",
+        "Night placeholder",
+        "Echo mode"
+      ],
+      "states": [
+        {
+          "id": "default",
+          "label": "默认",
+          "english": "Default",
+          "rule": "保持真实组件的常规层级与可读性。",
+          "example": "工具",
+          "exampleEnglish": "Tools",
+          "tone": "default"
+        },
+        {
+          "id": "focus",
+          "label": "关注",
+          "english": "Focus",
+          "rule": "使用清楚的轮廓与边缘反馈，不依赖位移或缩放。",
+          "example": "日志",
+          "exampleEnglish": "Logs",
+          "tone": "focus"
+        },
+        {
+          "id": "pressed",
+          "label": "按下",
+          "english": "Pressed",
+          "rule": "以短接触影和明度变化表达按下，不改变布局尺寸。",
+          "example": "搜索",
+          "exampleEnglish": "Search",
+          "tone": "pressed"
+        },
+        {
+          "id": "disabled",
+          "label": "禁用",
+          "english": "Disabled",
+          "rule": "降低对比并移除可操作阴影，同时保留状态文案。",
+          "example": "夜幕占位",
+          "exampleEnglish": "Night placeholder",
+          "tone": "disabled"
+        },
+        {
+          "id": "semantic",
+          "label": "语义",
+          "english": "Semantic",
+          "rule": "使用成功、警告、危险、信息或回响色，并保留文字说明。",
+          "example": "回响模式",
+          "exampleEnglish": "Echo mode",
+          "tone": "echo"
+        }
+      ]
+    },
+    {
+      "id": "dialog",
+      "workItemId": "W03-CS-006",
+      "name": "弹窗与面板",
+      "english": "Modal / Dialog",
+      "targetContainers": [
+        "隐私提示",
+        "本地事务管理面板",
+        "删除与注销确认"
+      ],
+      "semanticTone": "danger",
+      "stateExamples": [
+        "说明弹窗",
+        "键盘焦点",
+        "确认操作",
+        "等待条件",
+        "危险确认"
+      ],
+      "stateExamplesEnglish": [
+        "Information",
+        "Keyboard focus",
+        "Confirm action",
+        "Waiting",
+        "Destructive"
+      ],
+      "states": [
+        {
+          "id": "default",
+          "label": "默认",
+          "english": "Default",
+          "rule": "保持真实组件的常规层级与可读性。",
+          "example": "说明弹窗",
+          "exampleEnglish": "Information",
+          "tone": "default"
+        },
+        {
+          "id": "focus",
+          "label": "关注",
+          "english": "Focus",
+          "rule": "使用清楚的轮廓与边缘反馈，不依赖位移或缩放。",
+          "example": "键盘焦点",
+          "exampleEnglish": "Keyboard focus",
+          "tone": "focus"
+        },
+        {
+          "id": "pressed",
+          "label": "按下",
+          "english": "Pressed",
+          "rule": "以短接触影和明度变化表达按下，不改变布局尺寸。",
+          "example": "确认操作",
+          "exampleEnglish": "Confirm action",
+          "tone": "pressed"
+        },
+        {
+          "id": "disabled",
+          "label": "禁用",
+          "english": "Disabled",
+          "rule": "降低对比并移除可操作阴影，同时保留状态文案。",
+          "example": "等待条件",
+          "exampleEnglish": "Waiting",
+          "tone": "disabled"
+        },
+        {
+          "id": "semantic",
+          "label": "语义",
+          "english": "Semantic",
+          "rule": "使用成功、警告、危险、信息或回响色，并保留文字说明。",
+          "example": "危险确认",
+          "exampleEnglish": "Destructive",
+          "tone": "danger"
+        }
+      ]
+    },
+    {
+      "id": "feedback",
+      "workItemId": "W03-CS-007",
+      "name": "反馈",
+      "english": "Feedback",
+      "targetContainers": [
+        "搜索完成状态条",
+        "本地保存结果",
+        "加载失败与空状态"
+      ],
+      "semanticTone": "success",
+      "stateExamples": [
+        "等待操作",
+        "当前提示",
+        "正在处理",
+        "无可用操作",
+        "保存成功"
+      ],
+      "stateExamplesEnglish": [
+        "Idle",
+        "Current notice",
+        "Processing",
+        "Unavailable",
+        "Saved"
+      ],
+      "states": [
+        {
+          "id": "default",
+          "label": "默认",
+          "english": "Default",
+          "rule": "保持真实组件的常规层级与可读性。",
+          "example": "等待操作",
+          "exampleEnglish": "Idle",
+          "tone": "default"
+        },
+        {
+          "id": "focus",
+          "label": "关注",
+          "english": "Focus",
+          "rule": "使用清楚的轮廓与边缘反馈，不依赖位移或缩放。",
+          "example": "当前提示",
+          "exampleEnglish": "Current notice",
+          "tone": "focus"
+        },
+        {
+          "id": "pressed",
+          "label": "按下",
+          "english": "Pressed",
+          "rule": "以短接触影和明度变化表达按下，不改变布局尺寸。",
+          "example": "正在处理",
+          "exampleEnglish": "Processing",
+          "tone": "pressed"
+        },
+        {
+          "id": "disabled",
+          "label": "禁用",
+          "english": "Disabled",
+          "rule": "降低对比并移除可操作阴影，同时保留状态文案。",
+          "example": "无可用操作",
+          "exampleEnglish": "Unavailable",
+          "tone": "disabled"
+        },
+        {
+          "id": "semantic",
+          "label": "语义",
+          "english": "Semantic",
+          "rule": "使用成功、警告、危险、信息或回响色，并保留文字说明。",
+          "example": "保存成功",
+          "exampleEnglish": "Saved",
+          "tone": "success"
+        }
+      ]
+    },
+    {
+      "id": "fab",
+      "workItemId": "W03-CS-008",
+      "name": "固定 / 浮动高优先级操作",
+      "english": "Fixed / Floating Action",
+      "targetContainers": [
+        "“我的”页固定发布操作栏",
+        "本地事务管理标题栏新增",
+        "Code Lab 源码复制与下载"
+      ],
+      "semanticTone": "primary",
+      "stateExamples": [
+        "新建草稿",
+        "发布日志",
+        "提交审核",
+        "审核中",
+        "新增事务"
+      ],
+      "stateExamplesEnglish": [
+        "New draft",
+        "Publish log",
+        "Submit review",
+        "In review",
+        "Add task"
+      ],
+      "states": [
+        {
+          "id": "default",
+          "label": "默认",
+          "english": "Default",
+          "rule": "保持真实组件的常规层级与可读性。",
+          "example": "新建草稿",
+          "exampleEnglish": "New draft",
+          "tone": "default"
+        },
+        {
+          "id": "focus",
+          "label": "关注",
+          "english": "Focus",
+          "rule": "使用清楚的轮廓与边缘反馈，不依赖位移或缩放。",
+          "example": "发布日志",
+          "exampleEnglish": "Publish log",
+          "tone": "focus"
+        },
+        {
+          "id": "pressed",
+          "label": "按下",
+          "english": "Pressed",
+          "rule": "以短接触影和明度变化表达按下，不改变布局尺寸。",
+          "example": "提交审核",
+          "exampleEnglish": "Submit review",
+          "tone": "pressed"
+        },
+        {
+          "id": "disabled",
+          "label": "禁用",
+          "english": "Disabled",
+          "rule": "降低对比并移除可操作阴影，同时保留状态文案。",
+          "example": "审核中",
+          "exampleEnglish": "In review",
+          "tone": "disabled"
+        },
+        {
+          "id": "semantic",
+          "label": "语义",
+          "english": "Semantic",
+          "rule": "使用成功、警告、危险、信息或回响色，并保留文字说明。",
+          "example": "新增事务",
+          "exampleEnglish": "Add task",
+          "tone": "primary"
+        }
+      ]
+    }
+  ],
+  "work_items": [
+    {
+      "id": "W03-CS-001",
+      "kind": "component-state",
+      "group": "button",
+      "name": "按钮",
+      "english": "Button",
+      "realSemantic": "按钮的默认、关注、按下、禁用与语义状态",
+      "targetContainers": [
+        "文档导出主按钮",
+        "日志发布与提交审核",
+        "隐私提示双按钮"
+      ],
+      "sourceFile": "system.mjs",
+      "acceptanceViewports": [
+        360,
+        768,
+        1280
+      ]
+    },
+    {
+      "id": "W03-CS-002",
+      "kind": "component-state",
+      "group": "card",
+      "name": "卡片",
+      "english": "Card",
+      "realSemantic": "卡片的默认、关注、按下、禁用与语义状态",
+      "targetContainers": [
+        "日志列表卡片",
+        "本地事务三项预览",
+        "管理员审核列表"
+      ],
+      "sourceFile": "system.mjs",
+      "acceptanceViewports": [
+        360,
+        768,
+        1280
+      ]
+    },
+    {
+      "id": "W03-CS-003",
+      "kind": "component-state",
+      "group": "tag",
+      "name": "标签与徽标",
+      "english": "Tag / Badge",
+      "realSemantic": "标签与徽标的默认、关注、按下、禁用与语义状态",
+      "targetContainers": [
+        "日志类型标签",
+        "审核状态标签",
+        "事务时间状态"
+      ],
+      "sourceFile": "system.mjs",
+      "acceptanceViewports": [
+        360,
+        768,
+        1280
+      ]
+    },
+    {
+      "id": "W03-CS-004",
+      "kind": "component-state",
+      "group": "input",
+      "name": "输入",
+      "english": "Input",
+      "realSemantic": "输入的默认、关注、按下、禁用与语义状态",
+      "targetContainers": [
+        "综合搜索框",
+        "事务名称输入",
+        "日志标题与正文编辑"
+      ],
+      "sourceFile": "system.mjs",
+      "acceptanceViewports": [
+        360,
+        768,
+        1280
+      ]
+    },
+    {
+      "id": "W03-CS-005",
+      "kind": "component-state",
+      "group": "navigation",
+      "name": "导航",
+      "english": "Navigation",
+      "realSemantic": "导航的默认、关注、按下、禁用与语义状态",
+      "targetContainers": [
+        "五项常驻底部导航",
+        "效率 / 踩坑分段控件",
+        "Radio 时间选择芯片"
+      ],
+      "sourceFile": "system.mjs",
+      "acceptanceViewports": [
+        360,
+        768,
+        1280
+      ]
+    },
+    {
+      "id": "W03-CS-006",
+      "kind": "component-state",
+      "group": "dialog",
+      "name": "弹窗与面板",
+      "english": "Modal / Dialog",
+      "realSemantic": "弹窗与面板的默认、关注、按下、禁用与语义状态",
+      "targetContainers": [
+        "隐私提示",
+        "本地事务管理面板",
+        "删除与注销确认"
+      ],
+      "sourceFile": "system.mjs",
+      "acceptanceViewports": [
+        360,
+        768,
+        1280
+      ]
+    },
+    {
+      "id": "W03-CS-007",
+      "kind": "component-state",
+      "group": "feedback",
+      "name": "反馈",
+      "english": "Feedback",
+      "realSemantic": "反馈的默认、关注、按下、禁用与语义状态",
+      "targetContainers": [
+        "搜索完成状态条",
+        "本地保存结果",
+        "加载失败与空状态"
+      ],
+      "sourceFile": "system.mjs",
+      "acceptanceViewports": [
+        360,
+        768,
+        1280
+      ]
+    },
+    {
+      "id": "W03-CS-008",
+      "kind": "component-state",
+      "group": "fab",
+      "name": "固定 / 浮动高优先级操作",
+      "english": "Fixed / Floating Action",
+      "realSemantic": "固定 / 浮动高优先级操作的默认、关注、按下、禁用与语义状态",
+      "targetContainers": [
+        "“我的”页固定发布操作栏",
+        "本地事务管理标题栏新增",
+        "Code Lab 源码复制与下载"
+      ],
+      "sourceFile": "system.mjs",
+      "acceptanceViewports": [
+        360,
+        768,
+        1280
+      ]
+    },
+    {
+      "id": "W03-AD-001",
+      "kind": "adapter",
+      "name": "组件状态导出适配器",
+      "realSemantic": "从 system.mjs 派生 WXSS、Manifest、README 与页面覆盖数",
+      "targetContainers": [
+        "GitHub Pages 组件章节",
+        "tokens/psm-components.wxss",
+        "components/manifest.json"
+      ],
+      "sourceFile": "scripts/export-component-states.mjs",
+      "acceptanceViewports": [
+        360,
+        768,
+        1280
+      ]
+    },
+    {
+      "id": "W03-QA-001",
+      "kind": "qa",
+      "name": "组件状态与容器 QA 矩阵",
+      "realSemantic": "逐组核对五态、真实容器、静态反馈与零栅格边界",
+      "targetContainers": [
+        "qa/w03-component-matrix.svg",
+        "scripts/validate-assets.mjs"
+      ],
+      "sourceFile": "qa/w03-component-state-matrix.mjs",
+      "acceptanceViewports": [
+        360,
+        768,
+        1280
+      ]
+    }
+  ],
+  "deliverables": [
+    "tokens/psm-components.wxss",
+    "components/manifest.json",
+    "components/README.md",
+    "qa/w03-component-matrix.svg"
+  ],
+  "constraints": {
+    "generated_images": false,
+    "raster_dependencies": false,
+    "animation_required": false,
+    "production_weui_replacement": false,
+    "production_miniprogram_modified": false
+  }
+}

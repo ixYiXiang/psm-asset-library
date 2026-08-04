@@ -12,6 +12,14 @@ import {
 import { expansionWaves, continuousLoop, getRoadmapManifest, getRoadmapMarkdown } from '../roadmap.mjs';
 import { w02BatchItems, w02IconItems, getW02QaSvg } from '../qa/w02-semantic-matrix.mjs';
 import {
+  componentAcceptanceViewports,
+  w03ComponentItems,
+  w03BatchItems,
+  getComponentStateManifest,
+  getComponentStateMarkdown
+} from '../components/catalog.mjs';
+import { getW03QaSvg } from '../qa/w03-component-state-matrix.mjs';
+import {
   systemChapters,
   tokenMap,
   materials,
@@ -20,6 +28,7 @@ import {
   textureLayers,
   colorGroups,
   typeScale,
+  componentStateOrder,
   componentGroups,
   svgPrimitives,
   renderingChecklist,
@@ -32,6 +41,7 @@ const generatedDirectory = new URL('../assets/generated/', import.meta.url);
 const iconDirectory = new URL('../icons/', import.meta.url);
 const iconGeneratedDirectory = new URL('../icons/generated/', import.meta.url);
 const roadmapDirectory = new URL('../roadmap/', import.meta.url);
+const componentDirectory = new URL('../components/', import.meta.url);
 const qaDirectory = new URL('../qa/', import.meta.url);
 const ids = assetCatalog.map((asset) => asset.id);
 const uniqueIds = new Set(ids);
@@ -127,6 +137,47 @@ assert.ok(!/<image\b/i.test(w02QaSvg), 'W02 QA matrix must not embed image eleme
 assert.ok(!/data:image/i.test(w02QaSvg), 'W02 QA matrix must not embed raster data.');
 assert.ok(!/(?:href|src)=["']https?:\/\//i.test(w02QaSvg), 'W02 QA matrix must not load external resources.');
 
+assert.equal(w03BatchItems.length, 10, 'W03 must publish eight component groups, one adapter and one QA item.');
+assert.ok(w03BatchItems.length <= 12, 'W03 must stay within the twelve-item release limit.');
+assert.equal(new Set(w03BatchItems.map((item) => item.id)).size, w03BatchItems.length, 'W03 work-item IDs must be unique.');
+assert.deepEqual(
+  w03ComponentItems.map((item) => item.id),
+  Array.from({ length: 8 }, (_, index) => 'W03-CS-' + String(index + 1).padStart(3, '0')),
+  'W03 component work items must remain contiguous and wave-scoped.'
+);
+assert.deepEqual(
+  w03BatchItems.filter((item) => item.kind !== 'component-state').map((item) => item.id),
+  ['W03-AD-001', 'W03-QA-001'],
+  'W03 adapter and QA items must use wave work-item IDs.'
+);
+assert.deepEqual(componentAcceptanceViewports, [360, 768, 1280], 'W03 must declare mobile, tablet and desktop acceptance viewports.');
+assert.deepEqual(componentStateOrder.map((state) => state.id), ['default', 'focus', 'pressed', 'disabled', 'semantic'], 'W03 state order must remain stable.');
+for (const group of componentGroups) {
+  assert.match(group.workItemId, /^W03-CS-00[1-8]$/, group.id + ' must use a W03 component work-item ID.');
+  assert.equal(group.targetContainers.length, 3, group.id + ' must name three real target containers.');
+  assert.equal(new Set(group.targetContainers).size, group.targetContainers.length, group.id + ' target containers must be unique.');
+  assert.deepEqual(group.states.map((state) => state.id), componentStateOrder.map((state) => state.id), group.id + ' must cover all five states in order.');
+  assert.equal(group.states.length, 5, group.id + ' must expose exactly five states.');
+  for (const state of group.states) {
+    assert.ok(state.example.length > 0, group.id + '/' + state.id + ' must name a real example.');
+    assert.ok(state.exampleEnglish.length > 0, group.id + '/' + state.id + ' must name a portable QA example.');
+    assert.ok(state.rule.length > 0, group.id + '/' + state.id + ' must include a static state rule.');
+  }
+}
+
+const componentManifest = JSON.parse(await readFile(new URL('manifest.json', componentDirectory), 'utf8'));
+const componentMarkdown = await readFile(new URL('README.md', componentDirectory), 'utf8');
+const w03QaSvg = (await readFile(new URL('w03-component-matrix.svg', qaDirectory), 'utf8')).trim();
+assert.deepEqual(componentManifest, getComponentStateManifest(), 'Component state manifest differs from system.mjs.');
+assert.equal(componentMarkdown, getComponentStateMarkdown(), 'Component state README differs from system.mjs.');
+assert.equal(w03QaSvg, getW03QaSvg(), 'W03 QA matrix differs from the component state source.');
+assert.equal(componentManifest.coverage.state_variants, 40, 'Component manifest must publish forty state variants.');
+assert.equal((w03QaSvg.match(/data-component-group=/g) || []).length, 8, 'W03 QA matrix must render all eight component groups.');
+assert.equal((w03QaSvg.match(/data-state=/g) || []).length, 40, 'W03 QA matrix must render all forty state cells.');
+assert.ok(!/<image\b/i.test(w03QaSvg), 'W03 QA matrix must not embed image elements.');
+assert.ok(!/data:image/i.test(w03QaSvg), 'W03 QA matrix must not embed raster data.');
+assert.ok(!/(?:href|src)=["']https?:\/\//i.test(w03QaSvg), 'W03 QA matrix must not load external resources.');
+
 const generatedIconFiles = (await readdir(iconGeneratedDirectory)).filter((name) => name.endsWith('.svg')).sort();
 assert.deepEqual(generatedIconFiles, iconIds.map((id) => id + '.svg').sort(), 'Generated icon SVG files must exactly match the icon catalog.');
 
@@ -158,6 +209,10 @@ assert.equal(roadmapMarkdown, getRoadmapMarkdown(), 'Roadmap README differs from
 assert.equal(expansionWaves.length, 6, 'Roadmap must include five waves and one recurring loop.');
 assert.equal(continuousLoop.length, 6, 'Continuous expansion loop must contain six reproducible steps.');
 assert.equal(expansionWaves.at(-1).id, 'W∞', 'Roadmap must end in the recurring quality loop.');
+assert.equal(expansionWaves.find((wave) => wave.id === 'W02').status, 'complete', 'W02 must close without allocating unsupported icon IDs.');
+assert.equal(expansionWaves.find((wave) => wave.id === 'W03').status, 'complete', 'W03 must be complete after all ten controlled work items pass.');
+assert.equal(roadmapManifest.current_wave, 'W03', 'Roadmap current wave must reflect the W03 release.');
+assert.equal(roadmapManifest.next_wave, 'W04', 'Roadmap must point to W04 after W03 completion.');
 
 const indexHtml = await readFile(new URL('index.html', root), 'utf8');
 const css = await readFile(new URL('styles.css', root), 'utf8');
@@ -179,16 +234,22 @@ assert.equal(shadowScale.length, 4, 'Lighting chapter must cover four shadow lev
 assert.equal(textureLayers.length, 4, 'Texture chapter must cover four texture layers.');
 assert.equal(colorGroups.semantic.length, 8, 'Color chapter must cover eight semantic groups.');
 assert.equal(typeScale.length, 8, 'Type chapter must cover eight type levels.');
+assert.equal(componentStateOrder.length, 5, 'Components must use five stable state types.');
 assert.equal(componentGroups.length, 8, 'Components chapter must cover eight component groups.');
 assert.equal(svgPrimitives.length, 10, 'SVG chapter must cover ten primitive groups.');
 assert.equal(renderingChecklist.length, 8, 'Rendering guide must contain eight checks.');
 assert.ok(Object.keys(tokenMap).length >= 30, 'The WXSS foundation must expose at least 30 core tokens.');
 assert.equal(tokenWxss, getWxssTokens(), 'Exported token WXSS differs from system.mjs.');
 assert.equal(componentWxss, getComponentWxss(), 'Exported component WXSS differs from system.mjs.');
+for (const stateClass of ['focus', 'pressed', 'disabled', 'success', 'warning', 'danger', 'info', 'echo', 'primary']) {
+  assert.ok(componentWxss.includes('.psm-state--' + stateClass), 'Component WXSS must export the ' + stateClass + ' state helper.');
+}
 assert.equal(systemManifest.coverage.chapters, 10, 'System manifest chapter count is incorrect.');
 assert.equal(systemManifest.coverage.core_tokens, Object.keys(tokenMap).length, 'System manifest token count is incorrect.');
 assert.equal(systemManifest.coverage.icon_categories, 8, 'System manifest icon category count is incorrect.');
 assert.equal(systemManifest.coverage.code_icons, iconCatalog.length, 'System manifest icon count is incorrect.');
+assert.equal(systemManifest.coverage.component_state_types, 5, 'System manifest component state type count is incorrect.');
+assert.equal(systemManifest.coverage.component_state_variants, 40, 'System manifest component state variant count is incorrect.');
 assert.equal(systemManifest.coverage.expansion_waves, 6, 'System manifest roadmap count is incorrect.');
 
 assert.ok(!/<img\b/i.test(indexHtml), 'The page must not contain raster or image-tag previews.');
@@ -196,8 +257,8 @@ assert.ok(!/url\(\s*["']?(?!#|data:)[^)]+\.(png|jpe?g|webp)/i.test(css), 'CSS mu
 assert.ok(!/\banimation\s*:/i.test(css), 'PSM page must not rely on animation.');
 assert.ok(!/\btransition\s*:/i.test(css), 'PSM page must not rely on transitions.');
 assert.ok(!/@keyframes/i.test(css), 'PSM page must not define keyframes.');
-assert.ok(indexHtml.includes('app.js?v=8'), 'The page must load the expanded PSM application.');
-assert.ok(indexHtml.includes('styles.css?v=9'), 'The page must load the expanded PSM stylesheet.');
+assert.ok(indexHtml.includes('app.js?v=9'), 'The page must load the W03 PSM application.');
+assert.ok(indexHtml.includes('styles.css?v=10'), 'The page must load the W03 PSM stylesheet.');
 assert.ok(indexHtml.includes('id="system-content"'), 'The page must include the complete PSM atlas mount.');
 assert.ok(indexHtml.includes('id="icon-grid"'), 'The page must include the icon library mount.');
 assert.ok(indexHtml.includes('data-icon-total'), 'Visible icon coverage must be derived from the icon catalog at runtime.');
@@ -207,11 +268,17 @@ assert.ok(app.includes("from './assets/catalog.mjs'"), 'The page must use the sh
 assert.ok(app.includes("from './system.mjs'"), 'The page must use the shared system source.');
 assert.ok(app.includes("from './icons/catalog.mjs'"), 'The page must use the shared icon source.');
 assert.ok(app.includes("from './roadmap.mjs'"), 'The page must use the shared roadmap source.');
+assert.ok(app.includes('data-component-group'), 'The page must expose component groups for W03 browser QA.');
+assert.ok(app.includes('data-component-state'), 'The page must expose all W03 state cells for browser QA.');
+assert.ok(css.includes('.component-state-grid'), 'The page must include the responsive W03 state matrix.');
+assert.ok(css.includes('.component-state-sample.is-semantic'), 'The page must distinguish semantic component states.');
 assert.ok(!/<img\b/i.test(systemSource), 'The system source must not emit image tags.');
 assert.ok(!/data:image/i.test(systemSource), 'The system source must not embed data images.');
+assert.equal(componentManifest.constraints.raster_dependencies, false, 'W03 must keep zero raster dependencies.');
+assert.equal(componentManifest.constraints.production_weui_replacement, false, 'W03 must not replace production WeUI icons.');
 
 const fontSizes = [...css.matchAll(/font-size:\s*([0-9.]+)px/g)].map((match) => Number(match[1]));
 assert.ok(fontSizes.length > 0, 'CSS should contain explicit readable font sizes.');
 assert.ok(Math.min(...fontSizes) >= 12, 'No explicit CSS font size may be below 12px.');
 
-console.log('Validated 10 chapters, 17 assets, ' + iconCatalog.length + ' icons, 12 W02-A work items, six expansion waves, zero image embedding, and static rules.');
+console.log('Validated 10 chapters, 17 assets, ' + iconCatalog.length + ' icons, 40 component states, 10 W03 work items, six expansion waves, zero image embedding, and static rules.');

@@ -8,6 +8,7 @@ import {
   textureLayers,
   colorGroups,
   typeScale,
+  componentStateOrder,
   componentGroups,
   svgPrimitives,
   renderingChecklist,
@@ -38,6 +39,8 @@ const manifest = {
     semantic_colors: colorGroups.semantic.length,
     type_levels: typeScale.length,
     component_groups: componentGroups.length,
+    component_state_types: componentStateOrder.length,
+    component_state_variants: componentGroups.length * componentStateOrder.length,
     svg_groups: svgPrimitives.length,
     rendering_checks: renderingChecklist.length,
     core_tokens: Object.keys(tokenMap).length,
@@ -49,6 +52,9 @@ const manifest = {
   deliverables: [
     'tokens/psm-tokens.wxss',
     'tokens/psm-components.wxss',
+    'components/manifest.json',
+    'components/README.md',
+    'qa/w03-component-matrix.svg',
     'assets/generated/*.svg',
     'icons/generated/*.svg',
     'icons/psm-icons.svg',
@@ -65,4 +71,4 @@ const manifest = {
 };
 
 await writeFile(manifestPath, JSON.stringify(manifest, null, 2) + '\n', 'utf8');
-console.log('Exported ' + systemChapters.length + ' PSM chapters and ' + Object.keys(tokenMap).length + ' core WXSS tokens.');
+console.log('Exported ' + systemChapters.length + ' PSM chapters, ' + Object.keys(tokenMap).length + ' core WXSS tokens, and ' + (componentGroups.length * componentStateOrder.length) + ' component states.');

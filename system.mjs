@@ -129,16 +129,107 @@ export const readingHierarchy = [
   { name: '装饰', value: 10, purpose: '视觉点缀' }
 ];
 
-export const componentGroups = [
-  { id: 'button', name: 'Button 按钮', states: ['默认', '按下', '禁用', '加载中'] },
-  { id: 'card', name: 'Card 卡片', states: ['日志卡片', '统计卡片', '紧凑列表'] },
-  { id: 'tag', name: 'Tag / Badge 标签', states: ['效率', '踩坑', '学习', '审核中', '已通过', '已拒绝'] },
-  { id: 'input', name: 'Input 输入', states: ['搜索框', '输入框', '文本域'] },
-  { id: 'navigation', name: 'Navigation 导航', states: ['顶部 Tabs', '底部导航', '选中态'] },
-  { id: 'dialog', name: 'Modal / Dialog 弹窗', states: ['确认弹窗', '底部面板', '固定 Footer'] },
-  { id: 'feedback', name: 'Feedback 反馈', states: ['Toast', 'Skeleton', 'Empty'] },
-  { id: 'fab', name: 'Floating Action Button', states: ['主 FAB', '次 FAB', '组合 FAB'] }
+export const componentStateOrder = Object.freeze([
+  { id: 'default', label: '默认', english: 'Default', rule: '保持真实组件的常规层级与可读性。' },
+  { id: 'focus', label: '关注', english: 'Focus', rule: '使用清楚的轮廓与边缘反馈，不依赖位移或缩放。' },
+  { id: 'pressed', label: '按下', english: 'Pressed', rule: '以短接触影和明度变化表达按下，不改变布局尺寸。' },
+  { id: 'disabled', label: '禁用', english: 'Disabled', rule: '降低对比并移除可操作阴影，同时保留状态文案。' },
+  { id: 'semantic', label: '语义', english: 'Semantic', rule: '使用成功、警告、危险、信息或回响色，并保留文字说明。' }
+]);
+
+const componentDefinitions = [
+  {
+    id: 'button',
+    workItemId: 'W03-CS-001',
+    name: '按钮',
+    english: 'Button',
+    targetContainers: ['文档导出主按钮', '日志发布与提交审核', '隐私提示双按钮'],
+    semanticTone: 'danger',
+    stateExamples: ['导出文档', '键盘关注', '确认提交', '条件不足', '删除日志'],
+    stateExamplesEnglish: ['Export document', 'Keyboard focus', 'Confirm submit', 'Unavailable', 'Delete log']
+  },
+  {
+    id: 'card',
+    workItemId: 'W03-CS-002',
+    name: '卡片',
+    english: 'Card',
+    targetContainers: ['日志列表卡片', '本地事务三项预览', '管理员审核列表'],
+    semanticTone: 'warning',
+    stateExamples: ['日志摘要', '当前选中', '正在打开', '已停用事务', '逾期事务'],
+    stateExamplesEnglish: ['Log summary', 'Selected card', 'Opening', 'Disabled item', 'Overdue task']
+  },
+  {
+    id: 'tag',
+    workItemId: 'W03-CS-003',
+    name: '标签与徽标',
+    english: 'Tag / Badge',
+    targetContainers: ['日志类型标签', '审核状态标签', '事务时间状态'],
+    semanticTone: 'success',
+    stateExamples: ['效率', '已聚焦', '已选择', '不可选择', '已通过'],
+    stateExamplesEnglish: ['Efficiency', 'Focused', 'Selected', 'Unavailable', 'Approved']
+  },
+  {
+    id: 'input',
+    workItemId: 'W03-CS-004',
+    name: '输入',
+    english: 'Input',
+    targetContainers: ['综合搜索框', '事务名称输入', '日志标题与正文编辑'],
+    semanticTone: 'danger',
+    stateExamples: ['输入内容', '正在编辑', '确认输入', '只读字段', '必填项缺失'],
+    stateExamplesEnglish: ['Enter content', 'Editing', 'Confirm input', 'Read-only', 'Required missing']
+  },
+  {
+    id: 'navigation',
+    workItemId: 'W03-CS-005',
+    name: '导航',
+    english: 'Navigation',
+    targetContainers: ['五项常驻底部导航', '效率 / 踩坑分段控件', 'Radio 时间选择芯片'],
+    semanticTone: 'echo',
+    stateExamples: ['工具', '日志', '搜索', '夜幕占位', '回响模式'],
+    stateExamplesEnglish: ['Tools', 'Logs', 'Search', 'Night placeholder', 'Echo mode']
+  },
+  {
+    id: 'dialog',
+    workItemId: 'W03-CS-006',
+    name: '弹窗与面板',
+    english: 'Modal / Dialog',
+    targetContainers: ['隐私提示', '本地事务管理面板', '删除与注销确认'],
+    semanticTone: 'danger',
+    stateExamples: ['说明弹窗', '键盘焦点', '确认操作', '等待条件', '危险确认'],
+    stateExamplesEnglish: ['Information', 'Keyboard focus', 'Confirm action', 'Waiting', 'Destructive']
+  },
+  {
+    id: 'feedback',
+    workItemId: 'W03-CS-007',
+    name: '反馈',
+    english: 'Feedback',
+    targetContainers: ['搜索完成状态条', '本地保存结果', '加载失败与空状态'],
+    semanticTone: 'success',
+    stateExamples: ['等待操作', '当前提示', '正在处理', '无可用操作', '保存成功'],
+    stateExamplesEnglish: ['Idle', 'Current notice', 'Processing', 'Unavailable', 'Saved']
+  },
+  {
+    id: 'fab',
+    workItemId: 'W03-CS-008',
+    name: '固定 / 浮动高优先级操作',
+    english: 'Fixed / Floating Action',
+    targetContainers: ['“我的”页固定发布操作栏', '本地事务管理标题栏新增', 'Code Lab 源码复制与下载'],
+    semanticTone: 'primary',
+    stateExamples: ['新建草稿', '发布日志', '提交审核', '审核中', '新增事务'],
+    stateExamplesEnglish: ['New draft', 'Publish log', 'Submit review', 'In review', 'Add task']
+  }
 ];
+
+export const componentGroups = Object.freeze(componentDefinitions.map((group) => Object.freeze({
+  ...group,
+  targetContainers: Object.freeze(group.targetContainers),
+  states: Object.freeze(componentStateOrder.map((state, index) => Object.freeze({
+    ...state,
+    example: group.stateExamples[index],
+    exampleEnglish: group.stateExamplesEnglish[index],
+    tone: state.id === 'semantic' ? group.semanticTone : state.id
+  })))
+})));
 
 export const svgPrimitives = [
   { index: '01', name: 'Background', cn: '背景图案', variants: ['bg-grid', 'bg-gradient-orb', 'bg-mesh', 'bg-noise'], tileable: true, repeatable: true },
@@ -259,6 +350,15 @@ export function getComponentWxss() {
     '  font-weight: 600;',
     '  box-shadow: var(--psm-shadow-contact);',
     '}',
+    '.psm-state--focus { border-color: var(--psm-color-primary); box-shadow: 0 0 0 3rpx rgba(50,158,230,.14); }',
+    '.psm-state--pressed { background: var(--psm-color-primary-deep); box-shadow: inset 0 4rpx 8rpx rgba(20,47,78,.22); }',
+    '.psm-state--disabled { border-color: var(--psm-color-border-soft); background: var(--psm-color-surface-muted); color: var(--psm-color-text-muted); box-shadow: none; opacity: .58; }',
+    '.psm-state--success { border-color: rgba(16,185,129,.34); background: rgba(16,185,129,.10); color: var(--psm-color-success); }',
+    '.psm-state--warning { border-color: rgba(251,191,36,.42); background: rgba(251,191,36,.12); color: #9A6A12; }',
+    '.psm-state--danger { border-color: rgba(199,68,59,.34); background: rgba(199,68,59,.10); color: var(--psm-color-danger); }',
+    '.psm-state--info { border-color: rgba(50,158,230,.34); background: rgba(50,158,230,.10); color: var(--psm-color-primary-deep); }',
+    '.psm-state--echo { border-color: rgba(108,92,231,.34); background: rgba(108,92,231,.10); color: #5B4CC4; }',
+    '.psm-state--primary { border-color: var(--psm-color-primary); background: var(--psm-color-primary); color: #FFFFFF; }',
     '',
     '.psm-field {',
     '  min-height: 72rpx;',

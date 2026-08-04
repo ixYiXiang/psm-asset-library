@@ -12,6 +12,8 @@
     "semantic_colors": 8,
     "type_levels": 8,
     "component_groups": 8,
+    "component_state_types": 5,
+    "component_state_variants": 40,
     "svg_groups": 10,
     "rendering_checks": 8,
     "core_tokens": 36,
@@ -94,6 +96,9 @@
   "deliverables": [
     "tokens/psm-tokens.wxss",
     "tokens/psm-components.wxss",
+    "components/manifest.json",
+    "components/README.md",
+    "qa/w03-component-matrix.svg",
     "assets/generated/*.svg",
     "icons/generated/*.svg",
     "icons/psm-icons.svg",
