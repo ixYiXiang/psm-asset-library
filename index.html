@@ -3,127 +3,241 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="AI 编程日志项目的公开 PNG 美术资产库" />
+    <meta
+      name="description"
+      content="PSM Code Lab：以 SVG、CSS 与程序化图形重新诠释 Prestige Soft Material 资产清单。"
+    />
     <meta name="color-scheme" content="light" />
-    <title>PSM Asset Library</title>
-    <link rel="stylesheet" href="styles.css?v=4" />
+    <title>PSM Code Lab · 程序化资产库</title>
+    <link rel="stylesheet" href="styles.css?v=5" />
+    <script type="module" src="app.js?v=5"></script>
   </head>
   <body>
+    <a class="skip-link" href="#catalog">跳到资产清单</a>
+
     <header class="site-header">
-      <a class="brand" href="#top" aria-label="PSM Asset Library 首页">
-        <span class="brand-mark" aria-hidden="true">P</span>
-        <span>
-          <strong>PSM Asset Library</strong>
-          <small>AI 编程日志 · 美术资产库</small>
+      <a class="brand" href="#top" aria-label="PSM Code Lab 首页">
+        <span class="brand-mark" aria-hidden="true">
+          <i></i><i></i><i></i>
+        </span>
+        <span class="brand-copy">
+          <strong>PSM Code Lab</strong>
+          <small>Prestige Soft Material</small>
         </span>
       </a>
-      <div class="header-status"><span class="status-dot"></span>GitHub archive</div>
+      <nav class="site-nav" aria-label="页面导航">
+        <a href="#foundation">系统基线</a>
+        <a href="#primitives">绘图语汇</a>
+        <a href="#catalog">资产清单</a>
+      </nav>
+      <div class="build-state" aria-label="构建方式">
+        <span></span>CODE NATIVE
+      </div>
     </header>
 
-    <main id="top" class="page-shell">
-      <section class="hero" aria-labelledby="page-title">
-        <div>
-          <p class="eyebrow">PSM / PUBLIC ASSET REPOSITORY</p>
-          <h1 id="page-title">每一份资产，都有自己的固定坐标。</h1>
-          <p class="hero-copy">
-            用于托管「AI 编程日志」项目的 PNG 美术资产。编号、版本与原始文件路径长期保持稳定。
+    <main id="top">
+      <section class="hero section-shell" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span>PSM / 代码原生实验</span><b>2026.08</b></p>
+          <h1 id="hero-title">不描摹图片。<br />让代码长出材质。</h1>
+          <p class="hero-lede">
+            以 SVG 几何、渐变、滤镜与 CSS 令牌，从零构造 PSM 的环境、光影、材质、模块插图、空状态与徽章。
+            每一项都可以检查源码、复制和下载。
           </p>
-        </div>
-        <dl class="hero-stats" aria-label="资产库概况">
-          <div><dt>ASSETS</dt><dd>02</dd></div>
-          <div><dt>CATEGORIES</dt><dd>07</dd></div>
-          <div><dt>ACCESS</dt><dd>RAW</dd></div>
-        </dl>
-      </section>
-
-      <nav class="category-nav" aria-label="资产分类">
-        <a class="category active" href="#assets" aria-current="page"><span>BG</span><small>02</small></a>
-        <span class="category"><span>FX</span><small>00</small></span>
-        <span class="category"><span>MT</span><small>00</small></span>
-        <span class="category"><span>IL</span><small>00</small></span>
-        <span class="category"><span>ES</span><small>00</small></span>
-        <span class="category"><span>BD</span><small>00</small></span>
-        <span class="category"><span>PR</span><small>00</small></span>
-      </nav>
-
-      <section id="assets" class="collection" aria-labelledby="collection-title">
-        <div class="section-heading">
-          <div>
-            <p class="section-index">01 / BG</p>
-            <h2 id="collection-title">Background</h2>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#catalog">查看 17 项资产</a>
+            <a class="button button-quiet" href="#foundation">理解 PSM 语言</a>
           </div>
-          <p>2 项资产 · 按编号升序</p>
+          <ul class="hero-facts" aria-label="实现约束">
+            <li><span>01</span>零外部图片</li>
+            <li><span>02</span>零描摹转印</li>
+            <li><span>03</span>参数可追溯</li>
+          </ul>
         </div>
 
-        <div class="asset-grid">
-          <article class="asset-card">
-            <a class="asset-preview" href="assets/BG/PSM-BG-001.png" target="_blank" rel="noreferrer">
-              <img src="assets/previews/BG/PSM-BG-001.webp?v=2" alt="PSM-BG-001 背景资产预览" width="720" height="1280" loading="lazy" decoding="async" fetchpriority="low" />
-              <span class="preview-label">OPEN RAW</span>
-            </a>
-            <div class="asset-info">
-              <div class="asset-title-row">
-                <div><p class="asset-type">BACKGROUND / PNG</p><h3>PSM-BG-001</h3></div>
-                <span class="asset-status"><i></i>可用</span>
+        <div class="hero-visual" aria-label="由代码实时绘制的 PSM 材质构成示意">
+          <div class="hero-stage" id="hero-stage"></div>
+          <div class="hero-coordinate coordinate-x">LIGHT / 135°</div>
+          <div class="hero-coordinate coordinate-y">MATERIAL / 03</div>
+          <div class="hero-legend">
+            <span><i class="legend-blue"></i>秩序</span>
+            <span><i class="legend-gold"></i>强调</span>
+            <span><i class="legend-white"></i>材质</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="principles section-shell" aria-label="PSM 一句话原则">
+        <p class="quote-mark" aria-hidden="true">“</p>
+        <div class="principle-grid">
+          <p><span>自然</span>给予灵感。</p>
+          <p><span>工程</span>赋予秩序。</p>
+          <p><span>材质</span>承载重量。</p>
+          <p><span>光影</span>引导注意力。</p>
+        </div>
+        <p class="quote-mark quote-end" aria-hidden="true">”</p>
+      </section>
+
+      <section id="foundation" class="foundation section-shell" aria-labelledby="foundation-title">
+        <header class="section-heading">
+          <div>
+            <p class="section-index">01 / FOUNDATION</p>
+            <h2 id="foundation-title">先建立世界，再绘制资产。</h2>
+          </div>
+          <p>
+            PSM 不是颗粒滤镜，而是一套关于环境、材料、光线和阅读秩序的约束。
+          </p>
+        </header>
+
+        <div class="foundation-grid">
+          <article class="foundation-card world-card">
+            <div class="card-label"><span>01</span>世界 / World</div>
+            <div class="world-preview" aria-hidden="true">
+              <div class="leaf-shadow leaf-a"></div>
+              <div class="leaf-shadow leaf-b"></div>
+              <div class="light-ray"></div>
+              <div class="world-cube">
+                <span class="cube-top"></span>
+                <span class="cube-left"></span>
+                <span class="cube-right"></span>
               </div>
-              <dl class="asset-meta">
-                <div><dt>VERSION</dt><dd>v1.0.0</dd></div>
-                <div><dt>SIZE</dt><dd>864 × 1536</dd></div>
-                <div><dt>FORMAT</dt><dd>PNG</dd></div>
-                <div><dt>SHA-256</dt><dd>e6f2c139…54bc</dd></div>
-              </dl>
-              <code class="asset-path">assets/BG/PSM-BG-001.png</code>
-              <div class="asset-actions">
-                <a href="assets/BG/PSM-BG-001.png" target="_blank" rel="noreferrer">查看原图</a>
-                <a class="download" href="https://raw.githubusercontent.com/ixYiXiang/psm-asset-library/main/assets/BG/PSM-BG-001.png" download>
-                  下载 PNG <span>↓</span>
-                </a>
+              <div class="direction-line"><i></i><span>左上 → 右下</span></div>
+            </div>
+            <dl class="micro-specs">
+              <div><dt>BASE</dt><dd>#ECEEF2</dd></div>
+              <div><dt>TOP</dt><dd>#F5F7FA</dd></div>
+              <div><dt>BOTTOM</dt><dd>#E5E8ED</dd></div>
+            </dl>
+          </article>
+
+          <article class="foundation-card material-card">
+            <div class="card-label"><span>02</span>材质 / Material</div>
+            <div class="material-row" aria-label="三种基础材质">
+              <div>
+                <span class="material-swatch ceramic"></span>
+                <strong>White Ceramic</strong><small>低亮白瓷</small>
               </div>
+              <div>
+                <span class="material-swatch frost"></span>
+                <strong>Frost Glass</strong><small>轻磨砂玻璃</small>
+              </div>
+              <div>
+                <span class="material-swatch mineral"></span>
+                <strong>Quiet Mineral</strong><small>低杂质矿物</small>
+              </div>
+            </div>
+            <p class="foundation-note">细腻 · 柔光 · 低杂质 · 有厚度但不拟物</p>
+          </article>
+
+          <article class="foundation-card light-card">
+            <div class="card-label"><span>03</span>光 / Lighting</div>
+            <div class="light-stack" aria-label="五层光影结构">
+              <div style="--level: 1"><i></i><span>主光</span><b>100%</b></div>
+              <div style="--level: 2"><i></i><span>环境光</span><b>24%</b></div>
+              <div style="--level: 3"><i></i><span>接触影</span><b>16%</b></div>
+              <div style="--level: 4"><i></i><span>投影</span><b>20%</b></div>
+              <div style="--level: 5"><i></i><span>反射光</span><b>10%</b></div>
             </div>
           </article>
 
-          <article class="asset-card">
-            <a class="asset-preview" href="assets/BG/PSM-BG-002.png" target="_blank" rel="noreferrer">
-              <img src="assets/previews/BG/PSM-BG-002.webp?v=2" alt="PSM-BG-002 背景资产预览" width="720" height="1280" loading="lazy" decoding="async" fetchpriority="low" />
-              <span class="preview-label">OPEN RAW</span>
-            </a>
-            <div class="asset-info">
-              <div class="asset-title-row">
-                <div><p class="asset-type">BACKGROUND / PNG</p><h3>PSM-BG-002</h3></div>
-                <span class="asset-status"><i></i>可用</span>
-              </div>
-              <dl class="asset-meta">
-                <div><dt>VERSION</dt><dd>v1.0.0</dd></div>
-                <div><dt>SIZE</dt><dd>864 × 1536</dd></div>
-                <div><dt>FORMAT</dt><dd>PNG</dd></div>
-                <div><dt>SHA-256</dt><dd>f00a0e9d…15e6</dd></div>
-              </dl>
-              <code class="asset-path">assets/BG/PSM-BG-002.png</code>
-              <div class="asset-actions">
-                <a href="assets/BG/PSM-BG-002.png" target="_blank" rel="noreferrer">查看原图</a>
-                <a class="download" href="https://raw.githubusercontent.com/ixYiXiang/psm-asset-library/main/assets/BG/PSM-BG-002.png" download>
-                  下载 PNG <span>↓</span>
-                </a>
-              </div>
+          <article class="foundation-card color-card">
+            <div class="card-label"><span>04</span>色彩 / Color</div>
+            <div class="color-spectrum" aria-label="PSM 颜色比例">
+              <i class="neutral"></i><i class="blue"></i><i class="mint"></i><i class="gold"></i>
+            </div>
+            <div class="token-list">
+              <span><i style="--token:#329ee6"></i>Primary <b>#329EE6</b></span>
+              <span><i style="--token:#10b981"></i>Success <b>#10B981</b></span>
+              <span><i style="--token:#c7443b"></i>Danger <b>#C7443B</b></span>
+              <span><i style="--token:#e8c67a"></i>Accent <b>#E8C67A</b></span>
             </div>
           </article>
         </div>
       </section>
 
-      <section class="archive-note" aria-label="文件规范">
-        <div class="note-mark">01</div>
-        <div>
-          <h2>Stable by design</h2>
-          <p>
-            原始文件由 GitHub 仓库按固定路径提供，无需登录、不经过下载中间页。后续透明 PNG 将原样提交，不重采样、不改变 Alpha 通道。
-          </p>
+      <section id="primitives" class="primitive-section section-shell" aria-labelledby="primitive-title">
+        <header class="section-heading compact-heading">
+          <div>
+            <p class="section-index">02 / DRAWING LANGUAGE</p>
+            <h2 id="primitive-title">10 组程序化绘图语汇</h2>
+          </div>
+          <p>所有清单资产只从这些基础语汇组合，不调用外部图像。</p>
+        </header>
+        <div class="primitive-grid" id="primitive-grid"></div>
+      </section>
+
+      <section id="catalog" class="catalog section-shell" aria-labelledby="catalog-title">
+        <header class="section-heading catalog-heading">
+          <div>
+            <p class="section-index">03 / ASSET CHECKLIST</p>
+            <h2 id="catalog-title">17 项清单，全部重新绘制。</h2>
+          </div>
+          <div class="coverage" aria-label="资产清单完成情况">
+            <div class="coverage-ring" aria-hidden="true"><span>17</span></div>
+            <p><strong>17 / 17</strong><span>代码候选已生成</span></p>
+          </div>
+        </header>
+
+        <div class="catalog-toolbar">
+          <div class="filter-group" role="group" aria-label="按资产分类筛选" id="filter-group">
+            <button type="button" class="filter-button is-active" data-filter="ALL" aria-pressed="true">全部 <span>17</span></button>
+            <button type="button" class="filter-button" data-filter="BG" aria-pressed="false">BG <span>03</span></button>
+            <button type="button" class="filter-button" data-filter="FX" aria-pressed="false">FX <span>02</span></button>
+            <button type="button" class="filter-button" data-filter="MT" aria-pressed="false">MT <span>03</span></button>
+            <button type="button" class="filter-button" data-filter="IL" aria-pressed="false">IL <span>04</span></button>
+            <button type="button" class="filter-button" data-filter="ES" aria-pressed="false">ES <span>03</span></button>
+            <button type="button" class="filter-button" data-filter="BD" aria-pressed="false">BD <span>02</span></button>
+          </div>
+          <p id="result-count" aria-live="polite">显示 17 项资产</p>
         </div>
+
+        <div class="asset-grid" id="asset-grid"></div>
+        <p class="empty-filter" id="empty-filter" hidden>这个分类暂时没有代码资产。</p>
+      </section>
+
+      <section class="rendering-guide section-shell" aria-labelledby="guide-title">
+        <div class="guide-rail">
+          <p class="section-index">04 / RENDERING GUIDE</p>
+          <h2 id="guide-title">渲染不是装饰，<br />而是阅读秩序。</h2>
+          <p>程序化版本仍遵守同一套 PSM 目标：一致、可读、层次、舒适、高效。</p>
+        </div>
+        <ol class="guide-list">
+          <li><span>01</span><div><strong>结构先于质感</strong><p>资产只占自己的层，不改变真实页面、设备比例与交互。</p></div></li>
+          <li><span>02</span><div><strong>左上光源一致</strong><p>主光、接触影与结构影共享方向，避免相互冲突。</p></div></li>
+          <li><span>03</span><div><strong>材质保持低声量</strong><p>低密度、低对比、低存在感；正文永远比纹理更重要。</p></div></li>
+          <li><span>04</span><div><strong>蓝色负责操作，金色只做句点</strong><p>控制面积与饱和度，不用大面积金色制造高级感。</p></div></li>
+          <li><span>05</span><div><strong>每项都能回到代码</strong><p>预览、源码、下载文件来自同一份定义，避免展示与交付脱节。</p></div></li>
+        </ol>
       </section>
     </main>
 
-    <footer>
-      <p>PSM Asset Library</p>
-      <p>AI 编程日志 · GitHub public archive</p>
+    <footer class="site-footer section-shell">
+      <div>
+        <strong>PSM Code Lab</strong>
+        <span>Prestige Soft Material · AI 编程日志</span>
+      </div>
+      <p>自然给予灵感，工程赋予秩序。</p>
+      <a href="https://github.com/ixYiXiang/psm-asset-library" target="_blank" rel="noreferrer">GitHub Repository ↗</a>
     </footer>
+
+    <dialog class="source-dialog" id="source-dialog" aria-labelledby="source-title">
+      <div class="dialog-head">
+        <div>
+          <p class="section-index" id="source-kicker">SVG SOURCE</p>
+          <h2 id="source-title">资产源码</h2>
+        </div>
+        <button class="icon-button" id="close-dialog" type="button" aria-label="关闭源码窗口">×</button>
+      </div>
+      <div class="dialog-body">
+        <div class="source-preview" id="source-preview"></div>
+        <pre><code id="source-code"></code></pre>
+      </div>
+      <div class="dialog-actions">
+        <button type="button" class="button button-quiet" id="dialog-copy">复制 SVG</button>
+        <button type="button" class="button button-primary" id="dialog-download">下载 .svg</button>
+      </div>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
   </body>
 </html>

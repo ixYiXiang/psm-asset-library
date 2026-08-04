@@ -1,50 +1,386 @@
 {
-  "schema_version": 1,
-  "library": "PSM Asset Library",
+  "schema_version": 2,
+  "library": "PSM Code Lab",
   "repository": "ixYiXiang/psm-asset-library",
+  "strategy": "code-native",
+  "source_of_truth": "assets/catalog.mjs",
+  "constraints": {
+    "external_raster_images": false,
+    "traced_reference_images": false,
+    "generated_images": false,
+    "light_direction": "top-left to bottom-right",
+    "texture": "low-density, low-contrast, low-presence"
+  },
   "categories": [
-    "BG",
-    "FX",
-    "MT",
-    "IL",
-    "ES",
-    "BD",
-    "PR"
+    {
+      "code": "BG",
+      "name": "背景",
+      "count": 3
+    },
+    {
+      "code": "FX",
+      "name": "光影",
+      "count": 2
+    },
+    {
+      "code": "MT",
+      "name": "材质",
+      "count": 3
+    },
+    {
+      "code": "IL",
+      "name": "模块插图",
+      "count": 4
+    },
+    {
+      "code": "ES",
+      "name": "空状态",
+      "count": 3
+    },
+    {
+      "code": "BD",
+      "name": "徽章",
+      "count": 2
+    }
   ],
   "assets": [
     {
       "id": "PSM-BG-001",
       "category": "BG",
-      "version": "1.0.0",
-      "status": "available",
-      "format": "PNG",
-      "width": 864,
-      "height": 1536,
-      "path": "assets/BG/PSM-BG-001.png",
-      "sha256": "e6f2c139979bd1c3900e7ed691936297f0b427340ec5efb0e7eea90be2ac54bc",
-      "preview": {
-        "path": "assets/previews/BG/PSM-BG-001.webp",
-        "format": "WEBP",
-        "width": 720,
-        "height": 1280
-      }
+      "name": "默认主题干净环境背景",
+      "version": "0.1.0",
+      "status": "code-candidate",
+      "engine": "SVG",
+      "color_mode": "RGB",
+      "ratio": "9:16",
+      "width": 540,
+      "height": 960,
+      "path": "assets/generated/PSM-BG-001.svg",
+      "source": "assets/catalog.mjs",
+      "primitives": [
+        "background",
+        "light",
+        "noise"
+      ],
+      "description": "浅冷灰蓝环境、左上柔光与极弱叶影。中心和下部保持安静留白，供真实界面叠加。"
     },
     {
       "id": "PSM-BG-002",
       "category": "BG",
-      "version": "1.0.0",
-      "status": "available",
-      "format": "PNG",
-      "width": 864,
-      "height": 1536,
-      "path": "assets/BG/PSM-BG-002.png",
-      "sha256": "f00a0e9d53fac898cdae757448c00f63fb703eb9ddd8dccbf4ac4c7bd16e15e6",
-      "preview": {
-        "path": "assets/previews/BG/PSM-BG-002.webp",
-        "format": "WEBP",
-        "width": 720,
-        "height": 1280
-      }
+      "name": "白昼主题环境背景",
+      "version": "0.1.0",
+      "status": "code-candidate",
+      "engine": "SVG",
+      "color_mode": "RGB",
+      "ratio": "9:16",
+      "width": 540,
+      "height": 960,
+      "path": "assets/generated/PSM-BG-002.svg",
+      "source": "assets/catalog.mjs",
+      "primitives": [
+        "background",
+        "light",
+        "pattern"
+      ],
+      "description": "更通透的晨光空气层，顶部叶影被限制在低对比范围，底部不制造固定导航阴影。"
+    },
+    {
+      "id": "PSM-BG-003",
+      "category": "BG",
+      "name": "夜幕主题环境方向稿",
+      "version": "0.1.0",
+      "status": "code-candidate",
+      "engine": "SVG",
+      "color_mode": "RGB",
+      "ratio": "9:16",
+      "width": 540,
+      "height": 960,
+      "path": "assets/generated/PSM-BG-003.svg",
+      "source": "assets/catalog.mjs",
+      "primitives": [
+        "background",
+        "light",
+        "particle"
+      ],
+      "description": "仅作为重新设计方向：深蓝矿物面、单一冷光与极少金色句点，不等同于可开放主题。"
+    },
+    {
+      "id": "PSM-FX-001",
+      "category": "FX",
+      "name": "左上晨光透明叠加层",
+      "version": "0.1.0",
+      "status": "code-candidate",
+      "engine": "SVG",
+      "color_mode": "RGBA",
+      "ratio": "9:20",
+      "width": 540,
+      "height": 1200,
+      "path": "assets/generated/PSM-FX-001.svg",
+      "source": "assets/catalog.mjs",
+      "primitives": [
+        "light",
+        "corner"
+      ],
+      "description": "透明的冷白晨光从左上进入，暖白核心范围受控。没有文字、UI、树叶或卡片专属阴影。"
+    },
+    {
+      "id": "PSM-FX-002",
+      "category": "FX",
+      "name": "冷空气柔雾叠加层",
+      "version": "0.1.0",
+      "status": "code-candidate",
+      "engine": "SVG",
+      "color_mode": "RGBA",
+      "ratio": "9:20",
+      "width": 540,
+      "height": 1200,
+      "path": "assets/generated/PSM-FX-002.svg",
+      "source": "assets/catalog.mjs",
+      "primitives": [
+        "light",
+        "noise"
+      ],
+      "description": "由低强度矢量雾团与柔化滤镜构成，边缘透明，可跨默认和白昼背景复用。"
+    },
+    {
+      "id": "PSM-MT-001",
+      "category": "MT",
+      "name": "低亮白瓷面板底纹",
+      "version": "0.1.0",
+      "status": "code-candidate",
+      "engine": "SVG",
+      "color_mode": "RGB",
+      "ratio": "1:1",
+      "width": 720,
+      "height": 720,
+      "path": "assets/generated/PSM-MT-001.svg",
+      "source": "assets/catalog.mjs",
+      "primitives": [
+        "card",
+        "corner",
+        "noise"
+      ],
+      "description": "低亮白瓷、细冷灰边缘、局部釉光与短接触影。微纹理只负责消除塑料感。"
+    },
+    {
+      "id": "PSM-MT-002",
+      "category": "MT",
+      "name": "轻磨砂玻璃面板底纹",
+      "version": "0.1.0",
+      "status": "code-candidate",
+      "engine": "SVG",
+      "color_mode": "RGBA",
+      "ratio": "1:1",
+      "width": 720,
+      "height": 720,
+      "path": "assets/generated/PSM-MT-002.svg",
+      "source": "assets/catalog.mjs",
+      "primitives": [
+        "card",
+        "light",
+        "noise"
+      ],
+      "description": "以柔光扩散和纤细层次表达磨砂，而非强透明折射；适合作为独立叠层实验。"
+    },
+    {
+      "id": "PSM-MT-003",
+      "category": "MT",
+      "name": "低杂质矿物底纹",
+      "version": "0.1.0",
+      "status": "code-candidate",
+      "engine": "SVG",
+      "color_mode": "RGB",
+      "ratio": "1:1",
+      "width": 720,
+      "height": 720,
+      "path": "assets/generated/PSM-MT-003.svg",
+      "source": "assets/catalog.mjs",
+      "primitives": [
+        "noise",
+        "pattern",
+        "divider"
+      ],
+      "description": "用稀疏、确定性的点与细脉络表达自然不均匀感，避免密集砂点和脏纸纤维。"
+    },
+    {
+      "id": "PSM-IL-001",
+      "category": "IL",
+      "name": "文档导出模块主视觉",
+      "version": "0.1.0",
+      "status": "code-candidate",
+      "engine": "SVG",
+      "color_mode": "RGBA",
+      "ratio": "4:3",
+      "width": 960,
+      "height": 720,
+      "path": "assets/generated/PSM-IL-001.svg",
+      "source": "assets/catalog.mjs",
+      "primitives": [
+        "card",
+        "icon",
+        "particle"
+      ],
+      "description": "以文档层、归档托盘和克制的向下路径表达整理、导出与沉淀，不做办公海报。"
+    },
+    {
+      "id": "PSM-IL-002",
+      "category": "IL",
+      "name": "本地事务提醒模块主视觉",
+      "version": "0.1.0",
+      "status": "code-candidate",
+      "engine": "SVG",
+      "color_mode": "RGBA",
+      "ratio": "4:3",
+      "width": 960,
+      "height": 720,
+      "path": "assets/generated/PSM-IL-002.svg",
+      "source": "assets/catalog.mjs",
+      "primitives": [
+        "card",
+        "icon",
+        "divider"
+      ],
+      "description": "时钟、设备基座与有序刻度共同表达本地、时间和提醒，视觉权重低于导出主功能。"
+    },
+    {
+      "id": "PSM-IL-003",
+      "category": "IL",
+      "name": "日志回响系统主视觉",
+      "version": "0.1.0",
+      "status": "code-candidate",
+      "engine": "SVG",
+      "color_mode": "RGBA",
+      "ratio": "4:3",
+      "width": 960,
+      "height": 720,
+      "path": "assets/generated/PSM-IL-003.svg",
+      "source": "assets/catalog.mjs",
+      "primitives": [
+        "card",
+        "particle",
+        "divider"
+      ],
+      "description": "三篇日志与两条有向关系线表达引用、修订和衍生；连接可读，不使用抽象乱线。"
+    },
+    {
+      "id": "PSM-IL-004",
+      "category": "IL",
+      "name": "主题切换入口插图",
+      "version": "0.1.0",
+      "status": "code-candidate",
+      "engine": "SVG",
+      "color_mode": "RGBA",
+      "ratio": "4:3",
+      "width": 960,
+      "height": 720,
+      "path": "assets/generated/PSM-IL-004.svg",
+      "source": "assets/catalog.mjs",
+      "primitives": [
+        "card",
+        "background",
+        "icon"
+      ],
+      "description": "三块环境样本说明默认、白昼与夜幕的系统扩展性，而不是简单的太阳/月亮开关。"
+    },
+    {
+      "id": "PSM-ES-001",
+      "category": "ES",
+      "name": "暂无日志空状态",
+      "version": "0.1.0",
+      "status": "code-candidate",
+      "engine": "SVG",
+      "color_mode": "RGBA",
+      "ratio": "1:1",
+      "width": 720,
+      "height": 720,
+      "path": "assets/generated/PSM-ES-001.svg",
+      "source": "assets/catalog.mjs",
+      "primitives": [
+        "icon",
+        "card",
+        "particle"
+      ],
+      "description": "打开但尚未落笔的陶瓷日志与一个蓝色起点，表达安静地等待开始记录。"
+    },
+    {
+      "id": "PSM-ES-002",
+      "category": "ES",
+      "name": "暂无事务空状态",
+      "version": "0.1.0",
+      "status": "code-candidate",
+      "engine": "SVG",
+      "color_mode": "RGBA",
+      "ratio": "1:1",
+      "width": 720,
+      "height": 720,
+      "path": "assets/generated/PSM-ES-002.svg",
+      "source": "assets/catalog.mjs",
+      "primitives": [
+        "icon",
+        "card",
+        "divider"
+      ],
+      "description": "空的秩序托盘与低权重时间刻度，保持清爽，不把“暂无事务”渲染成紧迫告警。"
+    },
+    {
+      "id": "PSM-ES-003",
+      "category": "ES",
+      "name": "暂无导出记录空状态",
+      "version": "0.1.0",
+      "status": "code-candidate",
+      "engine": "SVG",
+      "color_mode": "RGBA",
+      "ratio": "1:1",
+      "width": 720,
+      "height": 720,
+      "path": "assets/generated/PSM-ES-003.svg",
+      "source": "assets/catalog.mjs",
+      "primitives": [
+        "icon",
+        "card",
+        "corner"
+      ],
+      "description": "尚未封存的空归档盒与悬停文档，表达目前还没有形成可沉淀的内容。"
+    },
+    {
+      "id": "PSM-BD-001",
+      "category": "BD",
+      "name": "升格状态标识",
+      "version": "0.1.0",
+      "status": "code-candidate",
+      "engine": "SVG",
+      "color_mode": "RGBA",
+      "ratio": "1:1",
+      "width": 720,
+      "height": 720,
+      "path": "assets/generated/PSM-BD-001.svg",
+      "source": "assets/catalog.mjs",
+      "primitives": [
+        "icon",
+        "corner",
+        "particle"
+      ],
+      "description": "蓝金双层菱形与向上刻度组成的小尺寸徽章；材质受控，轮廓优先。"
+    },
+    {
+      "id": "PSM-BD-002",
+      "category": "BD",
+      "name": "回响状态标识",
+      "version": "0.1.0",
+      "status": "code-candidate",
+      "engine": "SVG",
+      "color_mode": "RGBA",
+      "ratio": "1:1",
+      "width": 720,
+      "height": 720,
+      "path": "assets/generated/PSM-BD-002.svg",
+      "source": "assets/catalog.mjs",
+      "primitives": [
+        "icon",
+        "particle",
+        "divider"
+      ],
+      "description": "两枚相扣的回响环与向外传播的低对比波纹，语义先于复杂材质。"
     }
   ]
 }

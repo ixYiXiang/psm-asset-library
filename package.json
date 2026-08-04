@@ -1,0 +1,10 @@
+{
+  "name": "psm-code-lab",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "export": "node scripts/export-assets.mjs",
+    "test": "node scripts/validate-assets.mjs"
+  }
+}
