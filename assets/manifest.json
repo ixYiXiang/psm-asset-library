@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "library": "PSM Asset Library",
+  "repository": "ixYiXiang/psm-asset-library",
+  "categories": ["BG", "FX", "MT", "IL", "ES", "BD", "PR"],
+  "assets": [
+    {
+      "id": "PSM-BG-001",
+      "category": "BG",
+      "version": "1.0.0",
+      "status": "available",
+      "format": "PNG",
+      "width": 864,
+      "height": 1536,
+      "path": "assets/BG/PSM-BG-001.png",
+      "sha256": "e6f2c139979bd1c3900e7ed691936297f0b427340ec5efb0e7eea90be2ac54bc"
+    },
+    {
+      "id": "PSM-BG-002",
+      "category": "BG",
+      "version": "1.0.0",
+      "status": "available",
+      "format": "PNG",
+      "width": 864,
+      "height": 1536,
+      "path": "assets/BG/PSM-BG-002.png",
+      "sha256": "f00a0e9d53fac898cdae757448c00f63fb703eb9ddd8dccbf4ac4c7bd16e15e6"
+    }
+  ]
+}
