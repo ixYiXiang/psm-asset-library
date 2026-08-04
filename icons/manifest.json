@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
   "name": "PSM Code-Native Icon Library",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "source_of_truth": "icons/catalog.mjs",
   "strategy": "hand-authored-svg-geometry",
   "coverage": {
     "categories": 8,
-    "icons": 48,
+    "icons": 58,
     "base_grid": 24,
     "acceptance_sizes": [
       24,
@@ -35,14 +35,14 @@
       "name": "内容",
       "english": "Content",
       "accent": "#5A7FA7",
-      "count": 6
+      "count": 8
     },
     {
       "id": "EC",
       "name": "回响",
       "english": "Echo",
       "accent": "#6C5CE7",
-      "count": 6
+      "count": 8
     },
     {
       "id": "ST",
@@ -56,7 +56,7 @@
       "name": "操作",
       "english": "Action",
       "accent": "#2D72CC",
-      "count": 6
+      "count": 12
     },
     {
       "id": "SY",
@@ -1040,6 +1040,206 @@
         64
       ],
       "path": "icons/generated/PSM-IC-048.svg"
+    },
+    {
+      "index": 49,
+      "id": "PSM-IC-049",
+      "category": "AC",
+      "categoryName": "操作",
+      "categoryEnglish": "Action",
+      "slug": "close",
+      "name": "关闭",
+      "english": "Close",
+      "description": "关闭当前弹窗或临时覆盖层，不承担返回层级语义。",
+      "viewBox": "0 0 24 24",
+      "grid": 24,
+      "strokeWidth": 1.7,
+      "sizes": [
+        24,
+        32,
+        64
+      ],
+      "path": "icons/generated/PSM-IC-049.svg"
+    },
+    {
+      "index": 50,
+      "id": "PSM-IC-050",
+      "category": "AC",
+      "categoryName": "操作",
+      "categoryEnglish": "Action",
+      "slug": "copy",
+      "name": "复制",
+      "english": "Copy",
+      "description": "将源码、文本或值复制到剪贴板。",
+      "viewBox": "0 0 24 24",
+      "grid": 24,
+      "strokeWidth": 1.7,
+      "sizes": [
+        24,
+        32,
+        64
+      ],
+      "path": "icons/generated/PSM-IC-050.svg"
+    },
+    {
+      "index": 51,
+      "id": "PSM-IC-051",
+      "category": "AC",
+      "categoryName": "操作",
+      "categoryEnglish": "Action",
+      "slug": "save",
+      "name": "保存",
+      "english": "Save",
+      "description": "保存当前草稿或本地事务状态，不等同于收藏或备份。",
+      "viewBox": "0 0 24 24",
+      "grid": 24,
+      "strokeWidth": 1.7,
+      "sizes": [
+        24,
+        32,
+        64
+      ],
+      "path": "icons/generated/PSM-IC-051.svg"
+    },
+    {
+      "index": 52,
+      "id": "PSM-IC-052",
+      "category": "AC",
+      "categoryName": "操作",
+      "categoryEnglish": "Action",
+      "slug": "download",
+      "name": "下载",
+      "english": "Download",
+      "description": "把已生成的资产或文档下载到当前设备。",
+      "viewBox": "0 0 24 24",
+      "grid": 24,
+      "strokeWidth": 1.7,
+      "sizes": [
+        24,
+        32,
+        64
+      ],
+      "path": "icons/generated/PSM-IC-052.svg"
+    },
+    {
+      "index": 53,
+      "id": "PSM-IC-053",
+      "category": "CT",
+      "categoryName": "内容",
+      "categoryEnglish": "Content",
+      "slug": "publish",
+      "name": "发布",
+      "english": "Publish",
+      "description": "把已通过流程的日志内容公开发布。",
+      "viewBox": "0 0 24 24",
+      "grid": 24,
+      "strokeWidth": 1.7,
+      "sizes": [
+        24,
+        32,
+        64
+      ],
+      "path": "icons/generated/PSM-IC-053.svg"
+    },
+    {
+      "index": 54,
+      "id": "PSM-IC-054",
+      "category": "CT",
+      "categoryName": "内容",
+      "categoryEnglish": "Content",
+      "slug": "submit-review",
+      "name": "提交审核",
+      "english": "Submit Review",
+      "description": "把草稿或内容修订送入审核队列。",
+      "viewBox": "0 0 24 24",
+      "grid": 24,
+      "strokeWidth": 1.7,
+      "sizes": [
+        24,
+        32,
+        64
+      ],
+      "path": "icons/generated/PSM-IC-054.svg"
+    },
+    {
+      "index": 55,
+      "id": "PSM-IC-055",
+      "category": "AC",
+      "categoryName": "操作",
+      "categoryEnglish": "Action",
+      "slug": "moderation-review",
+      "name": "管理审核",
+      "english": "Moderation Review",
+      "description": "表示管理员查看并裁决日志、修订、昵称或举报。",
+      "viewBox": "0 0 24 24",
+      "grid": 24,
+      "strokeWidth": 1.7,
+      "sizes": [
+        24,
+        32,
+        64
+      ],
+      "path": "icons/generated/PSM-IC-055.svg"
+    },
+    {
+      "index": 56,
+      "id": "PSM-IC-056",
+      "category": "AC",
+      "categoryName": "操作",
+      "categoryEnglish": "Action",
+      "slug": "report",
+      "name": "举报",
+      "english": "Report",
+      "description": "提交需要管理员处理的内容举报。",
+      "viewBox": "0 0 24 24",
+      "grid": 24,
+      "strokeWidth": 1.7,
+      "sizes": [
+        24,
+        32,
+        64
+      ],
+      "path": "icons/generated/PSM-IC-056.svg"
+    },
+    {
+      "index": 57,
+      "id": "PSM-IC-057",
+      "category": "EC",
+      "categoryName": "回响",
+      "categoryEnglish": "Echo",
+      "slug": "echo-pause",
+      "name": "暂停回响",
+      "english": "Pause Echo",
+      "description": "暂停日志的公开回响线程，同时保留既有历史。",
+      "viewBox": "0 0 24 24",
+      "grid": 24,
+      "strokeWidth": 1.7,
+      "sizes": [
+        24,
+        32,
+        64
+      ],
+      "path": "icons/generated/PSM-IC-057.svg"
+    },
+    {
+      "index": 58,
+      "id": "PSM-IC-058",
+      "category": "EC",
+      "categoryName": "回响",
+      "categoryEnglish": "Echo",
+      "slug": "echo-resume",
+      "name": "恢复回响",
+      "english": "Resume Echo",
+      "description": "恢复已暂停的回响线程，并按当前修订状态继续。",
+      "viewBox": "0 0 24 24",
+      "grid": 24,
+      "strokeWidth": 1.7,
+      "sizes": [
+        24,
+        32,
+        64
+      ],
+      "path": "icons/generated/PSM-IC-058.svg"
     }
   ],
   "deliverables": [

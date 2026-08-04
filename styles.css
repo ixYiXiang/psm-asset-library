@@ -2785,6 +2785,12 @@ button {
   color: #8b651b;
 }
 
+.roadmap-in_progress > header b {
+  border-color: #a9ccea;
+  background: #eaf5ff;
+  color: #2d72cc;
+}
+
 .roadmap-recurring > header b {
   border-color: #cdbfe9;
   background: #f2edfb;

@@ -376,6 +376,12 @@ function renderIconCard(icon) {
 }
 
 function renderIcons() {
+  document.querySelectorAll('[data-icon-total]').forEach((node) => {
+    node.textContent = String(iconCatalog.length);
+  });
+  document.querySelectorAll('[data-icon-category-total]').forEach((node) => {
+    node.textContent = String(iconCategories.length);
+  });
   const filterButtons = [
     '<button type="button" class="icon-filter-button is-active" data-icon-filter="ALL" aria-pressed="true">全部 <span>' + iconCatalog.length + '</span></button>',
     ...iconCategories.map((category) => '<button type="button" class="icon-filter-button" data-icon-filter="' + category.id + '" aria-pressed="false">' + category.id + ' · ' + category.name + ' <span>' + iconCatalog.filter((icon) => icon.category === category.id).length + '</span></button>')
@@ -388,6 +394,7 @@ function renderIcons() {
 function renderRoadmap() {
   const statusLabels = {
     complete: '已完成',
+    in_progress: '进行中',
     queued: '下一波',
     planned: '已计划',
     recurring: '持续循环'
@@ -650,7 +657,7 @@ iconDelivery.addEventListener('click', async (event) => {
   if (action === 'copy-sprite') {
     try {
       await copyText(getIconSprite());
-      showToast('48 枚图标的 SVG Sprite 已复制');
+      showToast(iconCatalog.length + ' 枚图标的 SVG Sprite 已复制');
     } catch {
       showToast('复制未成功，请下载 Sprite 文件');
     }

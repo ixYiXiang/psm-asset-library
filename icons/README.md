@@ -1,21 +1,21 @@
 # PSM Code-Native Icon Library
 
-48 hand-authored SVG icons on a 24 × 24 grid. Semantic recognition comes before decorative material styling.
+58 hand-authored SVG icons on a 24 × 24 grid. Semantic recognition comes before decorative material styling.
 
 ## Coverage
 
 - NV · 导航 / Navigation: 6 icons
-- CT · 内容 / Content: 6 icons
-- EC · 回响 / Echo: 6 icons
+- CT · 内容 / Content: 8 icons
+- EC · 回响 / Echo: 8 icons
 - ST · 状态 / Status: 6 icons
-- AC · 操作 / Action: 6 icons
+- AC · 操作 / Action: 12 icons
 - SY · 系统 / System: 6 icons
 - DT · 数据 / Data: 6 icons
 - TM · 时间 / Time: 6 icons
 
 ## Deliverables
 
-- generated/PSM-IC-001.svg through generated/PSM-IC-048.svg
+- generated/PSM-IC-001.svg through generated/PSM-IC-058.svg
 - psm-icons.svg reusable symbol sprite
 - psm-icons.css size and color helpers
 - manifest.json machine-readable catalog
