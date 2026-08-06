@@ -1,11 +1,12 @@
 {
   "name": "psm-code-lab",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "type": "module",
   "scripts": {
     "export": "node scripts/export-all.mjs",
-    "test": "node scripts/validate-assets.mjs && node scripts/validate-motion.mjs",
-    "test:motion": "node scripts/validate-motion.mjs"
+    "test": "node scripts/validate-assets.mjs && node scripts/validate-motion.mjs && node scripts/validate-motion-w03b.mjs",
+    "test:motion": "node scripts/validate-motion.mjs && node scripts/validate-motion-w03b.mjs",
+    "test:motion:w03b": "node scripts/validate-motion-w03b.mjs"
   }
 }
