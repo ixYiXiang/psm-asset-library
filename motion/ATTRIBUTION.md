@@ -1,6 +1,6 @@
 # PSM Motion Lab｜来源与改造说明
 
-PSM Motion Lab 共收录 36 个代码动效，其中 28 个为 PSM Code Lab 原创实现，8 个基于 Uiverse 公开作品的交互构思进行改造。
+PSM Motion Lab 共收录 48 个代码动效，其中 40 个为 PSM Code Lab 原创实现，8 个基于 Uiverse 公开作品的交互构思进行改造。W03-B 新增的 PSM-MO-037 至 PSM-MO-048 均为原创实现。
 
 所有改造项均重新编写 HTML、CSS 或 JavaScript，并按 PSM 的矿物灰、低亮白瓷、克制蓝金、固定容器和可访问性约束重新设计。页面运行不依赖 Uiverse CDN、第三方脚本、远程样式或图片。
 
@@ -26,7 +26,7 @@ Uiverse 作品页声明相关 UI 元素采用 MIT License。完整许可文本�
 - PSM-MO-002、004、006–008
 - PSM-MO-010–011、013–014
 - PSM-MO-016–026、028
-- PSM-MO-030–036
+- PSM-MO-030–048
 
 原创实现不表示相关交互范式从未在其他产品中出现，而是表示本仓库未直接基于某一特定第三方作品改写代码或视觉结构。
 
@@ -35,3 +35,7 @@ Uiverse 作品页声明相关 UI 元素采用 MIT License。完整许可文本�
 - 本页是独立实验室，不代表所有动效均已批准进入「AI 编程日志」小程序。
 - 生产使用前仍需验证真实状态、性能、触控热区、键盘操作、不同设备、安全区及 `prefers-reduced-motion`。
 - 转载或继续改造第三方来源项时，应保留本文件和 `THIRD_PARTY_NOTICES.md` 中的许可与署名。
+
+## W03-B 去重记录
+
+PSM-MO-037 至 PSM-MO-048 的机制差异与验收边界见 [W03-B.md](W03-B.md)。
