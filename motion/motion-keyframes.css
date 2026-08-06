@@ -1,0 +1,72 @@
+/* Keyframes */
+@keyframes hero-spectrum { to { transform:rotate(360deg); } }
+@keyframes orbit-turn { to { transform:translate(-50%,-50%) rotate(360deg); } }
+@keyframes orbit-turn-flat { to { transform:translate(-50%,-50%) rotate(338deg); } }
+@keyframes hero-breathe { 0%,100%{transform:translate(-50%,-50%) scale(1)} 50%{transform:translate(-50%,-50%) scale(1.04)} }
+@keyframes status-ping { 0%{box-shadow:0 0 0 0 rgba(16,185,129,.28)} 70%,100%{box-shadow:0 0 0 9px rgba(16,185,129,0)} }
+@keyframes mo-orbit { to { transform:rotate(360deg); } }
+@keyframes mo-core { 0%,100%{transform:scale(.92)} 50%{transform:scale(1.08)} }
+@keyframes mo-bars { 0%,100%{transform:scaleY(.58);opacity:.55} 50%{transform:scaleY(1.65);opacity:1} }
+@keyframes mo-liquid { to { transform:rotate(360deg); border-radius:57% 43% 51% 49% / 42% 58% 44% 56%; } }
+@keyframes mo-ripple { 0%{transform:scale(.42);opacity:.6} 80%,100%{transform:scale(1.5);opacity:0} }
+@keyframes mo-breath { 0%,100%{transform:scale(.9);filter:saturate(.85)} 50%{transform:scale(1.08);filter:saturate(1.1)} }
+@keyframes mo-speck { 0%,100%{opacity:.2;transform:scale(.7)} 50%{opacity:1;transform:scale(1.2)} }
+@keyframes mo-cubes { 0%{transform:translateX(0) rotateY(0);opacity:0} 12%{opacity:1} 50%{transform:translateX(72px) rotateY(180deg)} 88%{opacity:1} 100%{transform:translateX(144px) rotateY(360deg);opacity:0} }
+@keyframes mo-type-wave { 0%,100%{transform:translateY(0);color:var(--ink)} 45%{transform:translateY(-13px);color:var(--blue)} }
+@keyframes mo-scan { 0%{left:-30%} 100%{left:110%} }
+@keyframes mo-helix { 0%,100%{transform:translate3d(var(--x),-24px,-45px) scale(.65);opacity:.35} 50%{transform:translate3d(var(--x),24px,45px) scale(1.1);opacity:1} }
+@keyframes mo-helix-alt { 0%,100%{transform:translate3d(var(--x),24px,45px) scale(1.1);opacity:1} 50%{transform:translate3d(var(--x),-24px,-45px) scale(.65);opacity:.35} }
+@keyframes mo-comet { to { offset-distance:100%; } }
+@keyframes mo-aurora { to { --aurora-angle:360deg; } }
+@keyframes mo-card-scan { 0%{left:-45%} 55%,100%{left:120%} }
+@keyframes mo-data-bars { to{height:calc(var(--h) * .62)} }
+@keyframes mo-toast-stack { 0%,12%{opacity:0;transform:translateX(50px) scale(.96)} 22%,70%{opacity:1;transform:translateX(0) scale(1)} 82%,100%{opacity:0;transform:translateY(-24px) scale(.96)} }
+@keyframes mo-draw-ring { 0%,15%{stroke-dashoffset:290} 50%,82%{stroke-dashoffset:0} 100%{stroke-dashoffset:-290} }
+@keyframes mo-draw-check { 0%,42%{stroke-dashoffset:54} 66%,82%{stroke-dashoffset:0} 100%{stroke-dashoffset:-54} }
+@keyframes mo-error { 0%,66%,100%{transform:translateX(0)} 70%{transform:translateX(-9px)} 74%{transform:translateX(7px)} 78%{transform:translateX(-4px)} 82%{transform:translateX(2px)} }
+@keyframes mo-ring-value { from{stroke-dashoffset:170} to{stroke-dashoffset:52} }
+@keyframes mo-shimmer { to{transform:translateX(120%)} }
+@keyframes mo-mesh { 0%{background-position:0% 0%,100% 100%,80% 10%,0 0} 100%{background-position:28% 12%,72% 75%,55% 24%,0 0} }
+@keyframes mo-particles { to{transform:translateX(340px)} }
+@keyframes mo-vortex { to{transform:translate(-50%,-50%) rotate(360deg)} }
+@keyframes mo-grid-beam { 0%,10%{left:-65%} 68%,100%{left:120%} }
+
+body[data-motion="paused"] *, body[data-motion="paused"] *::before, body[data-motion="paused"] *::after { animation-play-state: paused !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior:auto; }
+  *,*::before,*::after { animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; }
+  .hero-core { transform:translate(-50%,-50%); }
+}
+
+@media (max-width: 1100px) {
+  .lab-nav { display:none; }
+  .motion-hero { grid-template-columns:1fr; gap:48px; }
+  .hero-stage { min-height:480px; }
+  .principle-grid { grid-template-columns:repeat(2,1fr); }
+  .motion-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .motion-grid[data-density="compact"] { grid-template-columns:repeat(3,minmax(0,1fr)); }
+}
+
+@media (max-width: 760px) {
+  .shell { width:min(100% - 28px,1320px); }
+  .lab-header { grid-template-columns:1fr auto; min-height:68px; padding:10px 14px; }
+  .lab-brand small { display:none; }
+  .motion-toggle { padding:0 11px; }
+  .toggle-label { display:none; }
+  .motion-hero { min-height:0; padding-block:58px 48px; }
+  .motion-hero h1 { font-size:clamp(40px,12vw,58px); }
+  .hero-metrics { grid-template-columns:repeat(2,1fr); }
+  .hero-stage { min-height:390px; border-radius:28px; }
+  .orbit-two { width:330px; }
+  .section-heading { display:grid; align-items:start; }
+  .principles,.library,.credits { padding-block:62px; }
+  .principle-grid,.credit-summary,.credit-list { grid-template-columns:1fr; }
+  .toolbar { grid-template-columns:1fr; }
+  .density-control { min-height:48px; }
+  .motion-grid,.motion-grid[data-density="compact"] { grid-template-columns:1fr; }
+  .preview-shell,.motion-grid[data-density="compact"] .preview-shell { min-height:260px; }
+  .dialog-content { grid-template-columns:1fr; }
+  .dialog-content section + section { border-left:0; border-top:1px solid var(--line); }
+  .lab-footer { display:grid; }
+}

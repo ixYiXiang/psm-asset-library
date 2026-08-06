@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="PSM Motion Lab：36 个可检查、可暂停、可追溯来源的代码动效实验。" />
+    <meta name="color-scheme" content="light" />
+    <title>PSM Motion Lab · 动效实验库</title>
+    <link rel="stylesheet" href="motion.css?v=1" />
+    <script type="module" src="motion.js?v=1"></script>
+  </head>
+  <body data-motion="running">
+    <a class="skip-link" href="#motion-grid">跳到动效列表</a>
+
+    <header class="lab-header">
+      <a class="lab-brand" href="../" aria-label="返回 PSM Code Lab">
+        <span class="brand-glyph" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span><strong>PSM Motion Lab</strong><small>Prestige Soft Material / Experimental</small></span>
+      </a>
+      <nav class="lab-nav" aria-label="动效实验室导航">
+        <a href="#library">动效库</a>
+        <a href="#principles">使用边界</a>
+        <a href="#credits">来源与许可</a>
+        <a href="../">返回主站</a>
+      </nav>
+      <button class="motion-toggle" id="motion-toggle" type="button" aria-pressed="false">
+        <span class="toggle-icon" aria-hidden="true"></span>
+        <span class="toggle-label">暂停动效</span>
+      </button>
+    </header>
+
+    <main>
+      <section class="motion-hero shell" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span>CODE-NATIVE MOTION</span><b>W03 / EXPERIMENT</b></p>
+          <h1 id="hero-title"><span>不是把页面晃起来。</span><span>是让状态变得可理解。</span></h1>
+          <p class="hero-lede">
+            36 个独立动效，覆盖等待、触发、容器、反馈、导航、表单与环境层。
+            主站静态规范保持不变；本页只承担实验、筛选、溯源与复用验证。
+          </p>
+          <div class="hero-actions">
+            <a class="primary-link" href="#library">浏览 36 个效果</a>
+            <a class="secondary-link" href="#credits">查看 Uiverse 署名</a>
+          </div>
+          <dl class="hero-metrics" aria-label="动效实验室覆盖情况">
+            <div><dt>36</dt><dd>动效样本</dd></div>
+            <div><dt>07</dt><dd>语义分类</dd></div>
+            <div><dt>08</dt><dd>Uiverse 改造项</dd></div>
+            <div><dt>00</dt><dd>外部运行依赖</dd></div>
+          </dl>
+        </div>
+
+        <div class="hero-stage" aria-label="动效实验室实时构成">
+          <div class="hero-grid" aria-hidden="true"></div>
+          <div class="hero-orbit orbit-one" aria-hidden="true"><i></i><i></i><i></i></div>
+          <div class="hero-orbit orbit-two" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+          <div class="hero-core" aria-hidden="true"><span>36</span><small>MOTION</small></div>
+          <div class="hero-ruler ruler-x" aria-hidden="true">TIMING / 160–900ms</div>
+          <div class="hero-ruler ruler-y" aria-hidden="true">EASING / CONTROLLED</div>
+          <div class="hero-caption"><span></span>实时 CSS / SVG / JavaScript</div>
+        </div>
+      </section>
+
+      <section id="principles" class="principles shell" aria-labelledby="principles-title">
+        <header class="section-heading compact-heading">
+          <div>
+            <p class="section-index">00 / MOTION BOUNDARY</p>
+            <h2 id="principles-title">动效只能解释状态，不能掩盖状态。</h2>
+          </div>
+          <p>这里允许实验，但真实小程序仍遵循信息结构、稳定交互与静态材质优先。</p>
+        </header>
+        <div class="principle-grid">
+          <article><span>01</span><h3>可停止</h3><p>所有自动循环支持页面级暂停，并遵守系统“减少动态效果”偏好。</p></article>
+          <article><span>02</span><h3>不位移业务结构</h3><p>反馈发生在固定容器内，不用动画改变布局、点击热区或阅读顺序。</p></article>
+          <article><span>03</span><h3>真实状态优先</h3><p>进度、成功和错误必须来自真实状态；不制造伪百分比或无意义等待。</p></article>
+          <article><span>04</span><h3>来源可追溯</h3><p>借鉴项逐个标注作者、原链接、许可证与重写范围，原创项同样明确。</p></article>
+        </div>
+      </section>
+
+      <section id="library" class="library shell" aria-labelledby="library-title">
+        <header class="section-heading library-heading">
+          <div>
+            <p class="section-index">01 / MOTION CATALOG</p>
+            <h2 id="library-title">36 个效果，按交互语义查找。</h2>
+          </div>
+          <div class="library-coverage" aria-label="当前筛选结果">
+            <strong id="visible-total">36</strong>
+            <span>VISIBLE EFFECTS</span>
+          </div>
+        </header>
+
+        <div class="toolbar" aria-label="动效筛选工具">
+          <label class="search-control" for="motion-search">
+            <span aria-hidden="true"></span>
+            <input id="motion-search" type="search" placeholder="搜索编号、名称、技术或用途" autocomplete="off" />
+          </label>
+          <div class="density-control" role="group" aria-label="预览密度">
+            <button type="button" class="is-active" data-density="comfortable" aria-pressed="true">舒展</button>
+            <button type="button" data-density="compact" aria-pressed="false">紧凑</button>
+          </div>
+        </div>
+
+        <div class="filter-row" id="filter-row" role="group" aria-label="按动效分类筛选"></div>
+        <p class="result-note" id="result-note" aria-live="polite">显示全部 36 个动效</p>
+        <div class="motion-grid" id="motion-grid"></div>
+        <div class="empty-state" id="empty-state" hidden>
+          <span aria-hidden="true"></span>
+          <h3>没有匹配的动效</h3>
+          <p>尝试清空搜索词或切换到“全部”。</p>
+        </div>
+      </section>
+
+      <section id="credits" class="credits shell" aria-labelledby="credits-title">
+        <header class="section-heading credits-heading">
+          <div>
+            <p class="section-index">02 / ATTRIBUTION & LICENSE</p>
+            <h2 id="credits-title">借鉴可以，但不能把作者擦掉。</h2>
+          </div>
+          <p>Uiverse 页面声明其 UI 元素采用 MIT License；本页对 8 个改造项保留逐项署名和原始链接。</p>
+        </header>
+        <div class="credit-summary">
+          <div>
+            <strong>28</strong>
+            <span>PSM 原创实现</span>
+            <p>从交互语义、材质与可访问性约束重新设计。</p>
+          </div>
+          <div>
+            <strong>08</strong>
+            <span>Uiverse 改造项</span>
+            <p>保留原作者、作品页、MIT 许可与改造说明。</p>
+          </div>
+          <div>
+            <strong>MIT</strong>
+            <span>第三方许可</span>
+            <p>完整通知见 THIRD_PARTY_NOTICES.md。</p>
+          </div>
+        </div>
+        <div class="credit-list" id="credit-list"></div>
+        <div class="license-actions">
+          <a href="ATTRIBUTION.md">查看逐项署名文档</a>
+          <a href="THIRD_PARTY_NOTICES.md">查看第三方许可通知</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="lab-footer shell">
+      <div><strong>PSM Motion Lab</strong><span>独立实验页，不自动进入生产小程序。</span></div>
+      <p>CSS · SVG · JavaScript · No runtime dependency</p>
+    </footer>
+
+    <dialog class="code-dialog" id="code-dialog" aria-labelledby="dialog-title">
+      <form method="dialog" class="dialog-shell">
+        <header>
+          <div><span id="dialog-id"></span><h2 id="dialog-title">实现信息</h2></div>
+          <button type="submit" aria-label="关闭实现信息">×</button>
+        </header>
+        <div class="dialog-content">
+          <section>
+            <h3>使用方式</h3>
+            <pre><code id="dialog-code"></code></pre>
+            <button class="copy-code" id="copy-code" type="button">复制示例</button>
+          </section>
+          <section class="dialog-source">
+            <h3>来源与说明</h3>
+            <p id="dialog-description"></p>
+            <dl id="dialog-meta"></dl>
+            <a id="dialog-source-link" href="#" target="_blank" rel="noreferrer">打开原始来源</a>
+          </section>
+        </div>
+      </form>
+    </dialog>
+
+    <div class="live-toast" id="live-toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
