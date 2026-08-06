@@ -1,0 +1,48 @@
+.tomography-window {
+  --tx: 0px;
+  --ty: 0px;
+  width: 230px;
+  height: 184px;
+  display:grid;
+  grid-template-columns:1fr auto;
+  align-items:end;
+  gap:14px;
+  padding:20px;
+  border:1px solid rgba(74,100,129,.2);
+  border-radius:25px;
+  background:linear-gradient(145deg,rgba(255,255,255,.86),rgba(218,229,238,.66));
+  box-shadow:var(--shadow-contact),var(--shadow-structure);
+  outline:none;
+}
+.tomography-window:focus-visible { box-shadow:0 0 0 4px rgba(50,158,230,.12),var(--shadow-structure); }
+.tomography-stack { width:142px; height:132px; position:relative; }
+.tomography-stack > i { position:absolute; inset:20px 10px; border:1px solid rgba(66,98,133,.2); border-radius:18px; background:linear-gradient(145deg,rgba(255,255,255,.82),rgba(179,205,226,.48)); transform:translate(calc(var(--layer) * 7px),calc(var(--layer) * -7px)); box-shadow:0 5px 14px rgba(45,62,84,.09); }
+.tomography-stack > i:nth-child(1){--layer:0}.tomography-stack > i:nth-child(2){--layer:1}.tomography-stack > i:nth-child(3){--layer:2}.tomography-stack > i:nth-child(4){--layer:3;background:linear-gradient(145deg,rgba(255,255,255,.86),rgba(232,198,122,.34))}
+.tomography-stack > i::after { content:""; position:absolute; inset:18px; border-radius:50% 38% 48% 42%; border:1px solid rgba(45,114,204,.22); background:radial-gradient(circle at 40% 35%,rgba(50,158,230,.26),transparent 58%); }
+.tomography-lens { position:absolute; left:42px; top:32px; width:62px; height:62px; border:1px solid rgba(45,114,204,.5); border-radius:50%; transform:translate(var(--tx),var(--ty)); background:radial-gradient(circle,rgba(255,255,255,.18),rgba(50,158,230,.11)); box-shadow:0 0 0 8px rgba(45,114,204,.05),inset 0 0 18px rgba(255,255,255,.92); transition:transform 90ms linear; }
+.tomography-lens::after { content:""; position:absolute; left:50%; top:50%; width:1px; height:86px; transform:translate(-50%,-50%) rotate(45deg); background:linear-gradient(transparent,rgba(45,114,204,.62),transparent); }
+.tomography-window > div:last-child { display:grid; gap:4px; writing-mode:vertical-rl; }
+.tomography-window strong { color:var(--blue); font-size:13px; letter-spacing:.12em; }
+.tomography-window small { color:var(--muted); font-size:10px; font-weight:750; letter-spacing:.1em; }
+
+.fieldline-plaque {
+  --line-x:0px;
+  --line-y:0px;
+  width:246px;
+  height:170px;
+  position:relative;
+  overflow:hidden;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(73,99,128,.2);
+  border-radius:28px;
+  background:radial-gradient(circle at calc(50% + var(--line-x)) calc(50% + var(--line-y)),rgba(50,158,230,.18),transparent 40%),linear-gradient(145deg,#f9fbfd,#dce6ee);
+  box-shadow:inset 2px 2px 4px rgba(255,255,255,.9),var(--shadow-structure);
+  outline:none;
+}
+.fieldline-plaque svg { position:absolute; inset:8px; width:calc(100% - 16px); height:calc(100% - 16px); overflow:visible; transform:translate(calc(var(--line-x) * .16),calc(var(--line-y) * .16)); transition:transform 90ms linear; }
+.fieldline-plaque path { fill:none; stroke:rgba(45,114,204,.31); stroke-width:1.4; stroke-linecap:round; stroke-dasharray:7 8; animation:mo-field-flow 8s linear infinite; }
+.fieldline-plaque path:nth-child(2n){stroke:rgba(181,138,61,.3);animation-direction:reverse;animation-duration:11s}
+.field-core { width:86px; height:86px; position:relative; z-index:2; display:grid; place-content:center; text-align:center; border:1px solid rgba(66,93,122,.23); border-radius:50%; background:linear-gradient(145deg,#fff,#d8e3ec); box-shadow:0 5px 11px rgba(45,62,84,.18),0 0 0 13px rgba(255,255,255,.42); }
+.field-core b { color:var(--blue); font-size:20px; letter-spacing:.06em; }
+.field-core small { margin-top:4px; color:var(--muted); font-size:9px; font-weight:800; letter-spacing:.13em; }

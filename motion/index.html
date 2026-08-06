@@ -3,13 +3,19 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="PSM Motion Lab：36 个可检查、可暂停、可追溯来源的代码动效实验。" />
+    <meta name="description" content="PSM Motion Lab：48 个可检查、可暂停、可追溯来源的代码动效与运动美术资产。" />
     <meta name="color-scheme" content="light" />
     <title>PSM Motion Lab · 动效实验库</title>
     <link rel="stylesheet" href="motion.css?v=1" />
+    <link rel="stylesheet" href="effects-w03b-a.css?v=2" />
+    <link rel="stylesheet" href="effects-w03b-b.css?v=2" />
+    <link rel="stylesheet" href="effects-w03b-c.css?v=2" />
+    <link rel="stylesheet" href="effects-w03b-d.css?v=2" />
     <script type="module" src="motion.js?v=1"></script>
+    <script type="module" src="extension-render-w03b.mjs?v=2"></script>
   </head>
   <body data-motion="running">
+    <!-- W03-A baseline retained: 36 个独立动效；08</dt><dd>Uiverse 改造项；W03-B appends 12 original assets. -->
     <a class="skip-link" href="#motion-grid">跳到动效列表</a>
 
     <header class="lab-header">
@@ -32,20 +38,20 @@
     <main>
       <section class="motion-hero shell" aria-labelledby="hero-title">
         <div class="hero-copy">
-          <p class="eyebrow"><span>CODE-NATIVE MOTION</span><b>W03 / EXPERIMENT</b></p>
-          <h1 id="hero-title"><span>不是把页面晃起来。</span><span>是让状态变得可理解。</span></h1>
+          <p class="eyebrow"><span>CODE-NATIVE MOTION</span><b>W03-B / NON-REPEATING</b></p>
+          <h1 id="hero-title"><span>不是换颜色再做一遍。</span><span>是增加新的运动机制。</span></h1>
           <p class="hero-lede">
-            36 个独立动效，覆盖等待、触发、容器、反馈、导航、表单与环境层。
-            主站静态规范保持不变；本页只承担实验、筛选、溯源与复用验证。
+            48 个独立动效与运动美术资产，覆盖等待、触发、容器、反馈、导航、表单与环境层。
+            W03-B 新增 12 项折纸、液体、层析、磁场、粒子、版本与光学机制；主站静态规范保持不变。
           </p>
           <div class="hero-actions">
-            <a class="primary-link" href="#library">浏览 36 个效果</a>
-            <a class="secondary-link" href="#credits">查看 Uiverse 署名</a>
+            <a class="primary-link" href="#library">浏览 48 个效果</a>
+            <a class="secondary-link" href="#credits">查看来源与许可</a>
           </div>
           <dl class="hero-metrics" aria-label="动效实验室覆盖情况">
-            <div><dt>36</dt><dd>动效样本</dd></div>
+            <div><dt>48</dt><dd>动效样本</dd></div>
             <div><dt>07</dt><dd>语义分类</dd></div>
-            <div><dt>08</dt><dd>Uiverse 改造项</dd></div>
+            <div><dt>12</dt><dd>本轮原创新增</dd></div>
             <div><dt>00</dt><dd>外部运行依赖</dd></div>
           </dl>
         </div>
@@ -54,9 +60,9 @@
           <div class="hero-grid" aria-hidden="true"></div>
           <div class="hero-orbit orbit-one" aria-hidden="true"><i></i><i></i><i></i></div>
           <div class="hero-orbit orbit-two" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-          <div class="hero-core" aria-hidden="true"><span>36</span><small>MOTION</small></div>
-          <div class="hero-ruler ruler-x" aria-hidden="true">TIMING / 160–900ms</div>
-          <div class="hero-ruler ruler-y" aria-hidden="true">EASING / CONTROLLED</div>
+          <div class="hero-core" aria-hidden="true"><span>48</span><small>MOTION</small></div>
+          <div class="hero-ruler ruler-x" aria-hidden="true">TIMING / 160–12000ms</div>
+          <div class="hero-ruler ruler-y" aria-hidden="true">MECHANISM / 48 UNIQUE</div>
           <div class="hero-caption"><span></span>实时 CSS / SVG / JavaScript</div>
         </div>
       </section>
@@ -72,7 +78,7 @@
         <div class="principle-grid">
           <article><span>01</span><h3>可停止</h3><p>所有自动循环支持页面级暂停，并遵守系统“减少动态效果”偏好。</p></article>
           <article><span>02</span><h3>不位移业务结构</h3><p>反馈发生在固定容器内，不用动画改变布局、点击热区或阅读顺序。</p></article>
-          <article><span>03</span><h3>真实状态优先</h3><p>进度、成功和错误必须来自真实状态；不制造伪百分比或无意义等待。</p></article>
+          <article><span>03</span><h3>机制去重</h3><p>新增资产必须改变运动逻辑、空间关系或状态表达，而不是只换颜色和名称。</p></article>
           <article><span>04</span><h3>来源可追溯</h3><p>借鉴项逐个标注作者、原链接、许可证与重写范围，原创项同样明确。</p></article>
         </div>
       </section>
@@ -81,10 +87,10 @@
         <header class="section-heading library-heading">
           <div>
             <p class="section-index">01 / MOTION CATALOG</p>
-            <h2 id="library-title">36 个效果，按交互语义查找。</h2>
+            <h2 id="library-title">48 个效果，按交互语义查找。</h2>
           </div>
           <div class="library-coverage" aria-label="当前筛选结果">
-            <strong id="visible-total">36</strong>
+            <strong id="visible-total">48</strong>
             <span>VISIBLE EFFECTS</span>
           </div>
         </header>
@@ -101,7 +107,7 @@
         </div>
 
         <div class="filter-row" id="filter-row" role="group" aria-label="按动效分类筛选"></div>
-        <p class="result-note" id="result-note" aria-live="polite">显示全部 36 个动效</p>
+        <p class="result-note" id="result-note" aria-live="polite">显示全部 48 个动效</p>
         <div class="motion-grid" id="motion-grid"></div>
         <div class="empty-state" id="empty-state" hidden>
           <span aria-hidden="true"></span>
@@ -116,13 +122,13 @@
             <p class="section-index">02 / ATTRIBUTION & LICENSE</p>
             <h2 id="credits-title">借鉴可以，但不能把作者擦掉。</h2>
           </div>
-          <p>Uiverse 页面声明其 UI 元素采用 MIT License；本页对 8 个改造项保留逐项署名和原始链接。</p>
+          <p>现有 8 个 Uiverse 改造项继续保留逐项署名；W03-B 的 12 个新增项全部为 PSM Code Lab 原创实现。</p>
         </header>
         <div class="credit-summary">
           <div>
-            <strong>28</strong>
+            <strong>40</strong>
             <span>PSM 原创实现</span>
-            <p>从交互语义、材质与可访问性约束重新设计。</p>
+            <p>包括 W03-B 新增的 12 种非重复运动机制。</p>
           </div>
           <div>
             <strong>08</strong>
@@ -138,6 +144,7 @@
         <div class="credit-list" id="credit-list"></div>
         <div class="license-actions">
           <a href="ATTRIBUTION.md">查看逐项署名文档</a>
+          <a href="W03-B.md">查看本轮去重与验收说明</a>
           <a href="THIRD_PARTY_NOTICES.md">查看第三方许可通知</a>
         </div>
       </section>

@@ -1,0 +1,37 @@
+.fiber-field { width:250px; height:170px; position:relative; overflow:hidden; border:1px solid rgba(75,101,130,.15); border-radius:26px; background:linear-gradient(145deg,rgba(255,255,255,.58),rgba(213,224,233,.5)); }
+.fiber-field::before { content:""; position:absolute; inset:0; background:radial-gradient(circle at 22% 18%,rgba(255,255,255,.9),transparent 38%),radial-gradient(circle at 82% 76%,rgba(50,158,230,.12),transparent 42%); }
+.fiber-field i { position:absolute; left:calc(18px + var(--col) * 72px); top:calc(18px + var(--row) * 25px); width:58px; height:2px; transform-origin:0 50%; border-radius:999px; background:linear-gradient(90deg,rgba(65,91,120,.08),rgba(65,91,120,.42),rgba(45,114,204,.12)); animation:mo-fiber-wind calc(5.8s + var(--fiber) * 90ms) ease-in-out infinite alternate; animation-delay:calc(var(--fiber) * -170ms); }
+.fiber-field i::after { content:""; position:absolute; right:-2px; top:50%; width:5px; height:5px; transform:translateY(-50%); border-radius:50%; background:rgba(232,198,122,.38); }
+
+.refractive-caustic { width:250px; height:176px; position:relative; overflow:hidden; display:grid; place-items:center; border:1px solid rgba(76,102,130,.16); border-radius:30px; background:linear-gradient(145deg,#edf4f7,#d9e6ec); isolation:isolate; }
+.refractive-caustic::before { content:""; position:absolute; inset:-25%; background:repeating-radial-gradient(ellipse at 40% 45%,rgba(255,255,255,.72) 0 2px,rgba(71,166,213,.08) 3px 8px,transparent 9px 18px); filter:blur(4px); animation:mo-caustic-field 12s ease-in-out infinite alternate; }
+.refractive-lens { width:108px; height:108px; position:relative; z-index:3; border:1px solid rgba(255,255,255,.7); border-radius:52% 48% 58% 42% / 45% 58% 42% 55%; background:linear-gradient(145deg,rgba(255,255,255,.35),rgba(92,177,215,.13)); box-shadow:inset 12px 10px 24px rgba(255,255,255,.72),inset -12px -14px 28px rgba(53,139,184,.16),0 18px 28px rgba(45,62,84,.12); backdrop-filter:blur(3px); animation:mo-refractive-lens 9s ease-in-out infinite; }
+.caustic { position:absolute; z-index:2; width:96px; height:28px; border-radius:50%; border:3px solid rgba(255,255,255,.78); border-left-color:rgba(50,158,230,.22); filter:blur(1px); mix-blend-mode:screen; animation:mo-caustic-orbit 8s linear infinite; }
+.caustic-a{transform:rotate(18deg) translateX(52px)}.caustic-b{width:72px;animation-duration:11s;animation-direction:reverse;transform:rotate(120deg) translateX(46px)}.caustic-c{width:58px;animation-duration:6.5s;transform:rotate(230deg) translateX(56px)}
+.refractive-caustic b { position:absolute; z-index:4; bottom:14px; color:rgba(38,71,105,.65); font-size:9px; letter-spacing:.18em; }
+
+@keyframes mo-origami-fold {
+  0%,100% { filter:saturate(.85); transform:rotate(var(--r,0deg)) translateY(-28px) rotateX(68deg) scale(.92); }
+  48% { filter:saturate(1.05); transform:rotate(var(--r,0deg)) translateY(-17px) rotateX(8deg) scale(1.04); }
+}
+.origami-beacon > i:nth-child(1){--r:0deg}.origami-beacon > i:nth-child(2){--r:90deg}.origami-beacon > i:nth-child(3){--r:180deg}.origami-beacon > i:nth-child(4){--r:270deg}
+@keyframes mo-origami-core { 0%,100%{transform:scale(.9)} 50%{transform:scale(1.08);box-shadow:0 5px 12px rgba(45,62,84,.16),0 0 0 20px rgba(45,114,204,0)} }
+@keyframes mo-fluid-level { 0%,100%{height:58%} 50%{height:72%} }
+@keyframes mo-fluid-wave { to{transform:translateX(-18%) rotate(360deg)} }
+@keyframes mo-fluid-bubble { 0%{transform:translateY(0) scale(.6);opacity:0} 20%{opacity:.8} 100%{transform:translateY(-80px) scale(1.1);opacity:0} }
+@keyframes mo-field-flow { to{stroke-dashoffset:-60} }
+@keyframes mo-particle-resolve { 0%,12%{transform:rotate(var(--angle)) translateX(66px) scale(.7);opacity:0} 28%{opacity:1} 58%,74%{transform:rotate(var(--angle)) translateX(28px) scale(1);opacity:.9} 88%,100%{transform:rotate(var(--angle)) translateX(3px) scale(.2);opacity:0} }
+@keyframes mo-resolve-check { 0%,56%{stroke-dashoffset:48;opacity:0} 72%,88%{stroke-dashoffset:0;opacity:1} 100%{stroke-dashoffset:-48;opacity:0} }
+@keyframes mo-resolve-label { 0%,58%,100%{opacity:0;transform:translateY(5px)} 72%,88%{opacity:1;transform:translateY(0)} }
+@keyframes mo-fiber-wind { 0%{transform:rotate(-8deg) translateX(-4px);opacity:.45} 55%{transform:rotate(12deg) translateX(8px);opacity:.8} 100%{transform:rotate(3deg) translateX(14px);opacity:.58} }
+@keyframes mo-caustic-field { 0%{transform:translate(-4%,-3%) rotate(-6deg) scale(1)} 100%{transform:translate(5%,4%) rotate(8deg) scale(1.08)} }
+@keyframes mo-refractive-lens { 0%,100%{transform:translate(-7px,3px) rotate(-5deg);border-radius:52% 48% 58% 42% / 45% 58% 42% 55%} 50%{transform:translate(9px,-5px) rotate(7deg);border-radius:44% 56% 43% 57% / 57% 43% 55% 45%} }
+@keyframes mo-caustic-orbit { to{transform:rotate(378deg) translateX(52px)} }
+
+body[data-motion="paused"] .tomography-lens,
+body[data-motion="paused"] .fieldline-plaque svg { transition:none; }
+
+@media (max-width:760px) {
+  .tomography-window,.fieldline-plaque { transform:scale(.94); }
+  .droplet-radio { width:min(270px,96%); }
+}
