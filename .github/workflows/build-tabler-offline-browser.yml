@@ -45,7 +45,20 @@ jobs:
           new = "(items.length?((start+1)+'–'+(start+items.length)):'0')"
           if old not in s:
               raise SystemExit('expected runtime template snippet not found')
-          p.write_text(s.replace(old, new))
+          s = s.replace(old, new)
+          lines = s.splitlines()
+          remote_fixed = False
+          fetch_fixed = False
+          for i, line in enumerate(lines):
+              if 'Offline HTML unexpectedly contains a remote URL' in line:
+                  lines[i] = "if (htmlText.includes('http://') || htmlText.includes('https://')) throw new Error('Offline HTML unexpectedly contains a remote URL');"
+                  remote_fixed = True
+              elif 'Offline HTML unexpectedly contains fetch()' in line:
+                  lines[i] = "if (htmlText.includes('fetch(')) throw new Error('Offline HTML unexpectedly contains fetch()');"
+                  fetch_fixed = True
+          if not remote_fixed or not fetch_fixed:
+              raise SystemExit('expected offline validation lines not found')
+          p.write_text('\n'.join(lines) + '\n')
           PY
 
       - name: Build fully offline browser
