@@ -46,6 +46,7 @@ jobs:
           if old not in s:
               raise SystemExit('expected runtime template snippet not found')
           s = s.replace(old, new)
+          s = s.replace("const NS='http://www.w3.org/2000/svg';", "const NS='http'+':/'+'/www.w3.org/2000/svg';")
           lines = s.splitlines()
           remote_fixed = False
           fetch_fixed = False
