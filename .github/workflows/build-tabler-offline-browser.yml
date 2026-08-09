@@ -7,6 +7,12 @@ on:
     paths:
       - 'scripts/build-tabler-offline-browser.mjs'
       - '.github/workflows/build-tabler-offline-browser.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'scripts/build-tabler-offline-browser.mjs'
+      - '.github/workflows/build-tabler-offline-browser.yml'
   workflow_dispatch:
 
 permissions:
