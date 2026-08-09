@@ -1,0 +1,48 @@
+name: Build Tabler Offline Browser
+
+on:
+  push:
+    branches:
+      - automation/tabler-offline-browser-20260809
+    paths:
+      - 'scripts/build-tabler-offline-browser.mjs'
+      - '.github/workflows/build-tabler-offline-browser.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install official Tabler source package
+        run: npm install --no-save --ignore-scripts @tabler/icons@3.46.0
+
+      - name: Build fully offline browser
+        run: node scripts/build-tabler-offline-browser.mjs
+
+      - name: Verify artifact
+        run: |
+          test -f dist-tabler-offline-browser/AI编程日志_Tabler_离线图标浏览器_v1.0/index.html
+          test -f dist-tabler-offline-browser/AI编程日志_Tabler_离线图标浏览器_v1.0.zip
+          test -f dist-tabler-offline-browser/AI编程日志_Tabler_离线图标浏览器_v1.0_SHA256.txt
+          du -h dist-tabler-offline-browser/AI编程日志_Tabler_离线图标浏览器_v1.0/index.html
+          cat dist-tabler-offline-browser/AI编程日志_Tabler_离线图标浏览器_v1.0_SHA256.txt
+
+      - name: Upload offline browser artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: AI编程日志_Tabler_离线图标浏览器_v1.0
+          path: dist-tabler-offline-browser/
+          if-no-files-found: error
+          retention-days: 7
