@@ -1,10 +1,6 @@
 # Reality Anchor v0.10.6
 
-Reality Anchor｜协议对决的 HTML 主线阶段版本，存放于 PSM Asset Library 的独立项目目录中，与原图片/视觉资产目录隔离。
-
-## 直接体验
-
-打开 `game/Reality_Anchor_v0.10.6.html`。
+Reality Anchor｜协议对决的 HTML 主线阶段版本归档，存放于 PSM Asset Library 的独立项目目录中，与原图片/视觉资产目录隔离。
 
 ## 当前状态
 
@@ -12,7 +8,7 @@ Reality Anchor｜协议对决的 HTML 主线阶段版本，存放于 PSM Asset L
 - 默认主牌组：36 张 + 3 张设施蓝图
 - 四个流派：连续性、代理、蒸馏、组件
 - v0.10.6 重点：针对性克制与隐藏弱点审计
-- 未启动 Godot；当前仍以 HTML 为规则与体验验证平台
+- Godot 尚未启动；HTML 仍是当前规则与体验验证平台
 
 ## v0.10.6 唯一正式玩法变化
 
@@ -24,11 +20,12 @@ Reality Anchor｜协议对决的 HTML 主线阶段版本，存放于 PSM Asset L
 
 89 张正式牌池和所有单卡效果/数值不变。
 
-## 目录
+## GitHub 归档内容
 
-- `game/`：可直接运行的单文件 HTML
-- `source/`：当前可重建源码与历史基线
-- `docs/`：本版设计、测试、集中讨论与交接
-- `verification/`：哈希与重建校验
+- `docs/`：本版更新说明、设计决策、隐藏弱点报告、工程门禁、阶段集中讨论与交接
+- `archive/`：完整可重建源码归档，共 11 个 Base64 分片；恢复方法见 `archive/README.md`
+- `verification/`：源码归档、正式 HTML 与完整本地 ZIP 的 SHA256 校验值
 
-完整本地研发 ZIP 仍保留全部历史回归脚本；GitHub 这里优先保存当前可继续开发所需的主干内容，避免把大量旧版测试复制进原图片资产库。
+源码归档包含当前可重建所需的基线 HTML、cards.js、engine.js、bot.js、ui.js 与 build_v0.10.6.py。
+
+正式可玩 HTML 与完整 188 文件研发 ZIP 仍保留在本地交付包中；GitHub 这里作为长期版本备份与源码恢复点，不重复塞入大量历史测试基线。
