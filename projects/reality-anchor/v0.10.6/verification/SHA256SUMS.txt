@@ -1,0 +1,3 @@
+63529def421ed847dd3d8cdda2a11b0765db31c6ec5b38c4e18f62c4ca5a9b6e  source-v0.10.6.tar.xz
+942da248d602f0ab33275d6170299f457d0aa25d053583dba9d720d6af81ce66  01_Reality_Anchor_传统卡牌_v0.10.6_针对性克制与隐藏弱点审计版.html
+47b699d1bb899935a806287aea3029c410fa5690bfbf0f732e99683f3a747905  Reality_Anchor_传统卡牌_v0.10.6_针对性克制与隐藏弱点审计版.zip
